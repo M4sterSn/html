@@ -1,0 +1,1758 @@
+ <!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- DNS prefetch -->
+  <link rel=dns-prefetch href="//fonts.googleapis.com">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Dev MDTI - Medica TI</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="robots" content="noindex,nofollow" />
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="https://app24.medicati.com/mdti/lab/sanrafael/" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="../css/style.css"> <!-- Generic style (Boilerplate) -->
+  <link rel="stylesheet" href="../css/960.fluid.css"> <!-- 960.gs Grid System -->
+  <link rel="stylesheet" href="../css/main.css"> <!-- Complete Layout and main styles -->
+  <link rel="stylesheet" href="../css/buttons.css"> <!-- Buttons, optional -->
+  <link rel="stylesheet" href="../css/lists.css"> <!-- Lists, optional -->
+  <link rel="stylesheet" href="../css/icons.css"> <!-- Icons, optional -->
+  <link rel="stylesheet" href="../css/notifications.css"> <!-- Notifications, optional -->
+  <link rel="stylesheet" href="../css/typography.css"> <!-- Typography -->
+  <link rel="stylesheet" href="../css/forms.css"> <!--Forms, optional THIS NEEDS TO BE REMOVED IN ORDER TO MULTISELECT TO WORK -->
+  <link rel="stylesheet" href="../css/tables.css"> <!-- Tables, optional -->
+   <!-- Charts, optional -->
+  <link rel="stylesheet" href="../css/jquery-ui-1.8.15.custom.css"> <!-- jQuery UI, optional -->
+  <link rel="stylesheet" href="../css/application_custom.css"> <!-- Application Specific -->
+  <link rel="stylesheet" href="../css/font-awesome.min.css"> <!-- font-awesome, optional -->
+
+  <!-- end CSS-->
+  <!-- Custom CSS, Javascripts and other head code-->
+  
+	<style type="text/css"  media="screen">
+		.report_row_even{
+			background: none repeat scroll 0 0 #F2F2F2;
+			width:90%;
+			margin: 9px;
+			margin-left: 30px;
+
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			-moz-box-shadow: 0 0 5px #888;
+			-webkit-box-shadow: 0 0 5px#888;
+			box-shadow: 0 0 5px #888;
+		}
+		.report_row_even:hover{
+			background: none repeat scroll 0 0 #D8DCE6;
+		}
+		.report_row_odd{
+			background: none repeat scroll 0 0 #E6E6E6;
+			width:90%;
+			margin: 9px;
+			margin-left: 30px;
+
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			-moz-box-shadow: 0 0 5px #888;
+			-webkit-box-shadow: 0 0 5px#888;
+			box-shadow: 0 0 5px #888;
+		}
+		.report_row_odd:hover{
+			background: none repeat scroll 0 0 #D8DCE6;
+		}
+		.report_cell{
+			display: table-cell;
+			padding:15px;
+			vertical-align:middle;
+		}
+		.report_tittle{
+			font-size:14px;
+			color: #475D68;
+			line-height: 10px;
+			text-shadow: 0 1px 0 #FFFFFF;
+			padding-bottom: 5px;
+		}
+	</style>  <!-- Fonts -->
+  <link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+  <!-- end Fonts-->
+<style type="text/css">
+  @media print {
+    .hidden-print {
+      display: none !important;
+    }
+    a[href]:after { content: ""; }
+    #container > #main {
+		margin-left: 0px;
+	}
+  }
+
+
+</style>
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="../js/libs/modernizr-2.0.6.min.js"></script>
+
+  <!-- Top Javascripts-->
+  <style>
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+</style>
+
+</head>
+
+<body id="top">
+<div id="loading" style="text-align:center;display:none;"><img src="../img/mt_icons/30.gif"></div>
+<div id="badgetalert" style="text-align:center;display:none;">Nueva Orden Externa</div>
+  <!-- Begin of #container -->
+  <div id="container">
+  	<!-- Begin of #header -->
+    <div id="header-surround" class="hidden-print"><header id="header">
+
+    	<!-- Place your logo here -->
+		<img src="../img/mt_icons/app/medicati.png" alt="Grape" class="logo">
+
+		<!-- Divider between info-button and the toolbar-icons -->
+		<div class="divider-header divider-vertical"></div>
+
+		<!-- Info-Button -->
+		<a href="javascript:void(0);" onclick="$('#info-dialog').dialog({ modal: true });"><span class="btn-info"></span></a>
+
+			<!-- Modal Box Content -->
+			<div id="info-dialog" title="Acerca De" style="display: none;">
+				<p style="text-align: center;">MedicaTI V30.2.103</p>
+				<p style="text-align: center;">MedicaTI Ver Date 2025-07-01</p>
+				<p style="text-align: center;">MedicaTI DB V1.4.2</p>
+				<p style="text-align: center;">Fecha 2025/04/1</p>
+								<p style="text-align: center;">Versión Avanzada</p>
+										<p style="text-align: center;">Órdenes de Trabajo: 209 de 4000</p>
+															<p style="text-align: center;">Imágenes: 8 de 400</p>
+									
+                <BR>
+                                    <p style="text-align: center;"><button type="button" id="boton_dbug" value="Dbug" style="background: red; border-radius: 6px; cursor: pointer; color: white; border: green;" >DBUG</button></p>
+                
+                				<p>El equipo de ODInet le agradece su preferencia, gracias por utilizar el software MedicaTI.</p>
+				<p>Este software esta protegido por los respectivos derechos de autor.</p>
+			</div> <!--! end of #info-dialog -->
+
+
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header">
+			<!-- First entry -->
+			<li>
+				<a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Activar Navegación" style="position: absolute; padding: 8px; color: white; text-decoration: none;">
+					<i class="icon-2x icon-reorder"></i>
+				</a>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header" style="display: none;">
+			<!-- First entry -->
+			<li>
+				<a rel="tooltip" title="Create a User" class="toolbox-action" href="javascript:void(0);"><span class="i-24-user-business"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a User</h1>
+						</div>
+						<form id="create-user-form" class="block-content form" action="" method="post">
+							<div class="_100">
+								<p><label for="username">Username</label><input id="username" name="username" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="firstname">Firstname</label><input id="firstname" name="firstname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="lastname">Lastname</label><input id="lastname" name="lastname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create the User"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of first entry -->
+
+			<!-- Second entry -->
+			<li>
+				<a rel="tooltip" title="Write a Message" class="toolbox-action" href="javascript:void(0);"><span class="i-24-inbox-document"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Write a Message</h1>
+						</div>
+						<form id="write-message-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="recipient">Recipient</label>
+								<input type="text" name="recipient" class="required">
+							</p>
+							<p class="inline-mini-label">
+								<label for="subject">Subject</label>
+								<input type="text" name="subject">
+							</p>
+							<div class="_100">
+								<p class="no-top-margin"><label for="message">Message</label><textarea id="message" name="message" class="required" rows="5" cols="40"></textarea></p>
+							</div>
+
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset2" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Send Message"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of second entry -->
+
+			<!-- Third entry -->
+			<li>
+				<a rel="tooltip" title="Create a Folder" class="toolbox-action" href="javascript:void(0);"><span class="i-24-folder-horizontal-open"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a Folder</h1>
+						</div>
+						<form id="create-folder-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="folder-name">Name</label>
+								<input type="text" name="folder-name" class="required">
+							</p>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset3" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create Folder"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin of #user-info -->
+		<div id="user-info">
+			<p>
+				<span class="messages">Hola <a href="javascript:void(0);">Usuario Administrador</a> de Matriz <span style="display: none"> ( <a href="javascript:void(0);"><img src="../img/mt_icons/app/mail.png" alt="Messages"> 3 nuevos mensajes</a> ) </span></span>
+				<span style="display: none"> <a href="javascript:void(0)" class="toolbox-action button">Ajustes</a></span> <a href="auth/logout" class="button red">Salir</a>
+			</p>
+		</div> <!--! end of #user-info -->
+
+    </header></div> <!--! end of #header -->
+
+    <div class="fix-shadow-bottom-height"></div>
+
+	<!-- Begin of Sidebar -->
+    <aside id="sidebar" class="hidden-print" style="overflow: hidden;">
+
+    	<!-- Search -->
+    	<div id="search-bar">
+			<form id="search-form" name="search-form" action="search.php" method="post">
+				<input style="display: none" type="text" id="query" name="query" value="" autocomplete="off" placeholder="Búsqueda">
+			</form>
+		</div> <!--! end of #search-bar -->
+
+		<!-- Begin of #login-details -->
+		<section id="login-details">
+    		<img class="img-left framed" src="../img/mt_icons/app/logo_mdti.png" alt="Medica TI">
+    		<h3>Usuario Registrado:</h3>
+    		<h2><a class="user-button" href="javascript:void(0);">admin&nbsp;<span class="arrow-link-down"></span></a></h2>
+    		<ul class="dropdown-username-menu">
+    			<li><a href="auth/logout">Salir</a></li>
+    		</ul>
+
+    		<div class="clearfix"></div>
+  		</section> <!--! end of #login-details -->
+      
+		<!-- Begin of Navigation -->
+		<nav id="nav">
+			<ul class="menu collapsible shadow-bottom">
+				
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/reception_desk/sofa.png">Recepción<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/insert"  >Orden de Trabajo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/listing"  >Listado de Ordenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/estimate/listing"  >Listado de Cotizaciones</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/cash_fund/listing"  >Salidas de Caja</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li class="expand">
+			   <a href="javascript:void(0);" class="current"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/lab/lab-16.png">Laboratorio<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_listing"  >Ordenes de Laboratorio</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_areas"  >Procesos por Área</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_sheet"  >Hojas de Trabajo</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/medical/steto-16.png">Médicos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/insert"  >Nuevo Médico</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/listing"  >Listado de Médicos</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/emr/user.png">Registro de Pacientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/emr/listing"  >Listado de Pacientes</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/company/company-16.png">Empresas y Clientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/insert"  >Nueva Empresa o Cliente</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/listing"  >Listado de Empresas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/suppliers/suppliers-icon-16.png">Compras a Proveedores</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/insert"  >Nuevo Proveedor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/listing"  >Listado de Proveedores</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/products/box-16.png">Conceptos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/insert"  >Nuevo Concepto</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/listing"  >Listado de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/insert"  >Nuevo Insumo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/listing"  >Listado de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_list"  >Listado de Tarifarios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_changes"  >Cambios de Precios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/barcode_groups"  >Grupos de Etiquetas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/admin/application-task.png">Administración</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/users/admin/listing"  >Usuarios</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/table.png">Reportes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/work_orders"  >Reportes de Órdenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/products"  >Reportes de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/company"  >Pacientes por Empresa</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock"  >Consumo de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock_levels"  >Movimientos de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/doctors"  >Pacientes por Doctor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/sales"  >Reportes de Ventas y Cierres</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/cash_fund_out"  >Reportes de Salidas de Caja</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/estimate"  >Reportes de Cotizaciones</a></li>
+
+				</ul>
+
+			</li>
+			
+			</ul>
+		</nav>
+		<!--! end of #nav -->		
+		      <br/>
+          	<img src="../account_data/sanrafael/system/logo_sanrafael_260x98.png">
+
+    </aside> <!--! end of #sidebar -->
+
+    <!-- Begin of #main -->
+    <div id="main" role="main">
+
+    	<!-- Begin of titlebar/breadcrumbs -->
+		<div id="title-bar" class="hidden-print">
+
+							<div class="_100" id="turn-alerts" style="margin-bottom:-5px;margin-top:10px;"></div>
+						<ul id="breadcrumbs" style="display: none">
+				<li><a href="dashboard.html" title="Home"><span id="bc-home"></span></a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li class="no-hover">menu item</li>
+			</ul>
+		</div> 
+		<!--! end of #title-bar -->
+		
+				<div class="shadow-bottom shadow-titlebar"></div>
+
+		<!-- Begin of #main-content -->
+		<div id="main-content">
+			<div class="container_12">
+
+			<!-- Put your content here! -->
+                        <!-- General Title -->
+                        
+			<div class="grid_12">
+				<h1>Laboratorio</h1>
+				<p>Proceso de Ordenes de Trabajo para Laboratorio</p>
+			</div>
+			
+                        <!-- Shortcuts -->
+                        
+    	<!-- Begin of Shortcuts -->
+			
+			<div class="grid_12 hidden-print">
+				<div class="block-border">
+					<div class="block-content">
+						<ul class="shortcut-list">
+							
+					<li>
+
+						<a href="lab/work_order_listing">
+							 <img src="../img/mt_icons/lab/lab_work_order-48.png">
+							 Ordenes de Laboratorio
+						</a>
+					</li>
+
+					<li>
+
+						<a href="lab/work_sheet">
+							 <img src="../img/mt_icons/lab/work_sheets-48.png">
+							 Hojas de Trabajo
+						</a>
+					</li>
+
+					<li>
+
+						<a href="lab/common_values">
+							 <img src="../img/mt_icons/lab/lab_com_words-48.png">
+							 Resultados Comunes
+						</a>
+					</li>
+
+						</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+			</div>
+			
+	<!--! end of Shortcuts -->		
+		                        <br><br>
+                        <!-- General Screen Alert Msg -->
+							<div id="alert_messages" class="grid_12">
+															</div>
+                        <!-- General Content display-->
+                        
+
+<div id="loadingJumpFolio" style="text-align:center;display:none;">
+	<img src="../img/mt_icons/30.gif"><br>
+	<div style="font-size:15px;" id="loadingJumpFolioMsg"></div>
+</div>
+<div class="grid_9">
+            <div class="block-border">
+                    <div class="block-header">
+                            <h1>Datos del Paciente</h1>
+							<span style=""></span>
+														<a type="button" id="btn_next" class="button" style="margin-top:5px; margin-right:10px;float:right;">Folio Siguiente &#8594;</a>
+							<a type="button" id="btn_prev" class="button" style="margin-top:5px; margin-right:10px;float:right;">&#8592; Folio Previo</a>
+							                    </div>
+                    <div class="block-content">
+				<!--<h3>Información General del Paciente</h3> -->
+                <div class="_100 container_12">
+				<p>
+					<b>Nombre: </b> 
+					<span style="display: inline-block;width:15em;">R/N DE ANA LUCERO RAYGOZA PARTIDA</span>
+											<b>Edad: </b><span style="display: inline-block;width:8em;"> 
+								6 días							</span>
+						<b>Sexo:</b> <span style="display: inline-block;width:10em;">Masculino</span>
+										<b>Folio:</b> <span style="display: inline-block;width:5em;">92611</span>
+
+									</p>
+				<p>
+					<b>Información Clínica:</b>
+                        <span style="display: inline-block;min-width:18em; "></span>
+                    <b>Comentarios Adicionales:</b>
+                        <span style="display: inline-block;min-width:15em;">UCIN</span>
+                                </p>
+				<p>
+					<b>Empresa:</b> PARTICULAR                                </p>
+
+				<!-- CamposExtraMicrobiología220630 -->
+				
+                                    </div>
+
+                                <div class="clear"></div><br>
+
+                    
+                        <div class="clear">
+                        </div>
+                    </div>
+            </div>
+
+</div>
+
+<div id="notPaid" title="NO se puede publicar" style="text-align:center;display:none;"><br>No se puede publicar el resultado por que existe un pago pendiente</div> 
+	<div id="send_mail_container"></div>
+<!-- Example Block with Border -->
+	<div class="grid_3">
+		<div class="block-border">
+			<div class="block-header">
+				<h1>Descripción</h1><span></span>
+			</div>
+			<div class="block-content" style="text-align: justify;">
+				<p>Esta pantalla enlista los diferentes estudios de laboratorio de una orden,
+				además se pueden procesar e imprimir los reportes de resultados. </p>
+			</div>
+		</div>
+	</div>
+		<div class="grid_12">
+	<div class="alert info  "> Esta orden está ligada a una empresa, los resultados no se enviarán por correo ni serán visibles para su consulta a médicos y pacientes.</div>	</div>
+
+	<div class="grid_12">
+		<div class="block-border">
+			<div class="block-header">
+				<h1>Proceso y Reportes de Estudios de Laboratorio</h1><span></span>
+			</div>
+			<form action="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_detail/92601" method="post" accept-charset="utf-8" class="block-content form" id="validate-form">				<input type="hidden" name="action" value="" >
+				<input type="hidden" name="id_products" value="" >
+				<input type="hidden" name="id_pro_products_spans" value="" >
+				<div class="_100">
+					<h3></h3>
+				</div>
+
+				<div class="_100">
+					<p><hr /></p>
+				</div>
+
+				<!-- Form Alert do not remove -->
+				
+				<div class="_100">
+					<p><hr /></p>
+				</div>
+
+				<div class="_100">
+					<p class="inline-small-label">
+						<label for="field5">
+							Listado de Conceptos para Proceso
+						</label>
+					</p>
+					<p>
+												<input type="hidden" id="id_products[]" name="id_products[]" value="0" checked>
+							<style>
+							.tooltip {
+								position: relative;
+								display: inline-block;
+								border-bottom: 0px dotted black;
+							}
+							.tooltip .tooltiptext {
+								margin-left:20px;
+								visibility: hidden;
+								width: 150px;
+								background-color: black;
+								color: #fff;
+								text-align: center;
+								padding: 5px;
+								border-radius: 6px;
+								position: absolute;
+								z-index: 1;
+							}
+							.tooltip:hover .tooltiptext {
+								visibility: visible;
+							}
+							</style>
+
+						<table class="table">
+							<thead>
+								<tr>
+								
+
+					<!-- GENERAR ENCABEZADO DE TABLA -->
+																							<th style="width:10px;text-align:center;">Múlt.</th>
+																
+					<!-- Fecha registro -->
+								<th style="min-width:60px;width:100px;text-align:center;">
+									<div class="tooltip">Fecha Registro
+										<span class="tooltiptext">Usuario, Fecha y Hora de Registro de Concepto.</span>
+									</div>
+								</th>
+
+					<!-- Fecha proceso -->
+																	<th style="min-width:60px;width:100px;text-align:center;">
+										<div class="tooltip">
+																						Fecha Proceso
+											<span class="tooltiptext">
+												Usuario, Fecha y Hora de la última vez que se proceso el concepto.
+											</span>
+										</div>
+									</th>
+																
+					<!-- Fecha publicación -->
+													<!-- Descripción -->
+									<th style="min-width:40%;">Descripción</th>
+																		<th style="width:60px;text-align:center;">Publicado en Internet</th>
+																											<th style="width:80px;text-align:center;">Estatus</th>
+									<th style="min-width:80px;width:110px;text-align:center;">Acción / Tipo de Concepto</th>
+																										</tr>
+							</thead>
+						<!-- GENERAR BODY DE TABLA -->
+							<tbody>
+								
+								
+																				<tr >
+
+																																	<td style="text-align:center;vertical-align:middle;">
+																																													<input type="checkbox" id="id_products_checkbox" name="id_products[]" value="225185" checked>
+																																										</td>
+																				
+									<!-- Fecha registro -->
+										<td style="text-align:center;vertical-align:middle;" >2025-07-21 16:13:21</td>
+																					
+
+										<!-- NO ENTRA EN AMBOS -->
+											
+												<!-- Fecha proceso -->
+																									<td style="text-align:center;vertical-align:middle;">
+																												2025-07-21 16:16:17													</td>
+																																																						
+									<!-- Fecha de publicación -->
+																				
+									<!-- Descripción -->
+										<td style="vertical-align:middle;">BIOMETRIA HEMATICA COMPLETA SER5801022</td>
+																			<!-- Publicado -->
+										<td style="text-align:center;vertical-align:middle;" class="pubImg">
+											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/ajx_pub_int" is_published="0" wo="92601" wod="225185" class="flag_pub_int"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/exclamationsi-16.png" alt=""/></a>										</td>
+																				
+
+
+										<td style="text-align:center;vertical-align:middle;">
+											Procesado										</td>
+
+
+
+
+										
+										<td style="text-align:center;vertical-align:middle;">
+																																																			<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_report" wo="92601" wod="225185" class="detail_action" link_type="lnk" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/mti_edit-16.png" alt=""/>Editar</a>												
+																																								<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/results/report_single_all" wo="92601" wod="225185" class="detail_action" link_type="prn" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/printer.png" alt=""/>Imprimir</a>												
+													
+																					</td>
+																			</tr>
+
+
+
+
+									
+																	
+																				<tr class="even">
+
+																																	<td style="text-align:center;vertical-align:middle;">
+																																													<input type="checkbox" id="id_products_checkbox" name="id_products[]" value="225186" checked>
+																																										</td>
+																				
+									<!-- Fecha registro -->
+										<td style="text-align:center;vertical-align:middle;" >2025-07-21 16:13:21</td>
+																					
+
+										<!-- NO ENTRA EN AMBOS -->
+											
+												<!-- Fecha proceso -->
+																									<td style="text-align:center;vertical-align:middle;">
+																												2025-07-21 16:29:43													</td>
+																																																						
+									<!-- Fecha de publicación -->
+																				
+									<!-- Descripción -->
+										<td style="vertical-align:middle;">PROTEINA C REACTIVA (PCR) SER5824219</td>
+																			<!-- Publicado -->
+										<td style="text-align:center;vertical-align:middle;" class="pubImg">
+											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/ajx_pub_int" is_published="0" wo="92601" wod="225186" class="flag_pub_int"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/exclamationsi-16.png" alt=""/></a>										</td>
+																				
+
+
+										<td style="text-align:center;vertical-align:middle;">
+											Procesado										</td>
+
+
+
+
+										
+										<td style="text-align:center;vertical-align:middle;">
+																																																			<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_report" wo="92601" wod="225186" class="detail_action" link_type="lnk" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/mti_edit-16.png" alt=""/>Editar</a>												
+																																								<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/results/report_single_all" wo="92601" wod="225186" class="detail_action" link_type="prn" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/printer.png" alt=""/>Imprimir</a>												
+													
+																					</td>
+																			</tr>
+
+
+
+
+									
+																	
+																				<tr >
+
+																																	<td style="text-align:center;vertical-align:middle;">
+																																													<input type="checkbox" id="id_products_checkbox" name="id_products[]" value="225187" checked>
+																																										</td>
+																				
+									<!-- Fecha registro -->
+										<td style="text-align:center;vertical-align:middle;" >2025-07-21 16:13:21</td>
+																					
+
+										<!-- NO ENTRA EN AMBOS -->
+											
+												<!-- Fecha proceso -->
+																									<td style="text-align:center;vertical-align:middle;"> ------ </td>
+																																																						
+									<!-- Fecha de publicación -->
+																				
+									<!-- Descripción -->
+										<td style="vertical-align:middle;">BILIRRUBINAS SER5801021</td>
+																			<!-- Publicado -->
+										<td style="text-align:center;vertical-align:middle;" class="pubImg">
+											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/ajx_pub_int" is_published="0" wo="92601" wod="225187" class="flag_pub_int"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/exclamationsi-16.png" alt=""/></a>										</td>
+																				
+
+
+										<td style="text-align:center;vertical-align:middle;">
+											Sin Procesar										</td>
+
+
+
+
+										
+										<td style="text-align:center;vertical-align:middle;">
+																																																			<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_report" wo="92601" wod="225187" class="detail_action" link_type="lnk" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/mti_edit-16.png" alt=""/>Editar</a>												
+																																								<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/results/report_single_all" wo="92601" wod="225187" class="detail_action" link_type="prn" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/printer.png" alt=""/>Imprimir</a>												
+													
+																					</td>
+																			</tr>
+
+
+
+
+									
+																	
+																				<tr class="even">
+
+																																	<td style="text-align:center;vertical-align:middle;">
+																																													<input type="checkbox" id="id_products_checkbox" name="id_products[]" value="225188" checked>
+																																										</td>
+																				
+									<!-- Fecha registro -->
+										<td style="text-align:center;vertical-align:middle;" >2025-07-21 16:13:21</td>
+																					
+
+										<!-- NO ENTRA EN AMBOS -->
+											
+												<!-- Fecha proceso -->
+																									<td style="text-align:center;vertical-align:middle;"> ------ </td>
+																																																						
+									<!-- Fecha de publicación -->
+																				
+									<!-- Descripción -->
+										<td style="vertical-align:middle;">PROCALCITONINA SERICA SER5824215</td>
+																			<!-- Publicado -->
+										<td style="text-align:center;vertical-align:middle;" class="pubImg">
+											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/ajx_pub_int" is_published="0" wo="92601" wod="225188" class="flag_pub_int"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/exclamationsi-16.png" alt=""/></a>										</td>
+																				
+
+
+										<td style="text-align:center;vertical-align:middle;">
+											Sin Procesar										</td>
+
+
+
+
+										
+										<td style="text-align:center;vertical-align:middle;">
+																																																			<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_report" wo="92601" wod="225188" class="detail_action" link_type="lnk" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/mti_edit-16.png" alt=""/>Editar</a>												
+																																								<!-- Utilizamos función anchor de codeigniter que crea un <a> con
+														todas las opciones indicadas, para evitar tener un texto poco legible
+														y muy ancho. -->
+																											<a href="https://app24.medicati.com/mdti/lab/sanrafael/results/report_single_all" wo="92601" wod="225188" class="detail_action" link_type="prn" is_published="0"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/printer.png" alt=""/>Imprimir</a>												
+													
+																					</td>
+																			</tr>
+
+
+
+
+									
+																									
+
+							
+																													</tbody>
+						</table>
+						<br/>
+						<span>
+							<!-- Utilizamos función form_checkbox de codeigniter que crea un <input type="checkbox"> con
+							todas las opciones indicadas, para evitar tener un texto poco legible muy ancho. -->
+			
+																													<input type="checkbox" name="print_header" value="1" checked="checked" style="width:5%;" id="print_header"  />
+								Imprimir Encabezado en los Reportes
+													</span>
+											</p>
+				</div>
+
+				<div class="_100">
+				</div>
+				
+					
+				<div class="_100">
+														
+											<!--//* iterate app_reports_positions  -->
+												<div class="report_row_even">
+							<span class="report_cell">
+								<img src="../img/mt_icons/app/doc_single_report-64.png">
+							</span>
+							<span class="report_cell" style="width:500px;padding-left:0px;">
+								<div class="report_tittle">Impresión de Todos los Estudios</div>
+								<b>Impresión de Todos los Estudios Individuales Seleccionados</b><br/>
+La Impresión de los estudios de la orden en formato individual en una sola pantalla de impresión.							</span>
+							<!--//* True only english_reports_enable = 1(true) -->
+							
+							<span class="report_cell disabled" style="width:150px;text-align: center" >
+							<!-- Utilizamos función form_input de codeigniter que crea un <input> con
+							todas las opciones indicadas, para evitar tener un texto poco legible muy ancho. -->
+							<input type="button" name="" value="Imprimir" is_published="0" wo="92601" wod="225188" class="button" style="width:9em;height:2.2em;" data-href="lab/ajx_pub_int/no_pub" onclick="javascript:openWindow(
+													this,
+													'results/report_single_all/92601',
+													'Informe de Resultados MedicaTI',
+													'resizable=yes,scrollbars=yes,width=1000,height=900'
+												);"  />							</span>
+						</div>
+											<!--//* iterate app_reports_positions  -->
+												<div class="report_row_odd">
+							<span class="report_cell">
+								<img src="../img/mt_icons/app/doc_lined_multireport-64.png">
+							</span>
+							<span class="report_cell" style="width:500px;padding-left:0px;">
+								<div class="report_tittle">Impresión Seguida de Todos los Estudios</div>
+								<b>Reporte de Todos los Resultados en Hojas Seguidas</b><br/>
+La impresión de todos los estudios a todo lo ancho de la hoja de manera seguida, se imprimen primero los mas cortos y al último los mas largos.							</span>
+							<!--//* True only english_reports_enable = 1(true) -->
+							
+							<span class="report_cell disabled" style="width:150px;text-align: center" >
+							<!-- Utilizamos función form_input de codeigniter que crea un <input> con
+							todas las opciones indicadas, para evitar tener un texto poco legible muy ancho. -->
+							<input type="button" name="" value="Imprimir" is_published="0" wo="92601" wod="225188" class="button" style="width:9em;height:2.2em;" data-href="lab/ajx_pub_int/no_pub" onclick="javascript:openWindow(
+													this,
+													'results/report_multi_wide/92601',
+													'Informe de Resultados MedicaTI',
+													'resizable=yes,scrollbars=yes,width=1000,height=900'
+												);"  />							</span>
+						</div>
+											<!--//* iterate app_reports_positions  -->
+												<div class="report_row_even">
+							<span class="report_cell">
+								<img src="../img/mt_icons/app/doc_custom-64.png">
+							</span>
+							<span class="report_cell" style="width:500px;padding-left:0px;">
+								<div class="report_tittle">Impresión de todos los estudios en el menor número de hojas</div>
+								<b>Impresión de Varios Estudios en una Misma Hoja</b><br/>
+Impresón de todos los estudios de la orden de trabajo en la menor cantidad de hojas posible acomodándolo en dos columnas bajo formato PDF.							</span>
+							<!--//* True only english_reports_enable = 1(true) -->
+							
+							<span class="report_cell disabled" style="width:150px;text-align: center" >
+							<!-- Utilizamos función form_input de codeigniter que crea un <input> con
+							todas las opciones indicadas, para evitar tener un texto poco legible muy ancho. -->
+							<input type="button" name="" value="Imprimir" is_published="0" wo="92601" wod="225188" class="button" style="width:9em;height:2.2em;" data-href="lab/ajx_pub_int/no_pub" onclick="javascript:openWindow(
+													this,
+													'results/report_multi/92601',
+													'Informe de Resultados MedicaTI',
+													'resizable=yes,scrollbars=yes,width=1000,height=900'
+												);"  />							</span>
+						</div>
+											<!--//* iterate app_reports_positions  -->
+												<div class="report_row_odd">
+							<span class="report_cell">
+								<img src="../img/mt_icons/app/sendmail-64.png">
+							</span>
+							<span class="report_cell" style="width:500px;padding-left:0px;">
+								<div class="report_tittle">Envio de Resultados por correo</div>
+								<b>Envio de avisos o envios de resultados por correo electronico</b><br>
+Si está activada la opción de aviso o envio se enviarán los resultados de laboratorio.							</span>
+							<!--//* True only english_reports_enable = 1(true) -->
+							
+							<span class="report_cell disabled" style="width:150px;text-align: center" >
+							<!-- Utilizamos función form_input de codeigniter que crea un <input> con
+							todas las opciones indicadas, para evitar tener un texto poco legible muy ancho. -->
+							<input type="button" name="" value="Email" is_published="0" wo="92601" wod="225188" class="button mailClick" style="width:9em;height:2.2em;" data-href="lab/ajx_pub_int/no_pub" url="results/ajx_email_report/92601"  />							</span>
+						</div>
+											<!--//* iterate app_reports_positions  -->
+												<div class="report_row_even">
+							<span class="report_cell">
+								<img src="../img/mt_icons/app/whatsapp_64.png">
+							</span>
+							<span class="report_cell" style="width:500px;padding-left:0px;">
+								<div class="report_tittle"></div>
+								<div class="report_tittle">Envio de aviso de resultados por WhatsApp a <b style="font-weight: bolder;color: forestgreen;">Pacientes</b></div><b>
+Se envía link por WhatsApp para consulta de resultados en línea.</b>							</span>
+							<!--//* True only english_reports_enable = 1(true) -->
+							
+							<span class="report_cell disabled" style="width:150px;text-align: center" >
+							<!-- Utilizamos función form_input de codeigniter que crea un <input> con
+							todas las opciones indicadas, para evitar tener un texto poco legible muy ancho. -->
+							<input type="button" name="" value="Mensaje" is_published="0" wo="92601" wod="225188" class="button grey" style="width:9em;height:2.2em;" data-href="lab/ajx_pub_int/no_pub" disabled="disabled"  />							</span>
+						</div>
+																			</div>
+			&nbsp;
+			</form>		</div>
+	</div>
+                        <!-- General Bottom Screen Alert Msg -->
+                        
+                        
+
+
+
+
+			<div class="clear height-fix"></div>
+
+		</div>
+		</div> <!--! end of #main-content -->
+  </div> <!--! end of #main -->
+
+
+    <footer id="footer">
+        <div class="container_12">
+		<div class="grid_12">
+    		<div class="footer-icon align-center"><a class="top" scrollit="1" href="#top"></a></div>
+		</div>
+    </div></footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
+  <script>window.jQuery || document.write('<script src="../js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="../js/plugins.js"></script> <!-- lightweight wrapper for consolelog, optional -->
+  <script defer src="../js/mylibs/jquery-ui-1.8.15.custom.min.js"></script> <!-- jQuery UI -->
+  <script defer src="../js/mylibs/jquery.notifications.js"></script> <!-- Notifications  -->
+  <!--<script defer src="../js/mylibs/jquery.uniform.min.js"></script> Uniform (Look & Feel from forms) removed for cart-->
+  <script defer src="../js/mylibs/jquery.validate.js"></script> <!-- Validation from forms -->
+  <script defer src="../js/mylibs/jquery.tipsy.js"></script> <!-- Tooltips -->
+  <script defer src="../js/mylibs/excanvas.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.visualize.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.slidernav.min.js"></script> <!-- Contact List -->
+  <script defer src="../js/common.js"></script> <!-- Generic functions -->
+  <script defer src="../js/script.js"></script> <!-- Generic scripts -->
+  	<script type="text/javascript" src="../js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="../js/jquery.slimscroll.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+
+  <!-- Bottom Javascripts-->
+  
+	<script type="text/javascript">
+	$("body").delegate(".detail_action", "click", function(e){
+		e.preventDefault();
+		if($(this).attr("link_type") == "prn"){
+			window.open($(this).attr("href")+"/"+$(this).attr("wo")+"/"+$(this).attr("wod")+("?"+($("#print_header").is(":checked")? "header_print=1": "")+"&"+($("#print_date").is(":checked")? "print_date=1": "") ),"Informe de Resultados MedicaTI","resizable=yes,scrollbars=yes,width=1000,height=900")
+		} else if($(this).attr("link_type") == "xln") {
+			window.open($(this).attr("href") + "/" + $(this).attr("wo") + "/" + $(this).attr("wod"), "Informe de Resultados MedicaTI", "resizable=yes,scrollbars=yes,width=1000,height=900");
+		} else {
+			window.location.href = $(this).attr("href") + "/" + $(this).attr("wo") + "/" + $(this).attr("wod");
+		}
+	});
+	</script>
+
+
+	<script type="text/javascript">
+		function callWindow(theURL,winName,features, print){
+			if(document.getElementById("print_header") && ( document.getElementById("print_header").checked || print == true) ){
+				theURL = theURL + "/?header_print=1";
+				if(document.getElementById("print_date") && ( document.getElementById("print_date").checked || print == true) ){
+					theURL = theURL + "&print_date=1";
+				}
+			}else{
+				if(document.getElementById("print_date") && ( document.getElementById("print_date").checked || print == true) ){
+					theURL = theURL + "/?print_date=1";
+				}
+			}
+			if(document.getElementById("custom_banner")&&document.getElementById("custom_banner").checked){
+				theURL = theURL + "/?custom_banner=1";
+			}
+			if(print){
+				if($("#print_header").prop("checked") || $("#print_date").prop("checked")) {
+					theURL = theURL + "&";
+				} else {
+					theURL = theURL + "/?";
+				}
+				theURL = theURL + "IDs=" + print;
+
+			} else {
+				selID = $("[id=id_products_checkbox]:checked");
+
+				if($("#print_header").prop("checked") || $("#print_date").prop("checked") && selID.length ) {
+					theURL = theURL + "&";
+				} else if(selID.length){
+					theURL = theURL + "/?";
+				}
+
+				if(selID.length) {
+					var prodArray = "IDs=";
+					selID.each(function(index, element){
+						prodArray += $(this).val() + ((index == (selID.length - 1)) ? "": ",");
+					});
+					theURL = theURL + prodArray ;
+				}
+			}
+			console.log(theURL + " " + winName + " " + features);
+			window.open(theURL,winName,features);
+		}
+		function openWindow(me,theURL,winName,features, print) {
+			var win = me;
+			var is_publ = parseInt( $(me).attr("is_published") );
+			var ajx_show_window;
+			switch(is_publ){
+				case 0:
+					callWindow(theURL,winName,features, print);
+					return void(0);
+				break;
+				case 1:
+					// Pasa de NO-publicado a SI-publicado
+					ajx_show_window = $.ajax({
+						async: false,
+						url:$(win).attr("data-href"),
+						data: { id_wo: $(me).attr("wo"),
+							id_wod: $(me).attr("wod"),
+							is_published: 1 },
+						type: "POST"
+					});
+				break;
+				default:
+					console.log("id_stauts",is_publ);
+				break;
+			}
+			if(ajx_show_window.readyState==4){
+				ajx_show_window.done(function(data){
+					// Regresa un JSON con status
+					if(data.status == "success"){
+						callWindow(theURL,winName,features, print);
+					}else if(data.status == "error"){
+						// Mostrar error
+						console.log(data.return.msg);
+						$("#notPaid").dialog({
+							autoOpen: true,
+							modal: true,
+							buttons : {
+								"OK" : function() {
+									$(this).dialog("close");
+								}
+							}
+						});
+					}
+				});
+			}
+		}
+	</script>
+
+
+	<script type="text/javascript">
+	/* all bottoms widh class mailClick  */
+	$("body").delegate(".mailClick","click",function(e) {
+		e.preventDefault();
+		/* ------------[get attribs from button]------------- */
+		data_href = $(this).attr("data-href");
+		// url firs ajax 
+		theURL = $(this).attr("url");
+		// The URL for the second AJAX request is set inside the done callback of the first AJAX request.
+		/* ------------[Ajax to send mail]-------------------  */
+		ajx_send_mail = $.ajax({
+			url: data_href,
+			data: {
+				id_wo: $(this).attr("wo"),
+				id_wod: $(this).attr("wod"),
+				is_published: $(this).attr("is_published")
+			},
+			type: "POST",
+			beforeSend:function(){
+				$(".mailClick").prop({disabled: true});
+				/* --------------show message------------------  */
+				$.jGrowl("Enviando correo, porfavor espere la confirmación de este.",{theme: "information"});
+			}
+		});
+		/* -----------------[Ajax done]----------------------  */
+		ajx_send_mail.done(function(data){
+			// Regresa un JSON con statussssss
+			/* -----------------[Add print_header value to url]----------------------  */
+			if(document.getElementById("print_header") && ( document.getElementById("print_header").checked || print == true) ){
+				theURL = theURL + "/?header_print=1";
+			}
+			/* -----------------[Add custom_banner value to url]----------------------  */
+			if(document.getElementById("custom_banner")&&document.getElementById("custom_banner").checked){
+				theURL = theURL + "/?custom_banner=1";
+			}
+			/* -----------------[Add id_ope_work_order_detail to url]----------------------  */
+			selID = $("[id=id_products_checkbox]:checked");
+			if($("#print_header").prop("checked") && selID.length) {
+				theURL = theURL + "&";
+			} else if(selID.length){
+				theURL = theURL + "/?";
+			}
+			if(selID.length) {
+				var prodArray = "IDs=";
+				selID.each(function(index, element){
+					prodArray += $(this).val() + ((index == (selID.length - 1)) ? "": ",");
+				});
+				theURL = theURL + prodArray;
+			}
+			if(data.status == "success"){
+			console.log("SE GENERO REPORTE, SIGUE ENVIAR");
+				var targetUrl = theURL;
+
+				$.ajax({
+					type: "POST",
+					url: targetUrl,
+					data: { },
+					dataType: "json",
+					success:function(data){
+						console.log(theURL);
+						$(".mailClick").prop("disabled", false);
+						data.forEach(
+							function(element, index, array){
+								$.jGrowl(element.result_msg, { theme: element.status});
+							}
+						);
+					},
+					error:function(){
+						$("#ajax-panel").html("<p class=\"error\"><strong>Oops!</strong> Try that again in a few moments.</p>");
+						return false;
+					}
+				});
+			}else if(data.status == "error"){
+				// Mostrar error
+				console.log(data.return.msg);
+				$("#notPaid").dialog({
+					autoOpen: true,
+					modal: true,
+					buttons: {
+						"OK": function() {
+							$(this).dialog("close");
+						}
+					}
+				});
+			}
+		});
+	});
+	</script>
+
+<script type="text/javascript">
+	$("body").delegate(".smsClick", "click", function(e) {
+		console.log("smsClick Event");
+		e.preventDefault();
+
+		/* ------------[get attribs from button]------------- */
+		let theURL = $(this).attr("url");
+		console.log([theURL]);
+
+		/* ------------[Ajax to send mail]------------------- */
+		let ajx_send_mail = $.ajax({
+			url: theURL,
+			data: {
+				id_wo: $(this).attr("wo")
+			},
+			type: "POST",
+			beforeSend: function() {
+				$(".smsClick").prop({ disabled: true });
+				/* --------------show message------------------ */
+				$.jGrowl("Enviando SMS, por favor espere la confirmación de este.", { theme: "information" });
+			}
+		});
+
+		/* -----------------[Ajax done]---------------------- */
+		ajx_send_mail.done(function(data) {
+			if(data.status == "success") {
+				/* --------------[status twilio sms]------------------ */
+				let status = data.data.status; // status twilio process
+				const interval = setInterval(() => {
+
+				    /* ajax twilio status */
+    				$.ajax({
+    				    url: "lab/ajx_sms_status",
+    				    type: "POST",
+    				    data: { sid: data.data.sid }
+    				})
+					.done(response => {
+					    // Se obtiene el estatus del mensaje
+					    if (response.status === "success" && (response.data.status === "delivered" || response.data.status === "sent")) {
+					        $.jGrowl("SMS " + response.data.result_msg, { theme: "success" });
+							clearInterval(interval);
+					        $(".smsClick").prop("disabled", false);
+					    } else if (response.status === "success" && (response.data.status === "undelivered" || response.data.status === "failed")) {
+					        $.jGrowl(response.data.result_msg+ " / " + response.data.error_message + " / " + response.data.error_code, { theme: "error" });
+							clearInterval(interval);
+					        $(".smsClick").prop("disabled", false);
+					    } else if ( response.status === "error" ){
+					        $.jGrowl("Error "+ response.result_msg, { theme: "error" });
+							clearInterval(interval);
+					        $(".smsClick").prop("disabled", false);
+						}
+					})
+				}, 2000);
+
+			}else if(data.status == "error"){
+				$.jGrowl(data.result_msg, { theme: data.status});
+			}
+		});
+	});
+</script>
+
+	<script type="text/javascript">
+		$(".checkSign").click(function(e){
+			sign = ($(this).prop("checked")) ? "add": "del";
+			$.ajax({
+				type: "POST",
+				url: "results/ajx_" + sign +"_signature",
+				data: {
+					id: $(this).attr("value"),
+					wo: 92601
+				},
+				dataType: "json",
+				success:function(data){
+					$(this).prop("checked", !$(this).prop("checked"));
+				},
+				error:function(){
+					console.log("fail");
+				}
+			});
+		});
+	</script>
+
+
+	<script>
+	$("#fileList").click(function(e) {
+		e.preventDefault();
+		var files =  $('<div id="wrapper_files"></div>').html('');
+		fileModal = files.dialog({
+			autoOpen: false,
+			overflow: "auto",
+			width: "500px",
+			modal: true,
+			closeOnEscape: true,
+			title: "Listado de Archivos asociados a estudios.",
+			buttons: {
+				"Cerrar": function() {
+					$(this).dialog("close");
+				}
+			}
+		});
+		fileModal.dialog("open");
+	});
+	</script>
+
+<script defer src="../js/mylibs/jquery.simplemodal.1.4.2.min.js"></script> <!-- Simple Modal -->
+
+			<script type='text/javascript'>
+				$('body').delegate('.openWindow','click',function(){
+					var mapForm = $('form#').get(0);
+					var target = mapForm.target;
+					var method = mapForm.method;
+					var pst = $(mapForm).attr('action');
+
+					mapForm.target = $(this).data('title');
+					mapForm.method = 'POST';
+					var uri=$(this).data('remote') + ($('#print_header').prop('checked')?'/?header_print=1&':'');
+					$(mapForm).attr('action',uri);
+					map = window.open('',mapForm.target,'directories=no,location=no,status=no,title=no,height=800,width=1200,scrollbars=1,menubar=no,toolbar=no');
+
+					if(map){
+						var save_list ='';
+						$('#box1View option').each(function(index){
+							save_list+=(save_list?',':'')+$(this).val();
+						});
+						$('#id_cor_courses').val(save_list);
+						mapForm.submit();
+					}else{
+						alert('You must allow popups for this map to work.');
+					}
+
+					mapForm.target = target;
+					mapForm.method = method;
+					$(mapForm).attr('action',pst);
+				})
+			</script>
+		
+
+<script type="text/javascript" charset="utf-8">
+	$("#submit_btn, #btn_submit").click(function(e){
+	// $("#submit_btn, #btn_submit").closest("form").submit(function(e){
+		$("#loading").css("display","");
+		$("#loading").dialog("open");
+		e.preventDefault();
+		button = $(this);
+		button.attr("disabled", "disabled");
+		button.closest("form").submit();
+		setTimeout(function(){
+			button.removeAttr("disabled");
+			$("#loading").dialog("close");
+		},6000);
+	});
+
+	$(document).delegate(":input:not(textarea):not([type=submit])","keypress",function(e) {
+		return e.keyCode != 13;
+	});
+</script>
+
+<script type="text/javascript" charset="utf-8"> 
+    $(document).ready(function(){
+        $("#boton_dbug").click(function(){
+            $.post("reception/work_order/listing", {dbug: "True"})
+            window.location.replace("auth/login");
+	});
+	
+	$("#loading").dialog({
+		resizable: false,
+		draggable: true,
+		autoOpen: false,
+		modal: true,
+		height: 60,
+		maxWidth: 180,
+		closeOnEscape: true,
+		title: "Procesando...",
+		closeText: "hide",
+		dialogClass: "no-close"
+	  });
+
+});
+
+
+</script>
+
+  <script type="text/javascript">
+	$().ready(function() {
+		"use strict";
+
+		App.init();
+        
+		var v = $("#create-user-form").validate();
+		jQuery("#reset").click(function() { v.resetForm(); $.jGrowl("User was not created!", { theme: 'error' }); });
+
+		var v2 = $("#write-message-form").validate();
+		jQuery("#reset2").click(function() { v2.resetForm(); $.jGrowl("Message was not sent.", { theme: 'error' }); });
+
+		var v3 = $("#create-folder-form").validate();
+		jQuery("#reset3").click(function() { v3.resetForm(); $.jGrowl("Folder was not created!", { theme: 'error' }); });
+
+		var v4 = $("#create-title-form").validate();
+
+
+		$("#modal").click(function(e) {
+                  $("#"+$(e.target).attr("modal")).modal({
+                    opacity:50,
+                    overlayCss: {backgroundColor:"#666666"}
+                    });
+                });
+
+
+		/*
+		 * Charts
+		 */
+		$('#graph-data').visualize({type: 'line', height: 250}).appendTo('#tab-line').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'area', height: 250}).appendTo('#tab-area').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'pie', height: 250}).appendTo('#tab-pie').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'bar', height: 250}).appendTo('#tab-bar').trigger('visualizeRefresh');
+
+		/*
+		 * Tabs
+		 */
+		$("#specify-a-unique-tab-name").createTabs();
+		$("#tab-graph").createTabs();
+
+		/*
+		 * Contact List
+		 */
+		$('#slider').sliderNav();
+
+
+                //## js_docready functions
+                
+	/*
+	 * Internet Publish Button (All work order studies)
+	 */
+	function orderValidation(){
+
+		const filas = document.querySelectorAll("table a.flag_pub_int");
+
+		let woDetails 	 = [];
+		let arrayDetails = [];
+
+		filas.forEach(row => {
+
+			let id_wod 	   = row.getAttribute("wod");
+			let is_publish = row.getAttribute("is_published");
+			let is_valid   = row.parentNode.parentNode.querySelector("a.flag_val_int");
+				is_valid   = is_valid ? is_valid.getAttribute("is_validated") : "null";
+
+			woDetails = {"id_wod":id_wod, 
+						 "is_valid":is_valid,
+						 "is_published":is_publish
+						};
+
+			arrayDetails.push(woDetails);
+		});
+
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			async: true,
+			url: "lab/ajx_publish_order",
+			data: {
+					"id_wo" : "92601",
+					"woDetails" : arrayDetails
+				},
+			success: function (response) {
+				var responseStatus = response.status ? response.status : "error";
+
+				if( responseStatus == "success" ){
+					var img_published = "";
+					var is_published  = response.is_published;
+
+					if(is_published){
+						//Cambiamos color de botón por la palomita verde
+						$("#btn_ajx_publish").removeClass("incomplete").addClass("complete");
+
+						//Cambiamos color de botones a verde
+						img_published = "accept-16";
+
+					}else{
+						//Cambiamos color de botón por la palomita gris
+						$("#btn_ajx_publish").removeClass("complete").addClass("incomplete");
+					
+						//Cambiamos color de botones a rojo
+						img_published = "exclamationsi-16";
+					}
+
+					//Cambiamos el icono de publicado a todos los estudios
+					$("img", "a.flag_pub_int").attr(
+						"src",
+						"../img/mt_icons/app/"+img_published+".png"
+					);
+
+					//Cambiamos el atributo de publicado a cada estudio en la tabla, para que se envíe en la siguiente petición
+					$("a.flag_pub_int").attr(
+						"is_published",
+						is_published
+					);
+				}
+
+				//Ventana emergente que muestra los mensajes y animación de carga
+				var responseMsg = response.result_msg ? response.result_msg : "Ocurrió un error";
+					$("#loadingJumpFolio").css("display","");
+					$("#loadingJumpFolio").dialog("open");
+					$("#loadingJumpFolio").find("img").hide();//Mostrar imagen de carga
+					$("#loadingJumpFolioMsg").text(responseMsg);
+					$("#loadingJumpFolio").dialog({
+									buttons: {
+									"Aceptar": function(){	
+										$(this).dialog("close");
+									}},
+									dialogClass: "close",
+									title: "Completar folio",
+									draggable: false,
+									height: 145
+								});
+			},
+			error: function (e){
+			}
+		});
+	}
+
+	/*
+	 * Internet Publish Button Handler
+	 */
+	$("a.flag_pub_int").click(function(e){
+		
+		var self = this,
+		int_pub = parseInt( $(this).attr("is_published") ),
+		ajx_pub_int = null;
+
+		switch(int_pub){
+			case 0:
+				// Pasa de NO-publicado a SI-publicado
+				ajx_pub_int = $.ajax({
+					url:$(self).attr("href"),
+					data: {
+						id_wo: $(this).attr("wo"),
+						id_wod: $(this).attr("wod"),
+						is_published: 1
+					},
+					type: "POST"
+				});
+
+				ajx_pub_int.done(function(data){
+					// Regresa un JSON con status
+					if(data.status == "success"){
+						// Cambiar la imagen
+						if( $("img",self).length ) $("img",self).attr("src","../img/mt_icons/app/accept-16.png");
+						// Cambiar el "id_status"
+						$(self).attr("is_published", "1");
+					}
+					if(data.status == "error"){
+						// Mostrar error
+						console.log(data.return.msg);
+						$("#notPaid").dialog({
+							autoOpen: true,
+							modal: true,
+							buttons : {
+								"OK" : function() {
+									$(this).dialog("close");
+								}
+							}
+						});
+					}
+				});
+			break;
+			case 1:
+
+				// Pasa de SI-publicado a NO-publicado
+				ajx_pub_int = $.ajax({
+					url:$(self).attr("href"),
+					data: {
+						id_wo: $(this).attr("wo"),
+						id_wod: $(this).attr("wod"),
+						is_published: 0
+					},
+					type: "POST"
+				});
+
+				ajx_pub_int.done(function(data){
+					// Regresa un JSON con status
+					if(data.status == "success"){
+						// Cambiar la imagen
+						if( $("img",self).length ) $("img",self).attr("src","../img/mt_icons/app/exclamationsi-16.png");
+						// Cambiar el "id_status"
+						$(self).attr("is_published", "0");
+					}
+				});
+			break;
+			default:
+				console.log("id_stauts",int_pub);
+			break;
+		}
+		e.preventDefault();
+	});
+		/*
+		 * Confirmation Dialog
+		 */
+		$("#dialog").dialog({
+		  autoOpen: false,
+		  modal: true
+		});
+		
+
+	$('#loadingJumpFolio').dialog({
+		resizable: false,
+		draggable: true,
+		autoOpen: false,
+		modal: true,
+		height: 60,
+		width: 400,
+		maxWidth: 400,
+		closeOnEscape: true,
+		title: 'Cambio de Orden...',
+		closeText: 'hide',
+		dialogClass: 'no-close',
+		close: function(){
+			$('#loadingJumpFolio').dialog({height: 60});
+			$('#loadingJumpFolio').find('img').show();
+			$('#loadingJumpFolioMsg').text('');
+		}
+	});
+
+	$('#btn_next').bind('click', function(){
+		console.log('next');
+		if(!document.id_order){
+			document.id_order = 92601;
+		}
+		$('#loadingJumpFolio').css('display','');
+		$('#loadingJumpFolio').dialog('open');
+		jumpFolio('next',document.id_order);
+	});
+
+	$('#btn_prev').bind('click', function(){
+		console.log('prev');
+		if(!document.id_order){
+			document.id_order = 92601;
+		}
+		$('#loadingJumpFolio').css('display','');
+		$('#loadingJumpFolio').dialog('open');
+		jumpFolio('prev',document.id_order);
+	});
+
+	function jumpFolio(mode,id_order){
+		document.id_order = id_order;
+		console.log(document.id_order);
+		var res;
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				async: true,
+				url: 'lab/ajx_jump_folio',
+				data: {"mode":mode, "id_order":document.id_order},
+				success: function (response) {
+					if(response.status == 'error'){
+							$('#loadingJumpFolio').dialog({height: 110, closeText: 'hide',
+								dialogClass: ''});
+							$('#loadingJumpFolio').find('img').hide();
+							$('#loadingJumpFolioMsg').text('No es posible '+ (mode == 'next' ? 'avanzar' : 'retroceder') +' a ningún folio, por favor diríjase a él desde el listado de ordenes');
+							document.id_order = null;
+					}else{
+						console.log('status success');
+						// document.tries = 0;
+						$('#loadingJumpFolio').dialog({height: 100});
+						$('#loadingJumpFolio').find('img').hide();
+						$('#loadingJumpFolioMsg').text((mode == 'next' ? 'Avanzando' : 'Retrocediendo') + ' al folio: ' + response.result_msg['folio']);
+						setTimeout(function(){
+							var url = 'https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_detail/' + response.result_msg['new_id_order'];
+							console.log(url);
+							window.location.href = url
+						}, 1000);
+					}
+				},
+				error: function (e){
+
+				}
+			});
+	}
+
+	$('#btn_ajx_publish').bind('click', function(){
+		$('#loadingJumpFolio').dialog('open');	
+		$('#loadingJumpFolio').css({'display':'', 'height':30});
+		$('#loadingJumpFolio').find('img').show();//Mostrar imagen de carga
+		$('.ui-dialog-buttonpane').css({'display': 'none'}); //Ocultamos los botones 
+		orderValidation();
+	});
+
+	});
+  </script>
+  <!-- end scripts-->
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>
