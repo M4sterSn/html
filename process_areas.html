@@ -1,0 +1,1339 @@
+ <!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- DNS prefetch -->
+  <link rel=dns-prefetch href="//fonts.googleapis.com">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Dev MDTI - Medica TI</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="robots" content="noindex,nofollow" />
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="https://app24.medicati.com/mdti/lab/sanrafael/" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="../css/style.css"> <!-- Generic style (Boilerplate) -->
+  <link rel="stylesheet" href="../css/960.fluid.css"> <!-- 960.gs Grid System -->
+  <link rel="stylesheet" href="../css/main.css"> <!-- Complete Layout and main styles -->
+  <link rel="stylesheet" href="../css/buttons.css"> <!-- Buttons, optional -->
+  <link rel="stylesheet" href="../css/lists.css"> <!-- Lists, optional -->
+  <link rel="stylesheet" href="../css/icons.css"> <!-- Icons, optional -->
+  <link rel="stylesheet" href="../css/notifications.css"> <!-- Notifications, optional -->
+  <link rel="stylesheet" href="../css/typography.css"> <!-- Typography -->
+  <link rel="stylesheet" href="../css/forms.css"> <!--Forms, optional THIS NEEDS TO BE REMOVED IN ORDER TO MULTISELECT TO WORK -->
+  <link rel="stylesheet" href="../css/tables.css"> <!-- Tables, optional -->
+   <!-- Charts, optional -->
+  <link rel="stylesheet" href="../css/jquery-ui-1.8.15.custom.css"> <!-- jQuery UI, optional -->
+  <link rel="stylesheet" href="../css/application_custom.css"> <!-- Application Specific -->
+  <link rel="stylesheet" href="../css/font-awesome.min.css"> <!-- font-awesome, optional -->
+
+  <!-- end CSS-->
+  <!-- Custom CSS, Javascripts and other head code-->
+    <!-- Fonts -->
+  <link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+  <!-- end Fonts-->
+<style type="text/css">
+  @media print {
+    .hidden-print {
+      display: none !important;
+    }
+    a[href]:after { content: ""; }
+    #container > #main {
+		margin-left: 0px;
+	}
+  }
+
+
+</style>
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="../js/libs/modernizr-2.0.6.min.js"></script>
+
+  <!-- Top Javascripts-->
+  <style>
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+</style>
+
+</head>
+
+<body id="top">
+<div id="loading" style="text-align:center;display:none;"><img src="../img/mt_icons/30.gif"></div>
+<div id="badgetalert" style="text-align:center;display:none;">Nueva Orden Externa</div>
+  <!-- Begin of #container -->
+  <div id="container">
+  	<!-- Begin of #header -->
+    <div id="header-surround" class="hidden-print"><header id="header">
+
+    	<!-- Place your logo here -->
+		<img src="../img/mt_icons/app/medicati.png" alt="Grape" class="logo">
+
+		<!-- Divider between info-button and the toolbar-icons -->
+		<div class="divider-header divider-vertical"></div>
+
+		<!-- Info-Button -->
+		<a href="javascript:void(0);" onclick="$('#info-dialog').dialog({ modal: true });"><span class="btn-info"></span></a>
+
+			<!-- Modal Box Content -->
+			<div id="info-dialog" title="Acerca De" style="display: none;">
+				<p style="text-align: center;">MedicaTI V30.2.103</p>
+				<p style="text-align: center;">MedicaTI Ver Date 2025-07-01</p>
+				<p style="text-align: center;">MedicaTI DB V1.4.2</p>
+				<p style="text-align: center;">Fecha 2025/04/1</p>
+								<p style="text-align: center;">Versión Avanzada</p>
+										<p style="text-align: center;">Órdenes de Trabajo: 169 de 4000</p>
+															<p style="text-align: center;">Imágenes: 7 de 400</p>
+									
+                <BR>
+                                    <p style="text-align: center;"><button type="button" id="boton_dbug" value="Dbug" style="background: red; border-radius: 6px; cursor: pointer; color: white; border: green;" >DBUG</button></p>
+                
+                				<p>El equipo de ODInet le agradece su preferencia, gracias por utilizar el software MedicaTI.</p>
+				<p>Este software esta protegido por los respectivos derechos de autor.</p>
+			</div> <!--! end of #info-dialog -->
+
+
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header">
+			<!-- First entry -->
+			<li>
+				<a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Activar Navegación" style="position: absolute; padding: 8px; color: white; text-decoration: none;">
+					<i class="icon-2x icon-reorder"></i>
+				</a>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header" style="display: none;">
+			<!-- First entry -->
+			<li>
+				<a rel="tooltip" title="Create a User" class="toolbox-action" href="javascript:void(0);"><span class="i-24-user-business"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a User</h1>
+						</div>
+						<form id="create-user-form" class="block-content form" action="" method="post">
+							<div class="_100">
+								<p><label for="username">Username</label><input id="username" name="username" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="firstname">Firstname</label><input id="firstname" name="firstname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="lastname">Lastname</label><input id="lastname" name="lastname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create the User"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of first entry -->
+
+			<!-- Second entry -->
+			<li>
+				<a rel="tooltip" title="Write a Message" class="toolbox-action" href="javascript:void(0);"><span class="i-24-inbox-document"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Write a Message</h1>
+						</div>
+						<form id="write-message-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="recipient">Recipient</label>
+								<input type="text" name="recipient" class="required">
+							</p>
+							<p class="inline-mini-label">
+								<label for="subject">Subject</label>
+								<input type="text" name="subject">
+							</p>
+							<div class="_100">
+								<p class="no-top-margin"><label for="message">Message</label><textarea id="message" name="message" class="required" rows="5" cols="40"></textarea></p>
+							</div>
+
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset2" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Send Message"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of second entry -->
+
+			<!-- Third entry -->
+			<li>
+				<a rel="tooltip" title="Create a Folder" class="toolbox-action" href="javascript:void(0);"><span class="i-24-folder-horizontal-open"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a Folder</h1>
+						</div>
+						<form id="create-folder-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="folder-name">Name</label>
+								<input type="text" name="folder-name" class="required">
+							</p>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset3" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create Folder"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin of #user-info -->
+		<div id="user-info">
+			<p>
+				<span class="messages">Hola <a href="javascript:void(0);">Usuario Administrador</a> de Matriz <span style="display: none"> ( <a href="javascript:void(0);"><img src="../img/mt_icons/app/mail.png" alt="Messages"> 3 nuevos mensajes</a> ) </span></span>
+				<span style="display: none"> <a href="javascript:void(0)" class="toolbox-action button">Ajustes</a></span> <a href="auth/logout" class="button red">Salir</a>
+			</p>
+		</div> <!--! end of #user-info -->
+
+    </header></div> <!--! end of #header -->
+
+    <div class="fix-shadow-bottom-height"></div>
+
+	<!-- Begin of Sidebar -->
+    <aside id="sidebar" class="hidden-print" style="overflow: hidden;">
+
+    	<!-- Search -->
+    	<div id="search-bar">
+			<form id="search-form" name="search-form" action="search.php" method="post">
+				<input style="display: none" type="text" id="query" name="query" value="" autocomplete="off" placeholder="Búsqueda">
+			</form>
+		</div> <!--! end of #search-bar -->
+
+		<!-- Begin of #login-details -->
+		<section id="login-details">
+    		<img class="img-left framed" src="../img/mt_icons/app/logo_mdti.png" alt="Medica TI">
+    		<h3>Usuario Registrado:</h3>
+    		<h2><a class="user-button" href="javascript:void(0);">admin&nbsp;<span class="arrow-link-down"></span></a></h2>
+    		<ul class="dropdown-username-menu">
+    			<li><a href="auth/logout">Salir</a></li>
+    		</ul>
+
+    		<div class="clearfix"></div>
+  		</section> <!--! end of #login-details -->
+      
+		<!-- Begin of Navigation -->
+		<nav id="nav">
+			<ul class="menu collapsible shadow-bottom">
+				
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/reception_desk/sofa.png">Recepción<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/insert"  >Orden de Trabajo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/listing"  >Listado de Ordenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/estimate/listing"  >Listado de Cotizaciones</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/cash_fund/listing"  >Salidas de Caja</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li class="expand">
+			   <a href="javascript:void(0);" class="current"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/lab/lab-16.png">Laboratorio<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_listing"  >Ordenes de Laboratorio</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_areas"  >Procesos por Área</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_sheet"  >Hojas de Trabajo</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/medical/steto-16.png">Médicos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/insert"  >Nuevo Médico</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/listing"  >Listado de Médicos</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/emr/user.png">Registro de Pacientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/emr/listing"  >Listado de Pacientes</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/company/company-16.png">Empresas y Clientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/insert"  >Nueva Empresa o Cliente</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/listing"  >Listado de Empresas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/suppliers/suppliers-icon-16.png">Compras a Proveedores</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/insert"  >Nuevo Proveedor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/listing"  >Listado de Proveedores</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/products/box-16.png">Conceptos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/insert"  >Nuevo Concepto</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/listing"  >Listado de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/insert"  >Nuevo Insumo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/listing"  >Listado de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_list"  >Listado de Tarifarios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_changes"  >Cambios de Precios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/barcode_groups"  >Grupos de Etiquetas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/admin/application-task.png">Administración</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/users/admin/listing"  >Usuarios</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/table.png">Reportes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/work_orders"  >Reportes de Órdenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/products"  >Reportes de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/company"  >Pacientes por Empresa</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock"  >Consumo de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock_levels"  >Movimientos de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/doctors"  >Pacientes por Doctor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/sales"  >Reportes de Ventas y Cierres</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/cash_fund_out"  >Reportes de Salidas de Caja</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/estimate"  >Reportes de Cotizaciones</a></li>
+
+				</ul>
+
+			</li>
+			
+			</ul>
+		</nav>
+		<!--! end of #nav -->		
+		      <br/>
+          	<img src="../account_data/sanrafael/system/logo_sanrafael_260x98.png">
+
+    </aside> <!--! end of #sidebar -->
+
+    <!-- Begin of #main -->
+    <div id="main" role="main">
+
+    	<!-- Begin of titlebar/breadcrumbs -->
+		<div id="title-bar" class="hidden-print">
+
+							<div class="_100" id="turn-alerts" style="margin-bottom:-5px;margin-top:10px;"></div>
+						<ul id="breadcrumbs" style="display: none">
+				<li><a href="dashboard.html" title="Home"><span id="bc-home"></span></a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li class="no-hover">menu item</li>
+			</ul>
+		</div> 
+		<!--! end of #title-bar -->
+		
+				<div class="shadow-bottom shadow-titlebar"></div>
+
+		<!-- Begin of #main-content -->
+		<div id="main-content">
+			<div class="container_12">
+
+			<!-- Put your content here! -->
+                        <!-- General Title -->
+                        
+			<div class="grid_12">
+				<h1>Laboratorio</h1>
+				<p>Proceso de Ordenes de Trabajo para Laboratorio</p>
+			</div>
+			
+                        <!-- Shortcuts -->
+                        
+    	<!-- Begin of Shortcuts -->
+			
+			<div class="grid_12 hidden-print">
+				<div class="block-border">
+					<div class="block-content">
+						<ul class="shortcut-list">
+							
+					<li>
+
+						<a href="lab/work_order_listing">
+							 <img src="../img/mt_icons/lab/lab_work_order-48.png">
+							 Ordenes de Laboratorio
+						</a>
+					</li>
+
+					<li>
+
+						<a href="lab/work_sheet">
+							 <img src="../img/mt_icons/lab/work_sheets-48.png">
+							 Hojas de Trabajo
+						</a>
+					</li>
+
+					<li>
+
+						<a href="lab/common_values">
+							 <img src="../img/mt_icons/lab/lab_com_words-48.png">
+							 Resultados Comunes
+						</a>
+					</li>
+
+						</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+			</div>
+			
+	<!--! end of Shortcuts -->		
+		                        <br><br>
+                        <!-- General Screen Alert Msg -->
+							<div id="alert_messages" class="grid_12">
+															</div>
+                        <!-- General Content display-->
+                        <div id="notPaid" title="NO se puede publicar" style="text-align:center;display:none;"><br>No se puede publicar el resultado por que existe un pago pendiente</div> 
+<style>
+    .td_raw_data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+
+    .cell-style {
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+
+    .pagination a {
+        padding: 2px 5px 2px 5px;
+        margin: 2px;
+        border: 1px solid #EEE;
+        text-decoration: none;
+        color: #036CB4;
+    }
+
+    .a-orders:link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .a-orders:visited {
+        color: white;
+        text-decoration: none;
+    }
+
+    .a-orders:hover {
+        text-decoration: underline;
+    }
+
+    .a-orders:active {
+        color: #036CB4;
+    }
+
+    .border-order {
+        border-left: 2px solid black;
+        border-top: 4px solid black;
+        border-right: 2px solid black;
+        border-bottom: none;
+    }
+
+    .border-detail {
+        border-left: 2px solid black;
+        border-top: none;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+
+    .amigo {
+        overflow-x: auto;
+
+        text-align: center;
+        /* Centrado horizontal del contenido */
+        vertical-align: middle;
+        /* Centrado vertical del contenido */
+    }
+
+    td a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        /* Opcional, para quitar el subrayado del enlace */
+    }
+
+    td img {
+        max-width: 100%;
+        /* Opcional, para que la imagen no se desborde */
+        height: auto;
+        /* Mantiene la proporción de la imagen */
+    }
+
+    .table tbody th {
+        text-align: center;
+    }
+</style>
+<div class="grid_12">
+    <div class="block-border">
+        <div class="block-header">
+            <h1>Procesos por Área</h1><span></span>
+        </div>
+        <form class="block-content form" id='validate-form'>
+            <div class="_25">
+                <div class="_50">
+                    <p>
+                        <label for="select">Área</label>
+                        <select id="id_pro_area" name="id_pro_area">
+                            <option value="">-</option>
+                            <option value="1">Laboratorio</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="_50">
+                    <p>
+                        <label for="id_pro_section">Sección</label>
+                        <select name="id_pro_section" id="id_pro_section">
+                            <option value="">-</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="grid_12">
+                    <div class="dataTables_wrapper" id="table-example_wrapper" style="">
+                        <div class="block-border" style="text-align: center;">
+                            <div class="top">
+                                <div id="pagination2">
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <table id="table-example" class="table" style=" table-layout: fixed;">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="1" colspan="1" style="width: 30%;">Folio</th>
+                                        <th rowspan="1" colspan="1" style="width: 60%;">Paciente</th>
+                                        <th rowspan="1" colspan="1" style="width: 20%;">Detalle</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="row-container"><!-- tabledate from javascript -->
+
+                                </tbody>
+                            </table>
+                            <div class="block-actions" id='actionblock'>
+                                <div id="pagination">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="_100"> &nbsp; </div>
+            </div>
+            <div class="_75" style="padding-bottom: 20px; padding-top: 20px;">
+                <div class="block-content" style="width:100%;text-align: justify; border: none; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);  height:700px !important">
+                    <iframe name="iframe-detail" frameborder="0" width="100%" height="100%" style="background-color: transparent;"></iframe>
+                </div>
+            </div>
+            <div class="clear"> &nbsp; </div>
+        </form>
+    </div>
+</div>
+<script>
+    window.jQuery || document.write('<script src="../js/libs/jquery-1.6.2.min.js"><\/script>')
+</script>
+<script type="text/javascript" charset="utf-8">
+    const secciones = [{"id_pro_section":"16","id_pro_area":"1","section_name":"Zoosanitario","section_description":"","enable":"1"},{"id_pro_section":"10","id_pro_area":"1","section_name":"Urolog\u00eda","section_description":null,"enable":"1"},{"id_pro_section":"9","id_pro_area":"1","section_name":"Serolog\u00eda","section_description":null,"enable":"1"},{"id_pro_section":"5","id_pro_area":"2","section_name":"Resonancia Magn\u00e9tica","section_description":"","enable":"1"},{"id_pro_section":"2","id_pro_area":"1","section_name":"Qu\u00edmica Cl\u00ednica","section_description":null,"enable":"1"},{"id_pro_section":"15","id_pro_area":"1","section_name":"Patolog\u00eda","section_description":null,"enable":"1"},{"id_pro_section":"13","id_pro_area":"1","section_name":"Parasitologia","section_description":null,"enable":"1"},{"id_pro_section":"4","id_pro_area":"1","section_name":"Microbiolog\u00eda","section_description":null,"enable":"1"},{"id_pro_section":"3","id_pro_area":"1","section_name":"Inmunolog\u00eda","section_description":null,"enable":"1"},{"id_pro_section":"8","id_pro_area":"1","section_name":"Hormonas e Inmunoqu\u00edmicas","section_description":null,"enable":"1"},{"id_pro_section":"7","id_pro_area":"1","section_name":"Hematolog\u00eda","section_description":null,"enable":"1"},{"id_pro_section":"1","id_pro_area":"1","section_name":"General","section_description":"","enable":"1"},{"id_pro_section":"23","id_pro_area":"6","section_name":"General","section_description":"","enable":"1"},{"id_pro_section":"24","id_pro_area":"7","section_name":"General","section_description":"","enable":"1"},{"id_pro_section":"25","id_pro_area":"8","section_name":"General","section_description":"","enable":"1"},{"id_pro_section":"14","id_pro_area":"1","section_name":"Especiales","section_description":null,"enable":"1"},{"id_pro_section":"11","id_pro_area":"1","section_name":"Envio de Muestras","section_description":null,"enable":"1"},{"id_pro_section":"6","id_pro_area":"2","section_name":"Ecograf\u00eda","section_description":null,"enable":"1"},{"id_pro_section":"12","id_pro_area":"1","section_name":"Bacteriolog\u00eda","section_description":null,"enable":"1"}];
+    let areaSelect = document.getElementById('id_pro_area');
+    let seccionSelect = document.getElementById('id_pro_section');
+    let numPage = 1;
+    document.getElementById('validate-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+    });
+
+    function recorrer(id_area, seccion_vals) {
+        for (let val of seccion_vals) {
+            if (val.id_pro_area === id_area) {
+                seccionSelect.innerHTML += `
+                <option value="${val.id_pro_section}">${val.section_name}</option>
+                `;
+            }
+        }
+    }
+
+    function createTable(data) {
+        /**----------------------
+         ** crea la tabla de ordenes
+         *@param data objet configuracion de tabla y ordenes
+         *@return obj contenido de la tabla
+         *------------------------**/
+        let formatHeader = ['folio', 'patient_name'];
+        let contador = 0;
+        table = document.getElementById('row-container');
+        table.innerHTML = '';
+        const keys = Object.keys(data.result.orders).reverse();
+
+        keys.forEach(id_ope_work_order => {
+
+            $pair = contador % 2 === 0 ? true : false;
+            contador++;
+
+            let headRow = document.createElement('tr'); //tr ordenes
+            headRow.classList.add('border-order');
+
+            let headRowDetail = document.createElement('tr'); //tr detalle
+            headRowDetail.classList.add('border-detail');
+
+            openDetails = validateStatus(data.result.orders[id_ope_work_order].detail);
+            if (!openDetails) {
+                headRowDetail.style.display = 'none';
+            }
+
+            headRowDetail.setAttribute('id_ope_work_order', `${id_ope_work_order}`);
+            headRow.id = id_ope_work_order
+
+            if (!$pair) {
+                headRow.classList.add('even');
+                headRowDetail.classList.add('even');
+            }
+
+            //?-contenido de las filas-*//
+            Object.entries(data.result.orders[id_ope_work_order]).forEach(function([llave, valor]) {
+                if (formatHeader.includes(llave)) {
+                    let row = document.createElement('td');
+                    row.classList.add('cell-style');
+                    row.textContent = valor;
+
+                    if (data.result.orders[id_ope_work_order].is_paid == '0') {
+                        row.style.color = 'blue';
+                    }
+                    headRow.appendChild(row); // se agrega a tr head
+                }
+            });
+
+            //?-contenido de las filas Accion boton -> [!]-*//
+            let rowAction = document.createElement('td');
+            rowAction.classList.add('td_raw_data');
+            rowAction.innerHTML = `<span onclick="showdetails(${id_ope_work_order});" class="btn-info"></span>`;
+            headRow.appendChild(rowAction); // se agrega a tr head
+
+            headRowDetail.appendChild(detailsTable(data.result.orders[id_ope_work_order].detail, id_ope_work_order));
+            table.appendChild(headRow);
+            headRow.insertAdjacentElement('afterend', headRowDetail);
+        });
+        buttonFunctions();
+    }
+
+    function validateStatus(data) {
+        let results = [];
+        data.forEach(detail => {
+            const key = Object.keys(detail)[0];
+            const obj = detail[key];
+            results.push(obj.id_status === '1' ? true : false);
+        });
+        return (results.includes(true)) ? true : false;
+    }
+
+    function buttonFunctions() {
+        document.querySelectorAll('a.flag_pub_int').forEach((flagPub) => {
+            flagPub.addEventListener('click', function(event) {
+                event.preventDefault();
+                var intPub = parseInt(this.getAttribute('is_published')); // PUBLICADO 1 / 0
+                var wod = parseInt(this.getAttribute('wod')); // DETALLE 3738
+                                var ajx_pub_int = null;
+                switch (intPub) {
+                    case 0:
+                        // Pasa de NO-publicado a SI-publicado
+                        ajx_pub_int = $.ajax({
+                            url: this.getAttribute('href'),
+                            data: {
+                                id_wo: this.getAttribute('wo'),
+                                id_wod: this.getAttribute('wod'),
+                                is_published: 1
+                            },
+                            type: "POST"
+                        });
+
+                        ajx_pub_int.done(function(data) {
+                            // Regresa un JSON con status
+                            if (data.status == "success") {
+                                // Cambiar la imagen
+                                var imageFlag = flagPub.querySelector('img');
+                                if (imageFlag) {
+                                    imageFlag.src = "../img/mt_icons/app/accept-16.png";
+                                }
+                                // Cambiar el "is_published"
+                                flagPub.setAttribute("is_published", "1");
+                            }
+                            if (data.status == "error") {
+                                console.log(data);
+                                // Mostrar error
+                                console.log(data.return.msg);
+                                $("#notPaid").dialog({
+                                    autoOpen: true,
+                                    modal: true,
+                                    buttons: {
+                                        "OK": function() {
+                                            $(this).dialog("close");
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                        break;
+                    case 1:
+                        // Caso para intPub == 1
+                        ajx_pub_int = $.ajax({
+                            url: this.getAttribute('href'),
+                            data: {
+                                id_wo: this.getAttribute('wo'),
+                                id_wod: this.getAttribute('wod'),
+                                is_published: 0
+                            },
+                            type: "POST"
+                        });
+
+                        ajx_pub_int.done(function(data) {
+                            // Regresa un JSON con status
+                            if (data.status == "success") {
+                                // Cambiar la imagen
+                                var imageFlag = flagPub.querySelector('img');
+                                if (imageFlag) {
+                                    imageFlag.src = "../img/mt_icons/app/exclamationsi-16.png";
+                                }
+                                // Cambiar el "id_status"
+                                flagPub.setAttribute("is_published", "0");
+                            }
+                        });
+                        break;
+                    default:
+                        console.log("id_status", intPub);
+                        break;
+                }
+            });
+        });
+
+        document.querySelectorAll('a.flag_val_int').forEach((flagVal) => {
+            flagVal.addEventListener('click', function(event) {
+
+                event.preventDefault();
+                int_val = parseInt(this.getAttribute('is_validated'));
+                wod = parseInt(this.getAttribute('wod'));
+
+                ajx_val_int = $.ajax({
+                    url: this.getAttribute('href'),
+                    data: {
+                        id_wo: this.getAttribute('wo'),
+                        id_wod: this.getAttribute('wod'),
+                        is_validated: (int_val ? 0 : 1)
+                    },
+                    type: "POST"
+                });
+
+                ajx_val_int.done(function(data) {
+
+                    if (data.status == 'success') {
+                        // Actualización de imágenes
+                        imageFlag = flagVal.querySelector('img');
+                        if (imageFlag) {
+                            // Rutas de las imágenes basadas en el valor de int_val
+                            imageFlag.src = int_val ?
+                                '../img/mt_icons/app/exclamationsi-16.png' :
+                                '../img/mt_icons/app/accept-16.png';
+                        }
+
+                        // Actualización de imágenes en 'a.flag_pub_int' y estado 'is_published'
+                        if (int_val) {
+                            pubImage = document.querySelector('a.flag_pub_int[wod="' + wod + '"] img');
+
+                            if (pubImage) {
+                                pubImage.src = '../img/mt_icons/app/exclamationsi-16.png';
+                            }
+                            document.querySelector('a.flag_pub_int[wod="' + wod + '"]').setAttribute('is_published', '0');
+                        }
+
+                        //  Actualización de 'is_validated'
+                        flagVal.setAttribute('is_validated', int_val ? '0' : '1');
+
+                        //  Actualización del estilo de 'a.flag_pub_int'
+                        var pubAnchor = document.querySelector('a.flag_pub_int');
+                        if (pubAnchor) {
+                            pubAnchor.style.cursor = int_val ? 'initial' : '';
+                        }
+                    }
+                });
+            });
+        });
+    }
+
+    function detailsTable(data, id_ope_work_order) {
+        /**----------------------
+         ** Esta funcion regresa un td con una tabla dentro
+         ** con el detalle de la orden
+         *@param data objet contiene array con detalle de la orden
+         *@param id_ope_work_order id de la orden
+         *@return obj [<td><table>...</table></td>]
+         *------------------------**/
+        const tdElement = detailsTd();
+        const tableElement = document.createElement('table');
+        tableElement.style.display = 'inline-block'; // Mostrar como bloque en línea para centrarlo
+        const theadElement = detailsHeaders();
+        const tbodyElement = document.createElement('tbody');
+        data.forEach(obj => {
+            const trBody = document.createElement('tr');
+            Object.entries(obj).forEach(([id_detail, value]) => {
+                /*--[4.2][content]--*/
+                if (value.product_description) {
+                    let foContent = document.createElement('td'); /*--[5.2.content-values]--*/
+                    foContent.colSpan = 3;
+                    foContent.classList.add('cell-style');
+                    foContent.textContent = value.product_description;
+                    trBody.appendChild(foContent);
+                }
+                flagPubSatatus = value.is_published == '1' ? 'accept-16.png' : 'exclamationsi-16.png';
+                let cellActionPublic = document.createElement('td'); /*--[5.2.content-actions]--*/
+                let isConceptGroupPublic = `<a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/ajx_pub_int"
+                    is_published="${value.is_published}"
+                    wo="${id_ope_work_order}"
+                    wod="${id_detail}"
+                    class="flag_pub_int">
+                    <img wo="${id_ope_work_order}"
+                    wod="${id_detail}" src="../img/mt_icons/app/${flagPubSatatus}" alt="">
+                    </a>`;
+
+                    if (value.id_pro_detail_type == '4') {
+                        isConceptGroupPublic = `<p style="text-align: center;"> - </p>`;
+                    }
+
+                cellActionPublic.innerHTML = isConceptGroupPublic;
+                
+                let cellActionProcess = document.createElement('td'); /*--[5.2.content-actions]--*/
+                cellActionProcess.id = 'cellAction' + id_detail;
+                let title = 'Editar Resultados';
+                let linkProcess = `https://app24.medicati.com/mdti/lab/sanrafael/lab/process_report/${id_ope_work_order}/${id_detail}/iframe`;
+                let isConceptGroup = `<a title="Editar Resultados"
+                    class="editClick ${id_detail}"
+                    target="iframe-detail"
+                    href="${linkProcess}">
+                    <img src="../img/mt_icons/app/paste_plain.png">
+                    </a>`;
+                if (value.id_pro_detail_type != '4'){
+                    if (value.id_status == '1') {
+                    cellActionProcess.style.backgroundColor = 'rgb(255, 139, 139)';
+                    title = 'NO HA SIDO PROCESADO';
+                    isConceptGroup = `<a title="${title}"
+                    class="editClick ${id_detail}"
+                    target="iframe-detail"
+                    href="${linkProcess}">
+                    <img src="../img/mt_icons/app/paste_plain.png">
+                    </a>`;
+                    } else if (value.id_status == '2' && value.is_published == '0') {
+                        cellActionProcess.style.backgroundColor = 'rgb(255, 248, 53)';
+                        title = 'NO HA SIDO PUBLICADO';
+                        //linkProcess = `https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_detail/${id_ope_work_order}/`;
+                        isConceptGroup = `<a title="${title}"
+                        class="editClick ${id_detail}"
+                        target="iframe-detail"
+                        href="${linkProcess}">
+                        <img src="../img/mt_icons/app/paste_plain.png">
+                        </a>`;
+                    } else {
+                        cellActionProcess.style.backgroundColor = 'rgba(113, 232, 139, 0.19)';
+                        title = 'PROCESADO Y PUBLICADO';
+                        //linkProcess = `https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_detail/${id_ope_work_order}/`;
+                        isConceptGroup = `<a title="${title}"
+                        class="editClick ${id_detail}"
+                        target="iframe-detail"
+                        href="${linkProcess}">
+                        <img src="../img/mt_icons/app/paste_plain.png">
+                        </a>`;
+                        }
+                } else {
+                    isConceptGroup = `
+                    <p style="text-align: center;"> - </p>`;
+                }
+                
+
+                cellActionProcess.innerHTML = isConceptGroup;
+
+                
+                trBody.append(cellActionPublic);
+                
+                trBody.append(cellActionProcess);
+            });
+            tbodyElement.appendChild(trBody);
+        });
+
+        tableElement.appendChild(theadElement);
+        tableElement.appendChild(tbodyElement);
+        tdElement.appendChild(tableElement);
+        return tdElement;
+    }
+
+    function detailsTd() {
+        const tdElement = document.createElement('td');
+        tdElement.colSpan = 3;
+        tdElement.style.overflowX = 'auto';
+        tdElement.style.width = '300px';
+        tdElement.style.verticalAlign = 'middle';
+        return tdElement;
+    }
+
+    function detailsHeaders() {
+        const theadElement = document.createElement('thead');
+        const trHead = document.createElement('tr');
+        trHead
+        const headers = [{
+                text: 'Descripcion',
+                colspan: 3,
+                width: 200
+            },
+                        {
+                text: 'Publicar'
+            },
+            ...(0 ? [{
+                text: 'Validar'
+            }] : []),
+            {
+                text: 'Procesar'
+            }
+        ];
+
+        headers.forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header.text;
+            if (header.colspan) {
+                th.colSpan = header.colspan;
+                th.style.width = '500px'
+            }
+            trHead.appendChild(th);
+        });
+
+        theadElement.appendChild(trHead);
+        return theadElement;
+    }
+
+    function showdetails(id_ope_work_order) {
+        detail = document.querySelector(`tr[id_ope_work_order="${id_ope_work_order}"]`);
+        if (detail.style.display) {
+            detail.style.display = '';
+        } else {
+            detail.style.display = 'none';
+        }
+    }
+    areaSelect.addEventListener('change', (e) => {
+        let dato = e.target.value;
+        seccionSelect.innerHTML = '<option value="">-</option>';
+        if (!(dato === '')) {
+            recorrer(dato, secciones);
+        } else {
+            seccionSelect.innerHTML = '<option value="">-</option>';
+        }
+    });
+    seccionSelect.addEventListener('change', (e) => {
+        numPage = 1;
+        ajx_create_table(numPage);
+    });
+
+    function ajx_create_table(page) {
+        numPage = parseInt(page);
+        var selectArea = document.getElementById('id_pro_area');
+        var selectSection = document.getElementById('id_pro_section');
+        var id_area = selectArea.value;
+        var id_section = selectSection.value;
+        cookieTable(id_area, id_section, page);
+        $.ajax({
+            url: 'lab/ajx_proces_area_list',
+            method: 'POST',
+            data: {
+                id_pro_section_post: id_section,
+                records_per_page: 10,
+                page: page
+            },
+            success: function(data) {
+                createTable(data);
+                pagination(id_section, page, data.result.count, data.result.pagesNum);
+            }
+        });
+    }
+
+    function pagination(id_section, page, OrdersTotal, numPages) {
+        let divPages = document.getElementById('pagination');
+        setupPagination(divPages, page, OrdersTotal, numPages);
+
+        let divPages2 = document.getElementById('pagination2');
+        setupPagination(divPages2, page, OrdersTotal, numPages);
+    }
+
+    function setupPagination(container, page, totalOrders, numPages) {
+        container.innerHTML = '';
+        container.innerText = `Página ${page} de ${numPages} `;
+        if (page !== 0) {
+            if (page !== 1) {
+                let button1 = document.createElement('button');
+                button1.textContent = '|<';
+                button1.addEventListener('click', function() {
+                    goToFirstPage();
+                });
+
+                let button2 = document.createElement('button');
+                button2.textContent = '<';
+                button2.addEventListener('click', function() {
+                    console.log("Página anterior");
+                    goToPreviousPage();
+                });
+                container.appendChild(button1);
+                container.appendChild(button2);
+            }
+            if (page !== numPages) {
+                let button3 = document.createElement('button');
+                button3.textContent = '>';
+                button3.addEventListener('click', function() {
+                    console.log("Página siguiente");
+                    goToNextPage();
+                });
+                let button4 = document.createElement('button');
+                button4.textContent = '>|';
+                button4.addEventListener('click', function() {
+                    goToLastPage(numPages);
+                });
+                container.appendChild(button3);
+                container.appendChild(button4);
+            }
+
+        }
+    }
+
+    function goToNextPage() {
+        numPage++;
+        updCkPage(numPage);
+        ajx_create_table(numPage);
+    }
+
+    function goToPreviousPage() {
+        numPage--;
+        if (numPage === 0) {
+            numPage = 1;
+        }
+        ajx_create_table(numPage);
+        updCkPage(numPage);
+    }
+
+    function goToLastPage(numPages) {
+        numPages;
+        numPage = numPages
+        ajx_create_table(numPages);
+        updCkPage(numPage);
+    }
+
+    function goToFirstPage() {
+        numPage = 1;
+        ajx_create_table(1);
+        updCkPage(1);
+    }
+
+    const actionblock = document.getElementById('actionblock');
+    actionblock.style.paddingLeft = '0px';
+    actionblock.style.paddingRight = '0px';
+
+    function updCkPage(page) {
+        document.cookie = "pageSection=" + page + "; expires=" + new Date(Date.now() + 3600000).toUTCString() + "; path=/";
+    }
+
+    function cookieTable(id_area, id_section, page) {
+        document.cookie = "idArea=" + id_area + "; expires=" + new Date(Date.now() + 3600000).toUTCString() + "; path=/";
+        document.cookie = "idSection=" + id_section + "; expires=" + new Date(Date.now() + 3600000).toUTCString() + "; path=/";
+        document.cookie = "pageSection=" + page + "; expires=" + new Date(Date.now() + 3600000).toUTCString() + "; path=/";
+    }
+
+    function firstTable() {
+        data = {
+            id_area: false,
+            id_section: false,
+            page: false        }
+        if (data.id_area && data.id_section && data.page) {
+            selectAreaCookie = document.getElementById('id_pro_area');
+            selectAreaCookie.value = data.id_area;
+            var event = new Event('change', {
+                bubbles: true,
+                cancelable: true
+            });
+            selectAreaCookie.dispatchEvent(event);
+            document.getElementById('id_pro_section').value = data.id_section;
+            ajx_create_table(data.page);
+        } else {
+            console.log('some cookie does not exist');
+        }
+
+    }
+
+    var iframe = document.getElementById('iframe-detail');
+    window.addEventListener('message', function(event) {
+        var mensaje = event.data;
+        switch (mensaje.action) {
+            case 'processReport':
+                id = mensaje.data.id_ope_work_order_detail;
+                cellAction = document.getElementById('cellAction' + id);
+                cellAction.style.backgroundColor = 'transparent';
+                break;
+            case 'case2':
+                console.log('Se presionó el Botón 2 en el iframe');
+                break;
+        }
+    }, false);
+    firstTable();
+
+    
+</script>
+                        <!-- General Bottom Screen Alert Msg -->
+                        
+                        
+
+
+
+
+			<div class="clear height-fix"></div>
+
+		</div>
+		</div> <!--! end of #main-content -->
+  </div> <!--! end of #main -->
+
+
+    <footer id="footer">
+        <div class="container_12">
+		<div class="grid_12">
+    		<div class="footer-icon align-center"><a class="top" scrollit="1" href="#top"></a></div>
+		</div>
+    </div></footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
+  <script>window.jQuery || document.write('<script src="../js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="../js/plugins.js"></script> <!-- lightweight wrapper for consolelog, optional -->
+  <script defer src="../js/mylibs/jquery-ui-1.8.15.custom.min.js"></script> <!-- jQuery UI -->
+  <script defer src="../js/mylibs/jquery.notifications.js"></script> <!-- Notifications  -->
+  <!--<script defer src="../js/mylibs/jquery.uniform.min.js"></script> Uniform (Look & Feel from forms) removed for cart-->
+  <script defer src="../js/mylibs/jquery.validate.js"></script> <!-- Validation from forms -->
+  <script defer src="../js/mylibs/jquery.tipsy.js"></script> <!-- Tooltips -->
+  <script defer src="../js/mylibs/excanvas.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.visualize.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.slidernav.min.js"></script> <!-- Contact List -->
+  <script defer src="../js/common.js"></script> <!-- Generic functions -->
+  <script defer src="../js/script.js"></script> <!-- Generic scripts -->
+  	<script type="text/javascript" src="../js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="../js/jquery.slimscroll.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+
+  <!-- Bottom Javascripts-->
+  <script defer src="../js/mylibs/jquery.simplemodal.1.4.2.min.js"></script> <!-- Simple Modal -->
+
+<script type="text/javascript" charset="utf-8">
+	$("#submit_btn, #btn_submit").click(function(e){
+	// $("#submit_btn, #btn_submit").closest("form").submit(function(e){
+		$("#loading").css("display","");
+		$("#loading").dialog("open");
+		e.preventDefault();
+		button = $(this);
+		button.attr("disabled", "disabled");
+		button.closest("form").submit();
+		setTimeout(function(){
+			button.removeAttr("disabled");
+			$("#loading").dialog("close");
+		},6000);
+	});
+
+	$(document).delegate(":input:not(textarea):not([type=submit])","keypress",function(e) {
+		return e.keyCode != 13;
+	});
+</script>
+
+<script type="text/javascript" charset="utf-8"> 
+    $(document).ready(function(){
+        $("#boton_dbug").click(function(){
+            $.post("reception/work_order/listing", {dbug: "True"})
+            window.location.replace("auth/login");
+	});
+	
+	$("#loading").dialog({
+		resizable: false,
+		draggable: true,
+		autoOpen: false,
+		modal: true,
+		height: 60,
+		maxWidth: 180,
+		closeOnEscape: true,
+		title: "Procesando...",
+		closeText: "hide",
+		dialogClass: "no-close"
+	  });
+
+});
+
+
+</script>
+
+  <script type="text/javascript">
+	$().ready(function() {
+		"use strict";
+
+		App.init();
+        
+		var v = $("#create-user-form").validate();
+		jQuery("#reset").click(function() { v.resetForm(); $.jGrowl("User was not created!", { theme: 'error' }); });
+
+		var v2 = $("#write-message-form").validate();
+		jQuery("#reset2").click(function() { v2.resetForm(); $.jGrowl("Message was not sent.", { theme: 'error' }); });
+
+		var v3 = $("#create-folder-form").validate();
+		jQuery("#reset3").click(function() { v3.resetForm(); $.jGrowl("Folder was not created!", { theme: 'error' }); });
+
+		var v4 = $("#create-title-form").validate();
+
+
+		$("#modal").click(function(e) {
+                  $("#"+$(e.target).attr("modal")).modal({
+                    opacity:50,
+                    overlayCss: {backgroundColor:"#666666"}
+                    });
+                });
+
+
+		/*
+		 * Charts
+		 */
+		$('#graph-data').visualize({type: 'line', height: 250}).appendTo('#tab-line').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'area', height: 250}).appendTo('#tab-area').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'pie', height: 250}).appendTo('#tab-pie').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'bar', height: 250}).appendTo('#tab-bar').trigger('visualizeRefresh');
+
+		/*
+		 * Tabs
+		 */
+		$("#specify-a-unique-tab-name").createTabs();
+		$("#tab-graph").createTabs();
+
+		/*
+		 * Contact List
+		 */
+		$('#slider').sliderNav();
+
+
+                //## js_docready functions
+                
+	});
+  </script>
+  <!-- end scripts-->
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>

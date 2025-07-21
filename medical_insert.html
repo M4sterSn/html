@@ -1,0 +1,1285 @@
+ <!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- DNS prefetch -->
+  <link rel=dns-prefetch href="//fonts.googleapis.com">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Dev MDTI - Medica TI</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="robots" content="noindex,nofollow" />
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="https://app24.medicati.com/mdti/lab/sanrafael/" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="../css/style.css"> <!-- Generic style (Boilerplate) -->
+  <link rel="stylesheet" href="../css/960.fluid.css"> <!-- 960.gs Grid System -->
+  <link rel="stylesheet" href="../css/main.css"> <!-- Complete Layout and main styles -->
+  <link rel="stylesheet" href="../css/buttons.css"> <!-- Buttons, optional -->
+  <link rel="stylesheet" href="../css/lists.css"> <!-- Lists, optional -->
+  <link rel="stylesheet" href="../css/icons.css"> <!-- Icons, optional -->
+  <link rel="stylesheet" href="../css/notifications.css"> <!-- Notifications, optional -->
+  <link rel="stylesheet" href="../css/typography.css"> <!-- Typography -->
+  <link rel="stylesheet" href="../css/forms.css"> <!--Forms, optional THIS NEEDS TO BE REMOVED IN ORDER TO MULTISELECT TO WORK -->
+  <link rel="stylesheet" href="../css/tables.css"> <!-- Tables, optional -->
+   <!-- Charts, optional -->
+  <link rel="stylesheet" href="../css/jquery-ui-1.8.15.custom.css"> <!-- jQuery UI, optional -->
+  <link rel="stylesheet" href="../css/application_custom.css"> <!-- Application Specific -->
+  <link rel="stylesheet" href="../css/font-awesome.min.css"> <!-- font-awesome, optional -->
+
+  <!-- end CSS-->
+  <!-- Custom CSS, Javascripts and other head code-->
+    <!-- Fonts -->
+  <link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+  <!-- end Fonts-->
+<style type="text/css">
+  @media print {
+    .hidden-print {
+      display: none !important;
+    }
+    a[href]:after { content: ""; }
+    #container > #main {
+		margin-left: 0px;
+	}
+  }
+
+
+</style>
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="../js/libs/modernizr-2.0.6.min.js"></script>
+
+  <!-- Top Javascripts-->
+  <style>
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+</style>
+
+</head>
+
+<body id="top">
+<div id="loading" style="text-align:center;display:none;"><img src="../img/mt_icons/30.gif"></div>
+<div id="badgetalert" style="text-align:center;display:none;">Nueva Orden Externa</div>
+  <!-- Begin of #container -->
+  <div id="container">
+  	<!-- Begin of #header -->
+    <div id="header-surround" class="hidden-print"><header id="header">
+
+    	<!-- Place your logo here -->
+		<img src="../img/mt_icons/app/medicati.png" alt="Grape" class="logo">
+
+		<!-- Divider between info-button and the toolbar-icons -->
+		<div class="divider-header divider-vertical"></div>
+
+		<!-- Info-Button -->
+		<a href="javascript:void(0);" onclick="$('#info-dialog').dialog({ modal: true });"><span class="btn-info"></span></a>
+
+			<!-- Modal Box Content -->
+			<div id="info-dialog" title="Acerca De" style="display: none;">
+				<p style="text-align: center;">MedicaTI V30.2.103</p>
+				<p style="text-align: center;">MedicaTI Ver Date 2025-07-01</p>
+				<p style="text-align: center;">MedicaTI DB V1.4.2</p>
+				<p style="text-align: center;">Fecha 2025/04/1</p>
+								<p style="text-align: center;">Versión Avanzada</p>
+										<p style="text-align: center;">Órdenes de Trabajo: 169 de 4000</p>
+															<p style="text-align: center;">Imágenes: 7 de 400</p>
+									
+                <BR>
+                                    <p style="text-align: center;"><button type="button" id="boton_dbug" value="Dbug" style="background: red; border-radius: 6px; cursor: pointer; color: white; border: green;" >DBUG</button></p>
+                
+                				<p>El equipo de ODInet le agradece su preferencia, gracias por utilizar el software MedicaTI.</p>
+				<p>Este software esta protegido por los respectivos derechos de autor.</p>
+			</div> <!--! end of #info-dialog -->
+
+
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header">
+			<!-- First entry -->
+			<li>
+				<a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Activar Navegación" style="position: absolute; padding: 8px; color: white; text-decoration: none;">
+					<i class="icon-2x icon-reorder"></i>
+				</a>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header" style="display: none;">
+			<!-- First entry -->
+			<li>
+				<a rel="tooltip" title="Create a User" class="toolbox-action" href="javascript:void(0);"><span class="i-24-user-business"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a User</h1>
+						</div>
+						<form id="create-user-form" class="block-content form" action="" method="post">
+							<div class="_100">
+								<p><label for="username">Username</label><input id="username" name="username" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="firstname">Firstname</label><input id="firstname" name="firstname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="lastname">Lastname</label><input id="lastname" name="lastname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create the User"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of first entry -->
+
+			<!-- Second entry -->
+			<li>
+				<a rel="tooltip" title="Write a Message" class="toolbox-action" href="javascript:void(0);"><span class="i-24-inbox-document"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Write a Message</h1>
+						</div>
+						<form id="write-message-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="recipient">Recipient</label>
+								<input type="text" name="recipient" class="required">
+							</p>
+							<p class="inline-mini-label">
+								<label for="subject">Subject</label>
+								<input type="text" name="subject">
+							</p>
+							<div class="_100">
+								<p class="no-top-margin"><label for="message">Message</label><textarea id="message" name="message" class="required" rows="5" cols="40"></textarea></p>
+							</div>
+
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset2" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Send Message"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of second entry -->
+
+			<!-- Third entry -->
+			<li>
+				<a rel="tooltip" title="Create a Folder" class="toolbox-action" href="javascript:void(0);"><span class="i-24-folder-horizontal-open"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a Folder</h1>
+						</div>
+						<form id="create-folder-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="folder-name">Name</label>
+								<input type="text" name="folder-name" class="required">
+							</p>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset3" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create Folder"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin of #user-info -->
+		<div id="user-info">
+			<p>
+				<span class="messages">Hola <a href="javascript:void(0);">Usuario Administrador</a> de Matriz <span style="display: none"> ( <a href="javascript:void(0);"><img src="../img/mt_icons/app/mail.png" alt="Messages"> 3 nuevos mensajes</a> ) </span></span>
+				<span style="display: none"> <a href="javascript:void(0)" class="toolbox-action button">Ajustes</a></span> <a href="auth/logout" class="button red">Salir</a>
+			</p>
+		</div> <!--! end of #user-info -->
+
+    </header></div> <!--! end of #header -->
+
+    <div class="fix-shadow-bottom-height"></div>
+
+	<!-- Begin of Sidebar -->
+    <aside id="sidebar" class="hidden-print" style="overflow: hidden;">
+
+    	<!-- Search -->
+    	<div id="search-bar">
+			<form id="search-form" name="search-form" action="search.php" method="post">
+				<input style="display: none" type="text" id="query" name="query" value="" autocomplete="off" placeholder="Búsqueda">
+			</form>
+		</div> <!--! end of #search-bar -->
+
+		<!-- Begin of #login-details -->
+		<section id="login-details">
+    		<img class="img-left framed" src="../img/mt_icons/app/logo_mdti.png" alt="Medica TI">
+    		<h3>Usuario Registrado:</h3>
+    		<h2><a class="user-button" href="javascript:void(0);">admin&nbsp;<span class="arrow-link-down"></span></a></h2>
+    		<ul class="dropdown-username-menu">
+    			<li><a href="auth/logout">Salir</a></li>
+    		</ul>
+
+    		<div class="clearfix"></div>
+  		</section> <!--! end of #login-details -->
+      
+		<!-- Begin of Navigation -->
+		<nav id="nav">
+			<ul class="menu collapsible shadow-bottom">
+				
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/reception_desk/sofa.png">Recepción<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/insert"  >Orden de Trabajo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/listing"  >Listado de Ordenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/estimate/listing"  >Listado de Cotizaciones</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/cash_fund/listing"  >Salidas de Caja</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/lab/lab-16.png">Laboratorio<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_listing"  >Ordenes de Laboratorio</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_areas"  >Procesos por Área</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_sheet"  >Hojas de Trabajo</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li class="expand">
+			   <a href="javascript:void(0);" class="current"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/medical/steto-16.png">Médicos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/insert"  >Nuevo Médico</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/listing"  >Listado de Médicos</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/emr/user.png">Registro de Pacientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/emr/listing"  >Listado de Pacientes</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/company/company-16.png">Empresas y Clientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/insert"  >Nueva Empresa o Cliente</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/listing"  >Listado de Empresas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/suppliers/suppliers-icon-16.png">Compras a Proveedores</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/insert"  >Nuevo Proveedor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/listing"  >Listado de Proveedores</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/products/box-16.png">Conceptos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/insert"  >Nuevo Concepto</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/listing"  >Listado de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/insert"  >Nuevo Insumo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/listing"  >Listado de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_list"  >Listado de Tarifarios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_changes"  >Cambios de Precios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/barcode_groups"  >Grupos de Etiquetas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/admin/application-task.png">Administración</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/users/admin/listing"  >Usuarios</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/table.png">Reportes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/work_orders"  >Reportes de Órdenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/products"  >Reportes de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/company"  >Pacientes por Empresa</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock"  >Consumo de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock_levels"  >Movimientos de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/doctors"  >Pacientes por Doctor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/sales"  >Reportes de Ventas y Cierres</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/cash_fund_out"  >Reportes de Salidas de Caja</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/estimate"  >Reportes de Cotizaciones</a></li>
+
+				</ul>
+
+			</li>
+			
+			</ul>
+		</nav>
+		<!--! end of #nav -->		
+		      <br/>
+          	<img src="../account_data/sanrafael/system/logo_sanrafael_260x98.png">
+
+    </aside> <!--! end of #sidebar -->
+
+    <!-- Begin of #main -->
+    <div id="main" role="main">
+
+    	<!-- Begin of titlebar/breadcrumbs -->
+		<div id="title-bar" class="hidden-print">
+
+							<div class="_100" id="turn-alerts" style="margin-bottom:-5px;margin-top:10px;"></div>
+						<ul id="breadcrumbs" style="display: none">
+				<li><a href="dashboard.html" title="Home"><span id="bc-home"></span></a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li class="no-hover">menu item</li>
+			</ul>
+		</div> 
+		<!--! end of #title-bar -->
+		
+				<div class="shadow-bottom shadow-titlebar"></div>
+
+		<!-- Begin of #main-content -->
+		<div id="main-content">
+			<div class="container_12">
+
+			<!-- Put your content here! -->
+                        <!-- General Title -->
+                        
+			<div class="grid_12">
+				<h1>Médicos</h1>
+				<p>Administración de Médicos</p>
+			</div>
+			
+                        <!-- Shortcuts -->
+                        
+    	<!-- Begin of Shortcuts -->
+			
+			<div class="grid_12 hidden-print">
+				<div class="block-border">
+					<div class="block-content">
+						<ul class="shortcut-list">
+							
+					<li>
+
+						<a href="medical/insert">
+							 <img src="../img/mt_icons/medical/doctor-48.png">
+							 Nuevo Médico
+						</a>
+					</li>
+
+					<li>
+
+						<a href="medical/listing">
+							 <img src="../img/mt_icons/medical/doctors_listing-48.png">
+							 Listado de Médicos
+						</a>
+					</li>
+
+					<li>
+
+						<a href="medical/specialty">
+							 <img src="../img/mt_icons/medical/specialty-48.png">
+							 Especialidades
+						</a>
+					</li>
+
+						</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+			</div>
+			
+	<!--! end of Shortcuts -->		
+		                        <br><br>
+                        <!-- General Screen Alert Msg -->
+							<div id="alert_messages" class="grid_12">
+															</div>
+                        <!-- General Content display-->
+                        <style>
+	input.read_only{
+		background-color: #E0DDDB;
+	}
+</style>
+
+<div class="grid_9">
+	<div class="block-border">
+
+		<div class="block-header">
+			<h1>Alta de Doctor</h1><span></span>
+		</div>
+		<form action="https://app24.medicati.com/mdti/lab/sanrafael/medical/insert" method="post" accept-charset="utf-8" class="block-content form" id="validate-form">			<input type="hidden" name="action" value="insert" >
+			<input type="hidden" name="id_app_user" id="id_app_user" value="">
+			<input type="hidden" name="uacc_id" id="uacc_id" value="">
+
+
+			<div class="_50">
+				<h3>Datos del Médico</h3>
+			</div>
+			<div class="_25">
+				<p class="inline-small-label">
+					&nbsp;
+				</p>
+			</div>
+			<div class="_25">
+				<p class="inline-small-label">
+					<label for="field5" style="margin-left: -80px;">Registro No.</label>
+					<input type="text" name="id_med_doctors" class="medium" style="text-align:center;" readonly="true" value="">
+				</p>
+			</div>
+
+			<div class="_100">
+				<p><hr /></p>
+			</div>
+
+			<div class="_25">
+				<p>
+					<label for="select">Título</label>
+					<select name="title" id="title" >
+										<option value=""  selected="selected"></option>
+										<option value="Dr."  >Dr.</option>
+										<option value="Dra."  >Dra.</option>
+					  </select>
+				</p>
+			</div>
+
+			<div class="_25">
+				<p><label for="textfield">Nombre</label>
+				<input id="name" name="name" class="required" type="text" autocomplete="off" value="" />
+				</p>
+			</div>
+			<div class="_25">
+				<p><label for="textfield">Apellidos</label>
+				<input id="last_name" name="last_name" class="required" type="text" autocomplete="off" value="" />
+				</p>
+			</div>
+			<div class="_25">
+				<p><label for="datepicker">Fecha de Alta</label>
+				<input id="datepicker" name="date_registered"  type="text" class="required" autocomplete="off" value="20/07/2025" />
+				</p>
+			</div>
+			<div class="_100">
+				<span><hr class="hide" /></span>
+			</div>
+
+			<!--Line Separator -->
+			<div class="_25">
+				<p>
+				<label for="select">Especialidad</label>
+				<select name="id_med_specialty">
+<option value="0">-</option>
+<option value="23">Alergia e Inmunología</option>
+<option value="24">Anestesiólogo</option>
+<option value="25">Angiología</option>
+<option value="18">Cardiólogo</option>
+<option value="22">Cirugía Plástica</option>
+<option value="38">Cirujano Cardiovascular y del torax</option>
+<option value="39">Cirujano Dentista</option>
+<option value="40">Cirujano General</option>
+<option value="26">Cirujano Pediatra</option>
+<option value="41">Cirujano Urólogo</option>
+<option value="27">Cuidados Paliativos</option>
+<option value="15">Dermatólogo</option>
+<option value="1">Endocrinólogo</option>
+<option value="42">Endoscopista</option>
+<option value="4">Gastro</option>
+<option value="12">Gastroenterólogo</option>
+<option value="43">Geriatría</option>
+<option value="44">Gerontología</option>
+<option value="3">Ginecólogo</option>
+<option value="17">Hematólogo</option>
+<option value="45">Histopatología</option>
+<option value="46">Infectología</option>
+<option value="47">Inhaloterapia</option>
+<option value="11">Internista</option>
+<option value="28">Maxilofacial</option>
+<option value="20">Medicina del Trabajo</option>
+<option value="48">Medicina Deportiva</option>
+<option value="49">Medicina Familiar</option>
+<option value="29">Medicina General/Urgencias</option>
+<option value="50">Medicina Integrada</option>
+<option value="5">Medicina Interna</option>
+<option value="16">Médico General</option>
+<option value="51">Nefrología</option>
+<option value="30">Neumólogo</option>
+<option value="52">Neumólogo Pediatra</option>
+<option value="53">Neurocirujano</option>
+<option value="19">Neurólogo</option>
+<option value="33">Neuropediatra</option>
+<option value="10">Nutriólogo</option>
+<option value="54">Odontología</option>
+<option value="13">Oftalmólogo</option>
+<option value="37">Oncólogo</option>
+<option value="8">Ortopedista</option>
+<option value="7">Otorrinaringólogo</option>
+<option value="36">Otorrino</option>
+<option value="6">Patólogo Clínico</option>
+<option value="2">Pediatra</option>
+<option value="35">Proctología</option>
+<option value="55">Psiquiatría</option>
+<option value="9">Radiólogo</option>
+<option value="14">Rehabilitación</option>
+<option value="34">Reumatología</option>
+<option value="57">Terapia Intensiva</option>
+<option value="56">Toxicología</option>
+<option value="21">Transplantólogo</option>
+<option value="32">Traumatólogo</option>
+<option value="31">Urología</option>
+</select>				</p>
+			</div>
+
+			<div class="_25">
+
+				<p>
+					<label>Tipo de Doctor</label>
+					<label><input disabled='disabled'type="radio" style="width:15%;" name="entrance_type" value="1"  /> Interno</label>
+					<label><input type="radio" style="width:15%;" name="entrance_type" value="2"  /> Externo</label>
+
+				</p>
+			</div>
+
+			<div class="_25" style="display:none;" id="chk_agenda">
+				<p><label for="enable_agenda">Habilitar Agenda</label>
+					<input type="checkbox" name="enable_agenda" id="enable_agenda"  value="1">
+					<label for="select">Sucursal</label>
+					<select name="id_app_locations">
+<option value="0">-</option>
+</select>
+						
+					</select>
+								</p>
+			</div>
+
+
+			<div class="_25">
+				<p><label for="textfield">Asistente</label>
+				<input id="assistant_name" name="assistant_name"  type="text" autocomplete="off" value="" />
+				</p>
+			</div>
+
+
+
+			
+						<!--Line Separator -->
+			<!--Line Separator -->
+			<div style='display:none;'>
+				<div class="_100">
+					<h3 id="txt_info_user">Información de Usuario Interno</h3>
+				</div>
+				<div class="_100">
+					<p><hr /></p>
+				</div>
+				<div id="wrapper_user_info_internal">
+					<div class="_25">
+						<br/>
+											<p>Usuario de Acceso:</p>
+
+					</div>
+					<!-- <div id="internal_sign" style="display:;">
+
+						<div class="_75">
+							<p>Favor de Contactar a su <strong>Administrador</strong> para Habilitar el Acceso</p>
+						</div>
+
+					</div> -->
+					<div id="internal_inputs" >
+						<div class="_25">
+							<p><label for="int_username">Usuario</label>
+							<input id="int_username" remote="medical/ajx_check_username" name="int_username" type="text" autocomplete="off" value=""/>
+							</p>
+
+						</div>
+
+						<div class="_25">
+							<p><label for="int_pwd">Contraseña</label>
+							<input id="int_pwd" maxlength="14"  minlength="6" name="int_pwd" type="text" autocomplete="off" value=""/>
+							</p>
+
+						</div>
+
+						<div class="_25">
+							<p><label for="int_verify_password">Verificar Contraseña</label>
+							<input id="int_verify_password"  maxlength="14"  minlength="6" name="int_verify_password" autocomplete="off" type="text" value=""/>
+							</p>
+
+						</div>
+						<div class="_100" style="text-align: right;">
+						<p>
+							<button id="gen_pwd_int" class="button " style="height:25px;">Generar Contraseña</button>
+						</p>
+					</div>
+					</div>
+				</div>
+			</div><!-- interno -->
+
+			<div class="_100">
+				<h3 id="txt_info_user">Información de Usuario Externo</h3>
+			</div>
+			<div class="_100">
+				<p><hr /></p>
+			</div>
+			<div id="wrapper_user_info_external">
+				<div class="_25">
+					<br/>
+										<p>Usuario de Acceso:</p>
+
+				</div>
+
+				<div class="_25">
+					<p><label for="ext_username">Usuario</label>
+					<input id="ext_username" remote="medical/ajx_check_username" name="ext_username" autocomplete="off" type="text" value=""/>
+					</p>
+
+				</div>
+
+				<div class="_25">
+					<p><label for="ext_pwd">Contraseña</label>
+					<input id="ext_pwd" maxlength="14"  minlength="6" name="ext_pwd" autocomplete="off" type="text" value=""/>
+					</p>
+
+				</div>
+
+				<div class="_25">
+					<p><label for="res_verify_password">Verificar Contraseña</label>
+					<input id="ext_verify_password" equalTo="#ext_pwd" maxlength="14"  minlength="6" name="ext_verify_password" autocomplete="off" type="text" value=""/>
+					</p>
+
+				</div>
+				<div class="_100" style="text-align: right;">
+					<p>
+						<button id="gen_pwd" class="button" style="height:25px;">Generar Contraseña</button>
+					</p>
+				</div>
+			</div>
+			<!--Line Separator -->
+							<div class="_100">
+									<span style="visibility:hidden;">										<label>Permisos:</label>
+										<span> Acceso para Resultados <input type="checkbox" style="width:15%;" name="access_results" value="1"  checked="checked" /></span>
+										<span style="display: none">Acceso a Sistema Administrativo <input type="checkbox" style="width:15%;" name="access_admin" value="1"  /> </span>
+										<br/>
+									</span>				</div>
+
+
+			<!--Line Separator -->
+			<div class="_100">
+				<h3>Información Adicional</h3>
+			</div>
+			<div class="_100">
+				<p><hr /></p>
+			</div>
+
+				<div class="_25">
+					<p><label for="cell_phone">Teléfono Celular</label>
+										<input type="text" name="cell_phone" value=""  />										</p>
+
+				</div>
+
+				<div class="_25">
+				  <p style="margin-left: 20px;margin-top: 20px;">
+				  				  				  </p>
+				</div>
+
+				<div class="_50">
+					<p><label for="email">e-mail</label>
+										<input type="text" name="email" value=""  />										</p>
+
+				</div>
+
+				<div class="_25">
+									<p style="margin-left: 20px;margin-top: 20px;">
+																											</p>
+								</div>
+								<!--Line Separator -->
+								<div class="_100">
+										<span><hr class="hide" /></span>
+								</div>
+
+				<div class="_25">
+					<p>
+											<label for="clinic_phone">Teléfono Consultorio</label>
+											<input type="text" name="clinic_phone" value=""  />										</p>
+
+				</div>
+
+				<div class="_25">
+					<p>
+											<label for="home_phone">Teléfono Casa</label>
+											<input type="text" name="home_phone" value=""  />										</p>
+				</div>
+
+				<div class="_50">
+					<p>
+											<label for="businesshr">Horario de Consulta</label>
+											<input type="text" name="businesshr" value=""  />										</p>
+
+				</div>
+			<div class="_100">
+				<p>
+									<label for="address">Dirección</label>
+									<textarea id="address" name="address"  rows="2" cols="40"></textarea>
+								</p>
+			</div>
+
+			<div class="_100">
+				<p><hr / class="hide"></p>
+			</div>
+			<!--Line Separator -->
+
+			<!--Line Separator
+
+
+			<div class="_100">
+				<p><hr / class="hide"></p>
+			</div>
+			-->
+			<div class="_100">
+							<span style="visibility:hidden;">				<p><label for="signature">Firma del Doctor</label>
+				<textarea id="signature" name="signature"  rows="2" cols="40"></textarea></p>
+							<span style="visibility:hidden;">
+			</div>
+
+									<div class="clear"></div>
+
+						<!-- Buttons with actionbar  -->
+						<div class="block-actions">
+							<ul class="actions-left">
+								<li><a class="button red" id="reset-validate-form" href="medical/listing">Cancelar</a></li>
+							</ul>
+
+							<ul class="actions-right">
+								<li><input type="submit" class="button" value="Guardar"></li>
+							</ul>
+						</div> <!--! end of #block-actions -->
+
+	</div>
+</div>
+		</form>
+	<div class="grid_3">
+			<div class="block-border">
+					<div class="block-header">
+							<h1>Descripción</h1><span></span>
+					</div>
+					<div class="block-content" style="text-align: justify;">
+							<p>Esta pantalla permite dar de alta los Médicos registrados en el laboratorio, con esto el Médico puede acceder a los
+							resulados desde su consultorio además de contar con una herramienta de acceso a los datos de contacto del doctor.</p>
+					</div>
+			</div>
+	</div>
+
+                        <!-- General Bottom Screen Alert Msg -->
+                        
+                        
+
+
+
+
+			<div class="clear height-fix"></div>
+
+		</div>
+		</div> <!--! end of #main-content -->
+  </div> <!--! end of #main -->
+
+
+    <footer id="footer">
+        <div class="container_12">
+		<div class="grid_12">
+    		<div class="footer-icon align-center"><a class="top" scrollit="1" href="#top"></a></div>
+		</div>
+    </div></footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
+  <script>window.jQuery || document.write('<script src="../js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="../js/plugins.js"></script> <!-- lightweight wrapper for consolelog, optional -->
+  <script defer src="../js/mylibs/jquery-ui-1.8.15.custom.min.js"></script> <!-- jQuery UI -->
+  <script defer src="../js/mylibs/jquery.notifications.js"></script> <!-- Notifications  -->
+  <!--<script defer src="../js/mylibs/jquery.uniform.min.js"></script> Uniform (Look & Feel from forms) removed for cart-->
+  <script defer src="../js/mylibs/jquery.validate.js"></script> <!-- Validation from forms -->
+  <script defer src="../js/mylibs/jquery.tipsy.js"></script> <!-- Tooltips -->
+  <script defer src="../js/mylibs/excanvas.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.visualize.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.slidernav.min.js"></script> <!-- Contact List -->
+  <script defer src="../js/common.js"></script> <!-- Generic functions -->
+  <script defer src="../js/script.js"></script> <!-- Generic scripts -->
+  	<script type="text/javascript" src="../js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="../js/jquery.slimscroll.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+
+  <!-- Bottom Javascripts-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'></script>
+
+	<script type="text/javascript" charset="utf-8">
+		$("#gen_pwd").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				type: "POST",
+				data: {
+					username: $("#ext_username").val()
+				},
+				url: "auth/ajx_gen_pwd",
+				success: function(res) {
+					if(res.username) {
+						$("#ext_username").val(res.username);
+					}
+					$("#ext_pwd").val(res.password);
+					$("#ext_verify_password").val(res.password);
+				}
+			});
+		});
+	</script>
+	<script type="text/javascript" charset="utf-8">
+	$("#gen_pwd_int").click(function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: "POST",
+			data: {
+				username: $("#int_username").val()
+			},
+			url: "auth/ajx_gen_pwd",
+			success: function(res) {
+				if(res.username) {
+					$("#int_username").val(res.username);
+				}
+				$("#int_pwd").val(res.password);
+				$("#int_verify_password").val(res.password);
+			}
+		});
+	});
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+	$("#submit_btn, #btn_submit").click(function(e){
+	// $("#submit_btn, #btn_submit").closest("form").submit(function(e){
+		$("#loading").css("display","");
+		$("#loading").dialog("open");
+		e.preventDefault();
+		button = $(this);
+		button.attr("disabled", "disabled");
+		button.closest("form").submit();
+		setTimeout(function(){
+			button.removeAttr("disabled");
+			$("#loading").dialog("close");
+		},6000);
+	});
+
+	$(document).delegate(":input:not(textarea):not([type=submit])","keypress",function(e) {
+		return e.keyCode != 13;
+	});
+</script>
+
+<script type="text/javascript" charset="utf-8"> 
+    $(document).ready(function(){
+        $("#boton_dbug").click(function(){
+            $.post("reception/work_order/listing", {dbug: "True"})
+            window.location.replace("auth/login");
+	});
+	
+	$("#loading").dialog({
+		resizable: false,
+		draggable: true,
+		autoOpen: false,
+		modal: true,
+		height: 60,
+		maxWidth: 180,
+		closeOnEscape: true,
+		title: "Procesando...",
+		closeText: "hide",
+		dialogClass: "no-close"
+	  });
+
+});
+
+
+</script>
+
+  <script type="text/javascript">
+	$().ready(function() {
+		"use strict";
+
+		App.init();
+        
+		var v = $("#create-user-form").validate();
+		jQuery("#reset").click(function() { v.resetForm(); $.jGrowl("User was not created!", { theme: 'error' }); });
+
+		var v2 = $("#write-message-form").validate();
+		jQuery("#reset2").click(function() { v2.resetForm(); $.jGrowl("Message was not sent.", { theme: 'error' }); });
+
+		var v3 = $("#create-folder-form").validate();
+		jQuery("#reset3").click(function() { v3.resetForm(); $.jGrowl("Folder was not created!", { theme: 'error' }); });
+
+		var v4 = $("#create-title-form").validate();
+
+
+		$("#modal").click(function(e) {
+                  $("#"+$(e.target).attr("modal")).modal({
+                    opacity:50,
+                    overlayCss: {backgroundColor:"#666666"}
+                    });
+                });
+
+
+		/*
+		 * Charts
+		 */
+		$('#graph-data').visualize({type: 'line', height: 250}).appendTo('#tab-line').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'area', height: 250}).appendTo('#tab-area').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'pie', height: 250}).appendTo('#tab-pie').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'bar', height: 250}).appendTo('#tab-bar').trigger('visualizeRefresh');
+
+		/*
+		 * Tabs
+		 */
+		$("#specify-a-unique-tab-name").createTabs();
+		$("#tab-graph").createTabs();
+
+		/*
+		 * Contact List
+		 */
+		$('#slider').sliderNav();
+
+
+                //## js_docready functions
+                
+		jQuery.validator.addMethod("pwd", function(value, element, params) {
+
+			var pwd_verify = $(params).get(0) || null;
+			// console.info(arguments);
+			return this.optional(element) || value == pwd_verify.value;
+		}, jQuery.validator.format("Favor de corregir los campos de Contraseña."));
+
+
+		// jQuery.validator.setDefaults({
+		//     debug: true
+		// });
+
+		/*
+		 * Basic Form Validate
+		 */
+		var validateform = $("#validate-form").validate({
+
+			rules: {
+				email: {
+					required: false,
+					email: false
+				},
+				// int_pwd: {
+				//     pwd: '#int_verify_password'
+				// }
+				int_verify_password: {
+					pwd: '#int_pwd'
+				},
+				ext_username: {
+					required: function(){
+						if($("#ext_pwd").val()){
+							return true;
+						}
+						return false;
+					},
+					remote: {
+						url: "medical/ajx_username_validate",
+						type: "post",
+						data: {
+							id_med_doctors: '.( ?:"false").'
+						}
+					}
+				}
+
+			},
+			messages: {
+				int_username: {
+					remote: "Favor de seleccionar otro Usuario."
+				},
+				email: {
+					email: "Dirección de correo electrónico inválida."
+				},
+				ext_username: {
+					remote: "Nombre de usuario ya existente",
+					required: "Debe elegir un nombre de usuario si quiere usar contraseña"
+				}
+			}
+
+		});
+
+				//# Cancel Click function
+		$("#reset-validate-form").click(function() {
+			validateform.resetForm();
+			$.jGrowl("Los campos de la forma fueron borrados.", { theme: 'error' });
+		});
+
+
+		//$("div#wrapper_user_info_internal").userHandler({});
+
+		/*
+		 * Datepicker
+		 */
+		//$( "#datepicker" ).datepicker({
+		var dates = $( "#datepicker" ).datepicker({
+			dateFormat: 'dd/mm/yy',
+			maxDate: '+1Y',
+			changeMonth: true,
+			firstDay: 1,
+			changeYear: true,
+			numberOfMonths: 1,
+					defaultDate: 0,
+
+			dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+			monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+			'Junio', 'Julio', 'Agosto', 'Septiembre',
+			'Octubre', 'Noviembre', 'Diciembre'],
+			monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr',
+			'May', 'Jun', 'Jul', 'Ago',
+			'Sep', 'Oct', 'Nov', 'Dic']
+		});
+
+		if( _.some( $('input:radio[name="entrance_type"]'),function(el,index,list){ return el.checked;}) == false){
+
+				$("input","div#wrapper_user_info_external").prop("readonly","readonly").css("background-color", "#E0DDDB");
+				$("input","div#wrapper_user_info_internal").prop("readonly","readonly").css("background-color", "#E0DDDB");
+
+		}else{
+
+		}
+
+
+		if( $("input[name=action]").val() == "insert" ){
+			// Show sign
+			// Hide checkbox enable_agenda
+			// radio "interno" does nothing
+
+			// $("div#internal_sign").show();
+			// $("div#internal_inputs").hide();
+			// $("#chk_agenda").hide();
+
+		}
+
+
+
+
+		$('input:radio[name="entrance_type"]').bind('click',function(e){
+			var el = e.target,
+				wrapper_external = $("div#wrapper_user_info_external"),
+				wrapper_internal = $("div#wrapper_user_info_internal"),
+				txt_h3 = $("h3#txt_info_user");
+
+			switch(parseInt(el.value)){
+				case 1:
+				// Interno
+	
+					$("input", wrapper_internal).prop("readonly","").css("background-color","");
+					$("input", wrapper_external).prop("readonly","readonly").css("background-color","#E0DDDB");
+
+						if($('input:radio[name="entrance_type"]:eq(0)').is(':checked')){
+
+							$("#chk_agenda").show();
+						}
+
+						$('#gen_pwd').attr('disabled','true');
+						$('#gen_pwd').addClass('grey');
+						$('#gen_pwd_int').removeAttr('disabled');
+						$('#gen_pwd_int').removeClass('grey');
+		
+						$("div#internal_sign").hide();
+						$("div#internal_inputs").show();
+
+					// wrapper_external.hide();
+					wrapper_internal.show();
+
+				break;
+				case 2:
+				// Externo
+
+					$("input", wrapper_external).prop("readonly","").css("background-color","");
+					$("input", wrapper_internal).prop("readonly","readonly").css("background-color","#E0DDDB");
+
+						$("#chk_agenda").hide();
+
+					$('#gen_pwd_int').attr('disabled','true');
+					$('#gen_pwd_int').addClass('grey');
+					$('#gen_pwd').removeAttr('disabled');
+					$('#gen_pwd').removeClass('grey');
+
+					// wrapper_internal.hide();
+					wrapper_external.show();
+
+				break;
+				default:
+					console.info("Entro default");
+			}
+
+
+		});
+		
+		// Auto a radio Externo
+		if($('input:radio[name="entrance_type"]:eq(0)').is(':checked')){
+			$("input", $("div#wrapper_user_info_internal")).prop("readonly","").css("background-color","");
+			$("input", $("div#wrapper_user_info_external")).prop("readonly","readonly").css("background-color","#E0DDDB");
+
+				$("#chk_agenda").show();
+
+				$("div#internal_sign").hide();
+				$("div#internal_inputs").show();
+
+				$('#gen_pwd').attr('disabled','true');
+				$('#gen_pwd').addClass('grey');
+
+			// $("div#wrapper_user_info_external").hide();
+			$("div#wrapper_user_info_internal").show();
+
+		}else{
+			$('input:radio[name="entrance_type"]:eq(1)').click();
+			$("input", $("div#wrapper_user_info_external")).prop("readonly","").css("background-color","");
+			$("input", $("div#wrapper_user_info_internal")).prop("readonly","readonly").css("background-color","#E0DDDB");
+
+				$("#chk_agenda").hide();
+				$('#gen_pwd_int').attr('disabled','true');
+				$('#gen_pwd_int').addClass('grey');
+			// $("div#wrapper_user_info_internal").hide();
+			$("div#wrapper_user_info_external").show();
+		}
+
+
+		// if( $("input[name=action]").val() == "update" ){
+		// 	// Show sign
+		// 	// Hide checkbox enable_agenda
+		// 	// radio "interno" does nothing
+
+		// 	$("div#internal_sign").hide();
+		// 	$("div#internal_inputs").show();
+
+		// 	if($('input:radio[name="entrance_type"]:eq(0)').is(':checked') ){
+
+		// 		$("input", $("div#internal_inputs")).prop("readonly","readonly").css("background-color","#E0DDDB");
+		// 		$("#chk_agenda").show();
+
+		// 	}else{
+
+		// 		if( parseInt($("input#id_app_user").val() || 0) == 0){
+
+		// 			$("div#internal_sign").show();
+		// 			$("div#internal_inputs").hide();
+		// 			$("#chk_agenda").hide();
+		// 		}else{
+		// 			$("input", $("div#wrapper_user_info_external")).prop("readonly","readonly").css("background-color","#E0DDDB");
+		// 		}
+
+		// 	}
+
+
+		// }
+
+
+	});
+  </script>
+  <!-- end scripts-->
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>
