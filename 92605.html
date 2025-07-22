@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Impresión de Orden de Trabajo</title>
+		<meta charset="utf-8">
+		<base href="https://app24.medicati.com/mdti/lab/sanrafael/" />
+
+        <!-- <link rel="stylesheet" type="text/css" href="../css/reset.css" media="all"> -->
+	    					<script src="../js/libs/DYMO.Label.Framework.3.0.0.js"></script>
+			    <script src="../js/libs/jquery-1.6.2.min.js"></script>
+   		<script src="../js/jquery.dymo.label.js"></script>
+	            <style type="text/css"  media="all">
+
+	    #patient_info{
+		margin: 10px 0px;
+		padding: 5px;
+                border:solid 1px #545454;	
+                -moz-border-radius: 5px;
+                -webkit-border-top-left-radius:5px;
+                -webkit-border-top-right-radius:5px;
+                -webkit-border-bottom-left-radius:5px;
+                -webkit-border-bottom-right-radius:5px;
+                border-top-left-radius:5px;
+                border-top-right-radius:5px;
+                border-bottom-left-radius:5px;
+                border-bottom-right-radius:5px;
+	    }
+        
+		#header > div{
+			/*display: inline-block;
+
+			border: 1px solid red;
+			width: 49.5%;
+			margin: 0;
+			padding: 0;
+			vertical-align: top;
+			clear: both;*/
+			margin: 0 auto;
+			display: inline-block;
+			/*border: 1px solid #BADA55;*/
+			width: 49%;
+			vertical-align: top;
+		}
+
+
+		#header > div p{
+			margin: inherit;
+			padding: inherit;
+		    font-size: 9px;
+		}
+
+	    .exam_name{
+		/* border: 1px #330099 solid; */
+		width:99%;
+		/*padding:3px;*/
+                margin: 0px 0px 10px 0px;
+                font-weight: bold;
+                font-size: 14px;
+	    }
+	    .header_label {
+		font-weight:bold;
+                padding: 0px 2px 0px 0px;
+                text-align: right;
+	    }
+
+            .header_value {
+                padding: 0px 0px 0px 2px;
+				
+            }
+
+	    .separator{
+		height: 2px;
+		color: #fff;
+		background-color: #000000;
+		margin-top:2px;
+		margin-bottom:2px;
+	    }
+	    .result_table{
+                margin-top:0px;
+                width: 100% !important;
+
+	    }
+
+            table.result_table > tbody > tr td{
+
+                padding: 0px;
+
+            }
+
+
+            /*table.result_table > tbody > tr td:last-child{*/
+            /*    */
+            /*    text-align: center;*/
+            /*    */
+            /*    */
+            /*}*/
+            /**/
+            /*table.result_table > tfoot > tr:first-child td{*/
+            /*    */
+            /*    padding: 20px 0px 0px 0px;*/
+            /*    */
+            /*}*/
+
+
+            .result_headers{
+		font-weight: bold;
+		text-align: center;
+	    }
+	    a{
+		COLOR: #003366; TEXT-DECORATION: none;
+	    }
+	    a:hover{
+		COLOR: #808080; TEXT-DECORATION: underline
+	    }
+	    .controls{
+		font-weight: bold;
+		width: 100%;
+		text-align: center;
+	    }
+
+            div.controls > div{
+
+            	margin: 0 auto;
+            	display: inline-block;
+            }
+
+            /**
+             * New Format
+             */
+
+            #header > span{
+                display: inline-block;
+
+                /*border: 1px solid red;*/
+                width: 49.5% !important;
+                margin: 0;
+                padding: 0;
+                vertical-align: top;
+                clear: both;
+            }
+
+
+            #header > span p{
+                margin: inherit;
+                padding: inherit;
+            }
+
+            div#footer_comments{
+
+                margin: 15px 0px;
+                min-height: 20px !important;
+
+                border: 1px solid #545454;
+                width: 100%;
+                -moz-border-radius: 5px;
+                -webkit-border-top-left-radius:5px;
+                -webkit-border-top-right-radius:5px;
+                -webkit-border-bottom-left-radius:5px;
+                -webkit-border-bottom-right-radius:5px;
+                border-top-left-radius:5px;
+                border-top-right-radius:5px;
+                border-bottom-left-radius:5px;
+                border-bottom-right-radius:5px;
+
+
+            }
+
+
+
+            div#footer_anotations{
+                width: 100%;
+                text-align: center;
+            }
+
+        </style>
+        <style type="text/css"  media="screen">
+		body {
+
+		    background: #d7dee4;
+		    overflow-x: hidden;
+		    font-family: "OpenSansRegular","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",Helvetica, Arial, sans-serif;
+		    font-size: 12px;
+		    line-height: 18px;
+
+		}
+
+		#main_content {
+		    width: 8.5in;
+		    background-color: #FFFFFF;
+		    border: 1px solid #CCCCCC;
+		    box-shadow: 0 0 6px #777777;
+		    margin: 20px auto 40px;
+		    padding: 50px;
+		    min-height: 11in;
+		}
+		#header {
+			width:100%;
+
+		}
+		p.pagebreak {
+		    background-color: #f00;
+		    height: 5px;
+		}
+        </style>
+        <style type="text/css"  media="print">
+		body {
+		    overflow-x: hidden;
+		    /*font-family: "OpenSansRegular",Helvetica, Arial, sans-serif;*/
+              font-family: "OpenSansRegular","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",Helvetica, Arial, sans-serif;
+
+		    font-size: 12px;
+		    line-height: 18px;
+		}
+		#main_content{
+			width: 6.9in;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0px;
+			/*border: 0px solid #CCCCCC;*/
+		}
+		@page {
+		    size: 8.5in 11in;
+		    margin: .5in;
+		}
+		img {
+		    image-resolution: from-image;
+		}
+		p.pagebreak {
+		    height: 0px;
+		    page-break-before: always;
+		}
+		.controls{
+			display: none;
+		}
+        </style>
+
+        </head>
+	<body>
+	
+	<div id="main_content" >
+		<div class="controls">
+			<div style="overflow: hidden;"><a href="JavaScript:window.print()">[Imprimir]</a>&nbsp;&nbsp;</div>
+												<div style="overflow: hidden;"><a id="print_label_groups" href="#">[Imprimir Etiquetas]</a></div>
+																		<div style="overflow: hidden;"><a href="JavaScript:window.self.close()">[Regresar]</a></div>
+		</div>
+
+		<table cellpadding="1" cellspacing="1" border="0" bgcolor="#FFFFFF" width="100%">
+		<thead><tr><td>
+		<!-- Header Document Wrapper table -->
+	            			<div id="header">
+			    
+				<div><img class="logo" src="../account_data/sanrafael//system/logo_sanrafael_2134x610.png" width="177.83333333333" height="50.833333333333"></div>
+				<div style="text-align:right !important;font-size: 8px;">
+					Av. del Valle No. 91<br>Fracc. Cd del Valle<br>C.P. 63157<br>Tepic, Nayarit<br>Tels. (311) 211-9470
+				</div>
+			</div>
+	            			<div id="patient_info" >
+				<table cellpadding="0" cellspacing="0" class="" width="95%">
+					<tr>
+
+						<td width='15%' class='header_label' >Folio:</td>
+						<td width='40%' class='header_value'>92615</td>
+						<td width='20%' align="right" class='header_label'>Fecha:</td>
+						<td width='20%' class='header_value'>21/07/2025  17:56:23</td>
+					</tr>
+					<tr>
+
+						<td class='header_label'>Paciente:</td>
+						<td  class='header_value'>REBECA MARTINEZ MEDINA</td>
+						<td class='header_label'>Edad:</td>
+						<td class='header_value'>43 Año(s)</td>
+					</tr>
+					<tr>
+
+						<td  class='header_label'>Médico:</td>
+						<td  class='header_value'>Dr. PEDRO ROSALES AGUILAR </td>
+											<td  class='header_label'>Sexo:&nbsp;</td>
+						<td  class='header_value'>Femenino</td>
+																				</tr>
+                                        <tr>
+						
+						<td  class='header_label'>Teléfono:</td>
+						<td  class='header_value'></td>
+
+		<!-- ######################### TIEMPO DE ENTREGA ADDON TIME DELIVERY  Y CAMPO FECHA PROMESA  ################### -->
+
+						
+		<!-- ########################################################################################################### -->
+
+						
+					</tr>
+											<tr>
+							<td class='header_label'>Empresa:&nbsp;</td>
+							<td class='header_value'>PARTICULAR</td>
+													</tr>
+															<tr>
+													<td class='header_label' style="vertical-align:top;">Comentarios:</td>
+							<td  class='header_value' style="vertical-align:top;">PX EN URGENCIAS</td>
+												</tr>
+						<tr>
+							<td class='header_label'>&nbsp;</td>
+							<td  class='header_value'>&nbsp;</td>
+						<td colspan="2" class='result_fld_text' align="right"><img src="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/barcode/92615"></td>
+					</tr>
+				</table>
+			</div>
+		<!-- Header Document Wrapper table -->
+		</td></tr></thead>
+		<tfoot><tr><td>
+		<!-- Footer Document Wrapper table -->
+			<center style="font-size: 8px;">Creado con Tecnología MedicaTI-Lab</center>
+
+		</td></tr></tfoot>
+		<tbody>
+		  <tr><td>
+		<!-- Body Document Wrapper table -->
+
+			<table cellpadding="0" cellspacing="0" class="result_table" >
+				<thead  >
+				<tr>
+				<td colspan="3">
+					<div class="exam_name">
+
+                                            <div style=""><strong>PRESUPUESTO</strong></div>
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+                                                                <th style="text-align: center;" >Código</th>
+                                            <th style="vertical-align:middle;" >Descripción</th>
+                                            <th style="text-align: right; padding-right: 80px;" >Importe</th>
+                    				</tr>
+
+				</thead>
+
+				<tbody>
+				<!-- array(1) {
+  [0]=>
+  array(120) {
+    ["id_ope_work_order_detail"]=>
+    string(6) "225197"
+    ["id_app_users_saved"]=>
+    string(1) "3"
+    ["id_app_users_upd"]=>
+    string(1) "3"
+    ["id_ope_work_order"]=>
+    string(5) "92605"
+    ["id_con_multirate"]=>
+    NULL
+    ["id_pro_products"]=>
+    string(2) "35"
+    ["id_status"]=>
+    string(1) "2"
+    ["is_published"]=>
+    string(1) "0"
+    ["is_file_upload"]=>
+    string(1) "0"
+    ["is_validated"]=>
+    string(1) "0"
+    ["user_validated"]=>
+    string(1) "0"
+    ["user_published"]=>
+    NULL
+    ["date_validated"]=>
+    NULL
+    ["date_added"]=>
+    string(19) "2008-05-04 23:03:13"
+    ["date_updated"]=>
+    string(19) "2025-07-21 18:04:39"
+    ["date_published"]=>
+    NULL
+    ["product_code"]=>
+    string(3) "BHC"
+    ["id_item_type"]=>
+    string(1) "3"
+    ["qty"]=>
+    string(1) "1"
+    ["unit"]=>
+    string(5) "PIEZA"
+    ["qty_per_unit"]=>
+    NULL
+    ["description"]=>
+    string(38) "BIOMETRIA HEMATICA COMPLETA SER5801022"
+    ["is_taxed"]=>
+    string(1) "1"
+    ["is_printed"]=>
+    NULL
+    ["id_cat_discount_type"]=>
+    string(1) "1"
+    ["discount"]=>
+    string(4) "0.00"
+    ["unit_cost"]=>
+    NULL
+    ["price"]=>
+    string(6) "185.00"
+    ["signed_by_detail"]=>
+    NULL
+    ["result"]=>
+    NULL
+    ["preserved_samples"]=>
+    NULL
+    ["max_limit"]=>
+    NULL
+    ["sampling_method"]=>
+    NULL
+    ["location_sample"]=>
+    NULL
+    ["sample_date"]=>
+    NULL
+    ["recep_date"]=>
+    NULL
+    ["num_samples"]=>
+    NULL
+    ["qty_samples"]=>
+    NULL
+    ["temp_recep"]=>
+    NULL
+    ["temp_sampling"]=>
+    NULL
+    ["required_analysis"]=>
+    NULL
+    ["required_analysis_selected"]=>
+    NULL
+    ["images"]=>
+    NULL
+    ["survey_response"]=>
+    NULL
+    ["negativos"]=>
+    NULL
+    ["positivos"]=>
+    NULL
+    ["no_aptos"]=>
+    NULL
+    ["enabled"]=>
+    string(1) "1"
+    ["id_api_pro_products"]=>
+    NULL
+    ["id_pro_area"]=>
+    string(1) "1"
+    ["id_pro_section"]=>
+    string(1) "7"
+    ["id_pro_category"]=>
+    string(1) "6"
+    ["id_pro_detail_type"]=>
+    string(1) "3"
+    ["id_pro_sample_type"]=>
+    NULL
+    ["id_con_invoice_sat_prod_serv"]=>
+    string(1) "0"
+    ["id_pro_unit"]=>
+    string(1) "3"
+    ["date_modified"]=>
+    string(19) "2023-01-18 14:32:29"
+    ["product_description"]=>
+    string(38) "BIOMETRIA HEMATICA COMPLETA SER5801022"
+    ["api_product_description"]=>
+    NULL
+    ["unit_price"]=>
+    string(6) "185.00"
+    ["allow_price_edit"]=>
+    string(1) "0"
+    ["sku"]=>
+    NULL
+    ["product_comment"]=>
+    string(48) "Util en el estudio de factores hematopoyéticos."
+    ["note_patient"]=>
+    string(17) "NO REQUIERE AYUNO"
+    ["note_medical"]=>
+    string(7) "T. LILA"
+    ["custom_select"]=>
+    NULL
+    ["delivery_time"]=>
+    string(4) "1440"
+    ["suggest_from"]=>
+    string(1) "0"
+    ["suggest_to"]=>
+    string(1) "0"
+    ["survey_wo"]=>
+    NULL
+    ["survey_ext"]=>
+    NULL
+    ["survey_enable"]=>
+    NULL
+    ["is_active"]=>
+    string(1) "1"
+    ["is_api_shared"]=>
+    NULL
+    ["show_in_ext_orders"]=>
+    string(1) "1"
+    ["publish_blocked"]=>
+    string(1) "0"
+    ["show_in_appointments"]=>
+    string(1) "0"
+    ["posible_results"]=>
+    NULL
+    ["enable"]=>
+    string(1) "1"
+    ["price_list_5"]=>
+    string(4) "0.00"
+    ["price_list_6"]=>
+    string(4) "0.00"
+    ["price_list_7"]=>
+    string(4) "0.00"
+    ["price_list_8"]=>
+    string(4) "0.00"
+    ["price_list_9"]=>
+    string(4) "0.00"
+    ["price_list_10"]=>
+    string(4) "0.00"
+    ["price_list_11"]=>
+    string(4) "0.00"
+    ["price_list_12"]=>
+    string(4) "0.00"
+    ["price_list_13"]=>
+    string(4) "0.00"
+    ["price_list_14"]=>
+    string(4) "0.00"
+    ["price_list_15"]=>
+    string(4) "0.00"
+    ["price_list_16"]=>
+    string(4) "0.00"
+    ["price_list_17"]=>
+    string(4) "0.00"
+    ["price_list_18"]=>
+    string(4) "0.00"
+    ["price_list_19"]=>
+    string(4) "0.00"
+    ["price_list_20"]=>
+    string(4) "0.00"
+    ["price_list_21"]=>
+    string(4) "0.00"
+    ["price_list_22"]=>
+    string(4) "0.00"
+    ["price_list_23"]=>
+    string(4) "0.00"
+    ["price_list_24"]=>
+    string(4) "0.00"
+    ["price_list_25"]=>
+    string(4) "0.00"
+    ["price_list_26"]=>
+    string(4) "0.00"
+    ["price_list_27"]=>
+    string(4) "0.00"
+    ["price_list_28"]=>
+    string(4) "0.00"
+    ["price_list_29"]=>
+    string(4) "0.00"
+    ["price_list_30"]=>
+    string(4) "0.00"
+    ["price_list_31"]=>
+    string(4) "0.00"
+    ["price_list_32"]=>
+    string(4) "0.00"
+    ["price_list_33"]=>
+    string(4) "0.00"
+    ["price_list_34"]=>
+    string(4) "0.00"
+    ["price_list_35"]=>
+    string(4) "0.00"
+    ["price_list_36"]=>
+    string(4) "0.00"
+    ["price_list_37"]=>
+    string(4) "0.00"
+    ["price_list_38"]=>
+    string(4) "0.00"
+    ["price_list_39"]=>
+    string(4) "0.00"
+    ["price_list_40"]=>
+    string(4) "0.00"
+    ["price_list_41"]=>
+    string(4) "0.00"
+    ["price_list_43"]=>
+    string(5) "87.75"
+    ["import"]=>
+    string(6) "159.48"
+    ["netPrice"]=>
+    string(6) "185.00"
+    ["iva"]=>
+    string(5) "25.52"
+  }
+}
+ -->
+					
+                        <tr>
+                            
+
+                                                                    <td style="text-align: center;">BHC</td>
+                            
+
+                                                                    <td style="vertical-align:middle;">BIOMETRIA HEMATICA COMPLETA SER5801022</td>
+                            
+
+                                                                    <td style="text-align: right; padding-right: 80px;">$ 185.00</td>
+                                                    </tr>
+                    				</tbody>
+
+
+                                <tfoot>
+                                    <tr>
+                                        <td style="min-height: 30px;">&nbsp;</td>
+                                    </tr>
+				    				    				    				    <tr>
+                                        <td align="right" colspan="2">Total: </td>
+                                        <td align="right" style="padding-right: 80px; width: 25%">$      185.00  </td>
+                                    </tr>
+                                    <tr>
+                                                                            </tr>
+                                    <tr>
+                                        <td align="right" colspan="2">
+                                        													Total Pagado: 
+											                                        </td>
+                                        <td align="right" style="padding-right: 80px;">$        0.00  </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" colspan="2">Saldo: </td>
+                                        <td align="right" style="padding-right: 80px;">$      185.00  </td>
+                                    </tr>
+
+                                </tfoot>
+			</table>
+			<hr/>
+			
+			
+
+              			    <div id="footer_comments">
+				<table width="100%">
+					  <tr>
+			          					  <td width="50%" style="vertical-align:top;">
+							<table>
+																													<tr>
+								       <td>&nbsp;&nbsp;- NO REQUIERE AYUNO</td>								</tr>
+														</table>
+
+					  </td>
+					  					  	      	          <td width="50%">
+							<table>
+							<tr>
+							<td style="vertical-align:top;">
+							   Puede consultar sus resultados por Internet en la siguiente liga o desde su teléfono con este código QR:<br/>
+							   http://www.resultadoslaboratorio.com/sanrafael <br/>
+							   																Laboratorio: 240125<br>
+															   Usuario: 58316689 <br/>
+							   Contraseña: 92615923 <br/>
+							</td>
+							 							<td><div style="margin: 5px;"><img src="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/qrcode/58316689/92615923"></div></td>
+														</table>
+			           </td>
+					  					  </tr>
+				</table>
+			    </div>
+			
+			<div id="footer_anotations">
+			  <!-- <p>&nbsp;</p> -->
+			</div>
+			<div style='float:left;width:100%;'>		   <!-- End OF Wrapper table -->
+		</td></tr>
+		</tbody>
+		</table>
+
+
+
+	   <!-- End OF Wrapper table -->
+	</td></tr>
+        </tbody>
+	</table>
+	</div>
+			<script type="text/javascript">
+
+			jQuery(document).ready(function($) {
+				// Stuff to do as soon as the DOM is ready. Use $() w/o colliding with other libs;
+
+				dymo.label.framework.init();
+				// $("a#print_label").dymoLabel({data:[{"labName":"jQuery","patientName":"Enrique Ortiz Ramon","exams":"BCH,GRH,GGDO","date":"--\/--\/----","folio":"007"},{"labName":"jQuery","patientName":"Enrique Ortiz Ramon","exams":"AAA,BBB,CCC","date":"--\/--\/----","folio":"007"}]});
+				
+			$("#print_label_groups").dymoLabel({
+				onInit: false,
+				xml_label_name: "../account_data/sanrafael/lab/mdti_lab_sample.label",
+    			printer: "DYMO LabelWriter 450 Turbo",
+    			data: {"5":{"patientName":"[F] REBECA MARTINEZ MEDINA","folio":"92615","BARCODE":"92615","date":"2025\/07\/21","TEXT1":"Creado con Tecnolog\u00eda MedicaTI-Lab","exams":"BHC,","labName":"Laboratorio San Rafael"}}
+			});
+												// 
+
+			});
+
+		</script>
+		</body>
+</html>
