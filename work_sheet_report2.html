@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reporte de Hoja de Trabajo</title>
+		<meta charset="utf-8">
+		<base href="https://app24.medicati.com/mdti/lab/sanrafael/" />
+		<script type="text/javascript" src="../js/printing_table/tablesort.js"></script>
+		<link href="../js/printing_table/printing_table.css" rel="stylesheet" type="text/css">
+
+        <style type="text/css"  media="all">
+
+	    thead { display: table-header-group; }
+	    tfoot { display: table-footer-group; }
+	    #patient_info{
+		border: 1px solid #CCCCCC;
+		padding: 5px;
+	    }
+	    .exam_name{
+		/* border: 1px #330099 solid; */
+		width:99%;
+		padding:3px;
+	    }
+	    .header_label {
+		font-weight:bold;
+	    }
+	    .separator{
+		height: 2px;
+		color: #fff;
+		background-color: #000000;
+		margin-top:2px;
+		margin-bottom:2px;
+	    }
+	    .result_table{
+		margin-top:5px;
+	    }
+	    .result_headers{
+		font-weight: bold;
+		text-align: center;
+	    }
+	    a{
+		COLOR: #003366; TEXT-DECORATION: none;
+	    }
+	    a:hover{
+		COLOR: #808080; TEXT-DECORATION: underline;
+	    }
+	    .controls{
+		width: 100%;
+		text-align: center;
+	    }
+
+
+        </style>
+        <style type="text/css"  media="screen">
+		body {
+
+		    background: #d7dee4;
+		    overflow-x: hidden;
+		    font-family: "OpenSansRegular","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",Helvetica, Arial, sans-serif;
+		    font-size: 12px;
+		    line-height: 18px;
+
+		}
+
+		#main_content {
+		    width: 8.5in;
+		    background-color: #FFFFFF;
+		    border: 1px solid #CCCCCC;
+		    box-shadow: 0 0 6px #777777;
+		    margin: 20px auto 40px;
+		    padding: 50px;
+		    min-height: 11in;
+		}
+		.controls{
+		font-weight: bold;
+		width: 100%;
+		text-align: center;
+	    }
+
+            div.controls > div{
+
+            	margin: 0 auto;
+            	display: inline-block;
+            }
+
+            /**
+             * New Format
+             */
+
+            #header > span{
+                display: inline-block;
+
+                /*border: 1px solid red;*/
+                width: 49.5% !important;
+                margin: 0;
+                padding: 0;
+                vertical-align: top;
+                clear: both;
+            }
+
+
+            #header > span p{
+                margin: inherit;
+                padding: inherit;
+            }
+
+             p.pagebreak {
+                background-color: #f00;
+                height: 5px;
+            }
+
+        </style>
+        <style type="text/css"  media="print">
+		body {
+		    overflow-x: hidden;
+		    font-family: "OpenSansRegular",Helvetica, Arial, sans-serif;
+		    font-size: 10px;
+		    line-height: 18px;
+		}
+		#main_content{
+			width: 7.7in;
+			padding: 0px;
+			border: 0px solid #CCCCCC;
+		}
+		@page {
+		    size: 8.5in 11in;
+		    margin: .5in;
+		}
+		img {
+		    image-resolution: from-image;
+		}
+		p.pagebreak {
+		    height: 0px;
+		    page-break-before: always;
+		}
+		.controls{
+			display: none;
+		}
+        </style>
+	</head>
+	<body>
+
+		<div id="main_content">
+			<div class="controls">
+				<div style="overflow: hidden;"><a href="JavaScript:window.print()">[Imprimir]</a></div>
+				<div style="overflow: hidden;"><a href="JavaScript:window.self.close()">[Regresar]</a></div>
+			</div>
+
+			<h2>REPORTE DE HOJA DE TRABAJO</h2>
+			<p>Reporte por Rango de Fechas:  De: <strong>24/07/2025</strong> Hasta: <strong>24/07/2025</strong></p>
+			<p class="controls" style="text-align: right;display: none;"><em>Nota: Sostenga la tecla "Shift" para seleccionar varias columnas para el acomodo</em></p>
+
+
+			
+
+
+						<table id="test1" cellpadding="0" cellspacing="0" border="0" class="sortable-onload-r rowstyle-alt colstyle-alt no-arrow">
+							<thead>
+						    	<tr>
+																			<th class="sortable-numeric fd-column-0" style="width:50px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Folio”">Folio</a></th>
+																			<th class="sortable-date-dmy fd-column-1" style="width:50px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Fecha”">Fecha</a></th>
+																			<th class="sortable-text fd-column-2" style="width:250px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Paciente”">Paciente</a></th>
+																			<th class="sortable-text fd-column-3" style="width:350px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Estudio”">Estudio</a></th>
+																			<th class="sortable-text fd-column-4" style="width:100px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Origen de la Muestra”">Origen de la Muestra</a></th>
+															    	</tr>
+						  	</thead>
+
+					  	  	<tbody>
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92705											
+											<!-- 92705 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">ANGEL GABRIEL RODRIGUEZ HERNANDEZ</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">16 años</div>
+											
+											<!-- ANGEL GABRIEL RODRIGUEZ HERNANDEZ -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">BIOMETRIA HEMATICA COMPLETA SER5801022</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92706											
+											<!-- 92706 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">JUAN PEREZ NAVARRO</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">60 años</div>
+											
+											<!-- JUAN PEREZ NAVARRO -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">BIOMETRIA HEMATICA COMPLETA SER5801022</div>
+																							<div style="text-align: left;">QUIMICA SANGUINEA  SER5802033</div>
+																							<div style="text-align: left;">ELECTROLITOS SERICOS (6) SER5824465</div>
+																							<div style="text-align: left;">TIEMPO PARCIAL DE TROMBOPLASTINA SER5803008</div>
+																							<div style="text-align: left;">TIEMPO DE PROTROMBINA CON INR  SER5824444</div>
+																							<div style="text-align: left;">GASOMETRIA ARTERIAL SER5804115</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92708											
+											<!-- 92708 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">SOILA MARAVILLAS HERNANDEZ</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">75 años</div>
+											
+											<!-- SOILA MARAVILLAS HERNANDEZ -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">GASOMETRIA ARTERIAL SER5804115</div>
+																							<div style="text-align: left;">DIMERO D SER5804202</div>
+																							<div style="text-align: left;">PROCALCITONINA SERICA SER5824215</div>
+																							<div style="text-align: left;">ELECTROLITOS SERICOS (6) SER5824465</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92709											
+											<!-- 92709 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">GLORIA EDITH CAMARENA GARCIA</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">86 años</div>
+											
+											<!-- GLORIA EDITH CAMARENA GARCIA -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">QUIMICA SANGUINEA (3) SER5824223</div>
+																							<div style="text-align: left;">ELECTROLITOS SERICOS (6) SER5824465</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92710											
+											<!-- 92710 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">HYLLARI JUDITH HUITRON GARCIA</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">17 años</div>
+											
+											<!-- HYLLARI JUDITH HUITRON GARCIA -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">PERFIL SMAC1</div>
+																							<div style="text-align: left;">CREATIN FOSFOQUINASA  SER5801047</div>
+																							<div style="text-align: left;">MIOGLOBINA LAB101</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92711											
+											<!-- 92711 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">MARTIN PALACIOS COVARRUBIAS</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">44 años</div>
+											
+											<!-- MARTIN PALACIOS COVARRUBIAS -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">PERFIL SMAC1</div>
+																							<div style="text-align: left;">EXAMEN GENERAL DE ORINA SER5801092</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92713											
+											<!-- 92713 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">CARLOS SIERRA BELTRAN</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">42 años</div>
+											
+											<!-- CARLOS SIERRA BELTRAN -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">QUIMICA SANGUINEA  SER5802033</div>
+																							<div style="text-align: left;">INSULINA SERICA SER5804134</div>
+																							<div style="text-align: left;">HEMOGLOBINA GLICOSILADA A1c SER5801105</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92714											
+											<!-- 92714 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">SONIA MARLEN ROMANO ALCANTAR</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">52 años</div>
+											
+											<!-- SONIA MARLEN ROMANO ALCANTAR -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">PERFIL DE LIPIDOS SER5824226</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92715											
+											<!-- 92715 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">MERCEDES SORIA ARELLANO</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">43 años</div>
+											
+											<!-- MERCEDES SORIA ARELLANO -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">EXAMEN GENERAL DE ORINA SER5801092</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92716											
+											<!-- 92716 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">JUAN ESTRADA BARRIGA</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">89 años</div>
+											
+											<!-- JUAN ESTRADA BARRIGA -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">BIOMETRIA HEMATICA COMPLETA SER5801022</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92717											
+											<!-- 92717 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">PAOLA YOSELINE SANTANA RIVAS</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">30 años</div>
+											
+											<!-- PAOLA YOSELINE SANTANA RIVAS -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">CUANTIFICACION B-HGC EN SUERO SER5801050</div>
+																							<div style="text-align: left;">BIOMETRIA HEMATICA COMPLETA SER5801022</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92718											
+											<!-- 92718 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">RN DE CECILIA BRIZARELY AVILA PEÑA</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;"></div>
+											
+											<!-- RN DE CECILIA BRIZARELY AVILA PEÑA -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">GRUPO y RH SER5801101</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+															  			<tr class="alt">
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	92719											
+											<!-- 92719 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	24/07/2025											
+											<!-- 24/07/2025 -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: left; vertical-align: top;">
+																																			<div style="border: none; padding-top: 0; padding-bottom: 0;">ABRAHAM AGUIRRE CASAS</div>
+														<div style="border: none;text-align: right; padding-top: 0; padding-bottom: 0;">25 años</div>
+											
+											<!-- ABRAHAM AGUIRRE CASAS -->
+										
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	<div style="text-align: left;">BIOMETRIA HEMATICA COMPLETA SER5801022</div>
+																					
+
+									</td>
+				  								  					<!--  -->
+				  					<td style="text-align: center; vertical-align: top;">
+																																	Matriz											
+											<!-- Matriz -->
+										
+
+									</td>
+				  				
+					  		
+
+
+					
+					  		</tbody>
+
+						</table>
+
+
+
+
+	<p>www.medicati.com</p>
+
+
+
+
+		</div>
+
+	</body>
+</html>
