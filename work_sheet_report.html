@@ -1,0 +1,2031 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reporte de Hoja de Trabajo</title>
+		<meta charset="utf-8">
+		<base href="https://app24.medicati.com/mdti/lab/sanrafael/" />
+		<script type="text/javascript" src="../js/printing_table/tablesort.js"></script>
+		<link href="../js/printing_table/printing_table.css" rel="stylesheet" type="text/css">
+
+        <style type="text/css"  media="all">
+
+	    thead { display: table-header-group; }
+	    tfoot { display: table-footer-group; }
+	    #patient_info{
+		border: 1px solid #CCCCCC;
+		padding: 5px;
+	    }
+	    .exam_name{
+		/* border: 1px #330099 solid; */
+		width:99%;
+		padding:3px;
+	    }
+	    .header_label {
+		font-weight:bold;
+	    }
+	    .separator{
+		height: 2px;
+		color: #fff;
+		background-color: #000000;
+		margin-top:2px;
+		margin-bottom:2px;
+	    }
+	    .result_table{
+		margin-top:5px;
+	    }
+	    .result_headers{
+		font-weight: bold;
+		text-align: center;
+	    }
+	    a{
+		COLOR: #003366; TEXT-DECORATION: none;
+	    }
+	    a:hover{
+		COLOR: #808080; TEXT-DECORATION: underline;
+	    }
+	    .controls{
+		width: 100%;
+		text-align: center;
+	    }
+
+
+	    div.main_wrapper{
+			width: 100%;
+
+		}
+
+		div.main_wrapper div.title{
+			/*width: 48%;*/
+			/*border: 1px solid #cacaca;*/
+			display: inline-block;
+			/*border-radius: 2px;*/
+
+		}
+
+		div.main_wrapper div.title:nth-child(1){
+			width: 79%;
+		}
+		div.main_wrapper div.title:nth-child(2){
+			width: 19%;
+		}
+
+		div.main_wrapper div.study{
+			text-align: left;
+			margin: 4px auto;
+
+		}
+
+		div.main_wrapper div.study_only{
+
+			border-bottom: 2px solid #CACACA;
+
+		}
+
+/*		div.main_wrapper div.study > span{
+			float: right;
+			padding-right: 10px;
+
+		}
+*/
+		div.rep_detail{
+
+			text-align: left;
+			margin: 1px auto;
+			padding: 1px 2px 1px 10px;
+
+			border-bottom: 2px solid #CACACA;
+		}
+
+
+		span.units{
+
+			float: right;
+			min-width: 30px;
+			text-align: left;
+
+		}
+		span.line{
+
+			float: right;
+
+
+		}
+
+        </style>
+        <style type="text/css"  media="screen">
+		body {
+
+		    background: #d7dee4;
+		    overflow-x: hidden;
+		    font-family: "OpenSansRegular","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",Helvetica, Arial, sans-serif;
+		    font-size: 12px;
+		    line-height: 18px;
+
+		}
+
+		#main_content {
+		    width: 8.5in;
+		    background-color: #FFFFFF;
+		    border: 1px solid #CCCCCC;
+		    box-shadow: 0 0 6px #777777;
+		    margin: 20px auto 40px;
+		    padding: 50px;
+		    min-height: 11in;
+		}
+		.controls{
+		font-weight: bold;
+		width: 100%;
+		text-align: center;
+	    }
+
+            div.controls > div{
+
+            	margin: 0 auto;
+            	display: inline-block;
+            }
+
+            /**
+             * New Format
+             */
+
+            #header > span{
+                display: inline-block;
+
+                /*border: 1px solid red;*/
+                width: 49.5% !important;
+                margin: 0;
+                padding: 0;
+                vertical-align: top;
+                clear: both;
+            }
+
+
+            #header > span p{
+                margin: inherit;
+                padding: inherit;
+            }
+
+
+            p.pagebreak {
+                background-color: #f00;
+                height: 5px;
+            }
+
+
+        </style>
+        <style type="text/css"  media="print">
+		body {
+		    overflow-x: hidden;
+		    font-family: "OpenSansRegular",Helvetica, Arial, sans-serif;
+		    font-size: 10px;
+		    line-height: 18px;
+		}
+		#main_content{
+			width: 7.7in;
+			padding: 0px;
+			border: 0px solid #CCCCCC;
+		}
+		@page {
+		    size: 8.5in 11in;
+		    margin: .5in;
+		}
+		img {
+		    image-resolution: from-image;
+		}
+		p.pagebreak {
+		    height: 0px;
+		    page-break-before: always;
+		}
+		.controls{
+			display: none;
+		}
+
+
+        </style>
+	</head>
+	<body>
+	<div id="main_content">
+		<div class="controls">
+			<div style="overflow: hidden;"><a href="JavaScript:window.print()">[Imprimir]</a></div>
+			<div style="overflow: hidden;"><a href="JavaScript:window.self.close()">[Regresar]</a></div>
+		</div>
+		
+		<h2>REPORTE DE HOJA DE TRABAJO</h2>
+		<p>Reporte por Rango de Fechas:  De: <strong>24/07/2025</strong> Hasta: <strong>24/07/2025</strong></p>
+		<p class="controls" style="text-align: right;display: none;"><em>Nota: Sostenga la tecla "Shift" para seleccionar varias columnas para el acomodo</em></p>
+
+		
+		
+		
+
+					<table id="test1" cellpadding="0" cellspacing="0" border="0" class="sortable-onload-r rowstyle-alt colstyle-alt no-arrow">
+						<thead>
+					    	<tr>
+																	<th class="sortable-numeric fd-column-0" style="width:50px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Folio”">Folio</a></th>
+																	<th class="sortable-text fd-column-1" style="width:350px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Paciente”">Paciente</a></th>
+																	<th class="sortable-date-dmy fd-column-2" style="width:50px"><a href="#" class="fdTableSortTrigger" title="Acomodo en “Fecha”">Fecha</a></th>
+													    	</tr>
+					  	</thead>
+
+				  	  	<tbody>
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92705 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> ANGEL GABRIEL RODRIGUEZ HERNANDEZ </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>BIOMETRIA HEMATICA COMPLETA SER5801022</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMATOCRITO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">mill/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VOLUMEN GLOBULAR MEDIO (VCM)  <span class="units">fl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLOBULAR MEDIA (HCM)  <span class="units">pg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CONC. MEDIA DE HB GLOBULAR (CMHC)  <span class="units">gr/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NEUTROFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EOSINOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BASOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MONOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BANDAS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PLAQUETAS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS ATIPICOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Metodo: Citometria de Flujo  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92706 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> JUAN PEREZ NAVARRO </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>BIOMETRIA HEMATICA COMPLETA SER5801022</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMATOCRITO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">mill/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VOLUMEN GLOBULAR MEDIO (VCM)  <span class="units">fl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLOBULAR MEDIA (HCM)  <span class="units">pg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CONC. MEDIA DE HB GLOBULAR (CMHC)  <span class="units">gr/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NEUTROFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EOSINOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BASOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MONOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BANDAS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PLAQUETAS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS ATIPICOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Metodo: Citometria de Flujo  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>QUIMICA SANGUINEA  SER5802033</strong> </div>
+				  							
+				  								
+				  													  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Glucosa  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Urea  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Bun  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Creatinina  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Acido Urico  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>ELECTROLITOS SERICOS (6) SER5824465</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >SODIO (Na)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >POTASIO (K)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CLORO (Cl)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CALCIO (Ca)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FOSFORO (P)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MAGNESIO IONICO (Mg++)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>TIEMPO PARCIAL DE TROMBOPLASTINA SER5803008</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Tiempo Parcial de Tromboplastina  <span class="units">segundos</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>TIEMPO DE PROTROMBINA CON INR  SER5824444</strong> </div>
+				  							
+				  								
+				  													  														  											<div class="rep_detail" >Tiempo de Protombina con INR  <span class="units">segundos</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >INR  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>GASOMETRIA ARTERIAL SER5804115</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GASOMETRIA ARTERIAL.  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PH  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PCO2  <span class="units">mmHg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PO2  <span class="units">mmHg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HCO3  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CO2 TOTAL  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EXCESO DE BASE  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EXCESO DE BASE EXTRACELULAR  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >% SATURACION DE OXIGENO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LACTATO  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92708 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> SOILA MARAVILLAS HERNANDEZ </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>GASOMETRIA ARTERIAL SER5804115</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GASOMETRIA ARTERIAL.  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PH  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PCO2  <span class="units">mmHg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PO2  <span class="units">mmHg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HCO3  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CO2 TOTAL  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EXCESO DE BASE  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EXCESO DE BASE EXTRACELULAR  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >% SATURACION DE OXIGENO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LACTATO  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>DIMERO D SER5804202</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >DIMERO D  <span class="units">mg/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>PROCALCITONINA SERICA SER5824215</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PROCALCITONINA SERICA  <span class="units">ng/ml</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Intervalo de referencia: Infección sistemica de 0.5 a 2 : posible  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >de 2 a 10 : probable ; mayor de 10 : alta probabilidad  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Método inmunocromatografia  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>ELECTROLITOS SERICOS (6) SER5824465</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >SODIO (Na)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >POTASIO (K)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CLORO (Cl)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CALCIO (Ca)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FOSFORO (P)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MAGNESIO IONICO (Mg++)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92709 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> GLORIA EDITH CAMARENA GARCIA </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>QUIMICA SANGUINEA (3) SER5824223</strong> </div>
+				  							
+				  								
+				  													  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Glucosa  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Urea  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Bun  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Creatinina  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>ELECTROLITOS SERICOS (6) SER5824465</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >SODIO (Na)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >POTASIO (K)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CLORO (Cl)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CALCIO (Ca)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FOSFORO (P)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MAGNESIO IONICO (Mg++)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92710 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> HYLLARI JUDITH HUITRON GARCIA </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>PERFIL SMAC1</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BIOMETRIA HEMATICA COMPLETA*  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA  <span class="units">gr/%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMATOCRITO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">mill/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VOLUMEN GLOBULAR MEDIO (VCM)  <span class="units">fl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLOBULAR MEDIA (HCM)  <span class="units">pg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CONC. MEDIA DE HB. GLOBULAR (CCMH)  <span class="units">gr/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NEUTROFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EOSINOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BASOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MONOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BANDAS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PLAQUETAS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS ATIPICOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >OBSERVACIONES  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Método: Citometria de Flujo  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PERFIL SMAC*  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GLUCOSA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >UREA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BUN  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CREATININA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ACIDO URICO  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >COLESTEROL  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >TRIGLICERIDOS  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ELECTROLITOS SERICOS*  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >SODIO (Na)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >POTASIO (K)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CLORO (Cl)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CALCIO (Ca)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FOSFORO (P)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MAGNESIO IONICO (Mg++)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PERFIL HEPATICO*  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >TGO  <span class="units">UI/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >TGP  <span class="units">UI/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRUBINA TOTAL  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRRUBINA DIRECTA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRRUBINA INDIRECTA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FOSFATASA ALCALINA  <span class="units">U/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GGT  <span class="units">UI/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PROTEINAS TOTALES  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ALBUMINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GLOBULINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >RELACION A/G  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>CREATIN FOSFOQUINASA  SER5801047</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CREATINFOSFOQUINASA CPK  <span class="units">U/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>MIOGLOBINA LAB101</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MIOGLOBINA  <span class="units">ng/ml</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92711 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> MARTIN PALACIOS COVARRUBIAS </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>PERFIL SMAC1</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BIOMETRIA HEMATICA  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMATOCRITO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">mill/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VOLUMEN GLOBULAR MEDIO (VCM)  <span class="units">fl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLOBULAR MEDIA (HCM)  <span class="units">pg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CONC. MEDIA DE HB GLOBULAR  <span class="units">gr/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NEUTROFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EOSINOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BASOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MONOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BANDAS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PLAQUETAS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS ATIPICOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >OBSERVACIONES  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >METODO: CITOMETRIA DE FLUJO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PERFIL SMAC*  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GLUCOSA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >UREA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BUN  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CREATININA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ACIDO URICO  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >COLESTEROL  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >TRIGLICERIDOS  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ELECTROLITOS SERICOS*  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >SODIO (NA)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >POTASIO (K)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CLORO (Cl)  <span class="units">mmol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CALCIO (Ca)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FOSFORO (P)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MAGNESIO  (Mg+)  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PERFIL HEPÁTICO*  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >TGO  <span class="units">UI/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >TGP  <span class="units">UI/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRRUBINA TOTAL  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRRUBINA DIRECTA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRRUBINA INDIRECTA  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FOSFATASA ALCALINA  <span class="units">U/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GGT  <span class="units">UI/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PROTEINAS TOTALES  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ALBUMINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GLOBULINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >RELACION A/G  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>EXAMEN GENERAL DE ORINA SER5801092</strong> </div>
+				  							
+				  								
+				  													  														  											<div class="rep_detail" >*EXAMEN FISICO EGO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >COLOR  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ASPECTO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >DENSIDAD  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >pH  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >*EXAMEN QUIMICO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >UROBILINOGENO  <span class="units">umol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRRUBINA  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CETONAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >SANGRE  <span class="units">Ery/uL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PROTEINAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NITRITOS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">Leu/uL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GLUCOSA  <span class="units">mg/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >*SEDIMENTO URINARIO   <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CILINDROS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CRISTALES  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BACTERIAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CELULAS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEVADURAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FILAMENTO DE MOCO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92713 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> CARLOS SIERRA BELTRAN </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>QUIMICA SANGUINEA  SER5802033</strong> </div>
+				  							
+				  								
+				  													  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Glucosa  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Urea  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Bun  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Creatinina  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Acido Urico  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>INSULINA SERICA SER5804134</strong> </div>
+				  							
+				  								
+				  													  														  											<div class="rep_detail" >INSULINA SERICA  <span class="units">mcUI/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>HEMOGLOBINA GLICOSILADA A1c SER5801105</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLICOSILADA  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92714 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> SONIA MARLEN ROMANO ALCANTAR </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>PERFIL DE LIPIDOS SER5824226</strong> </div>
+				  							
+				  								
+				  													  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Colesterol Total  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Trigliceridos  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HDL colesterol  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VLDL colesterol  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LDL colesterol  <span class="units">mg/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Indice aterogénico : Col HDL   <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92715 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> MERCEDES SORIA ARELLANO </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>EXAMEN GENERAL DE ORINA SER5801092</strong> </div>
+				  							
+				  								
+				  													  														  											<div class="rep_detail" >*EXAMEN FISICO EGO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >COLOR  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ASPECTO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >DENSIDAD  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >pH  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >*EXAMEN QUIMICO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >UROBILINOGENO  <span class="units">umol/L</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BILIRRUBINA  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CETONAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >SANGRE  <span class="units">Ery/uL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PROTEINAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NITRITOS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">Leu/uL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >GLUCOSA  <span class="units">mg/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >*SEDIMENTO URINARIO   <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CILINDROS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CRISTALES  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BACTERIAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CELULAS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">X CAMPO</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEVADURAS  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >FILAMENTO DE MOCO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92716 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> JUAN ESTRADA BARRIGA </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>BIOMETRIA HEMATICA COMPLETA SER5801022</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMATOCRITO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">mill/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VOLUMEN GLOBULAR MEDIO (VCM)  <span class="units">fl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLOBULAR MEDIA (HCM)  <span class="units">pg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CONC. MEDIA DE HB GLOBULAR (CMHC)  <span class="units">gr/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NEUTROFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EOSINOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BASOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MONOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BANDAS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PLAQUETAS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS ATIPICOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Metodo: Citometria de Flujo  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92717 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> PAOLA YOSELINE SANTANA RIVAS </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>CUANTIFICACION B-HGC EN SUERO SER5801050</strong> </div>
+				  							
+				  								
+				  													  														  											<div class="rep_detail" >HORMONA GONADOTROPINA CORIONICA  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Tiempo de Gestación  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >3 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >4 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >5 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >6 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >7 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >8 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >9 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >10 semanas  <span class="units">mIU/mL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >12 semanas  <span class="units">mIU/ml</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >14 semanas  <span class="units">mIU/ml</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >15 semanas  <span class="units">mIU/ml</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >16 semanas  <span class="units">mIU/ml</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >17 semanas  <span class="units">mIU/m</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >18  a 29 semanas  <span class="units">mIU/m</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >29 a 41 semanas  <span class="units">mIU/m</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Metodo: Quimioluminiscencia  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  									  						<div class="main_wrapper">
+
+				  							
+				  							<div class="study "><strong>BIOMETRIA HEMATICA COMPLETA SER5801022</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA  <span class="units">g/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMATOCRITO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">mill/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VOLUMEN GLOBULAR MEDIO (VCM)  <span class="units">fl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLOBULAR MEDIA (HCM)  <span class="units">pg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CONC. MEDIA DE HB GLOBULAR (CCMH)  <span class="units">gr/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NEUTROFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EOSINOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BASOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MONOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BANDAS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PLAQUETAS   <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS ATIPICOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Metodo: Citometria de Flujo  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92718 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> RN DE CECILIA BRIZARELY AVILA PEÑA </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>GRUPO y RH SER5801101</strong> </div>
+				  							
+				  								
+				  													  														  											<div class="rep_detail" >GRUPO SANGUINEO  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >RH  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  						  			<tr class="alt">
+				  								  					<td style="text-align: center; vertical-align: top;"> 92719 </td>
+				  								  					<td style="text-align: left; vertical-align: top;"> ABRAHAM AGUIRRE CASAS </td>
+				  								  					<td style="text-align: center; vertical-align: top;"> 24/07/2025 </td>
+				  								  			</tr>
+				  			<tr>
+				  				<td colspan="12" style="border: 1px solid #cacaca; font-weight: inherit;">
+
+				  									  						<div class="main_wrapper">
+
+				  											  								<div style="border-bottom: 1px solid #CACACA;">
+				  									<div class="title ">Estudios</div>
+				  									<div class="title ">Valores</div>
+				  								</div>
+				  							
+				  							<div class="study "><strong>BIOMETRIA HEMATICA COMPLETA SER5801022</strong> </div>
+				  							
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA  <span class="units">gr/dl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMATOCRITO  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >ERITROCITOS  <span class="units">mill/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >VOLUMEN GLOBULAR MEDIO (VCM)  <span class="units">fl</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >HEMOGLOBINA GLOBULAR MEDIA (HCM)  <span class="units">pg</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >CONC. MEDIA DE HB GLOBULAR (CMHC)  <span class="units">gr/dL</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LEUCOCITOS  <span class="units">/mm3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >NEUTROFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >EOSINOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BASOFILOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >MONOCITOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >BANDAS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >PLAQUETAS  <span class="units">/mm 3</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >LINFOCITOS ATIPICOS  <span class="units">%</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  									
+				  								
+				  													  														  											<div class="rep_detail" >Metodo: Citometria de Flujo  <span class="units">&nbsp;</span> <span  class="line">______</span> </div>
+				  										
+				  									
+				  								
+				  											  						</div>
+
+				  					
+				  				</td>
+
+				  			</tr>
+				  						  		
+
+
+				
+				  		</tbody>
+
+					</table>
+
+
+			
+
+<p>www.medicati.com</p>
+
+
+
+
+	</div>
+	</body>
+</html>
