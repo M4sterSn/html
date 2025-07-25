@@ -1,0 +1,1415 @@
+ <!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- DNS prefetch -->
+  <link rel=dns-prefetch href="//fonts.googleapis.com">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Dev MDTI - Medica TI</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="robots" content="noindex,nofollow" />
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="https://app24.medicati.com/mdti/lab/sanrafael/" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="../css/style.css"> <!-- Generic style (Boilerplate) -->
+  <link rel="stylesheet" href="../css/960.fluid.css"> <!-- 960.gs Grid System -->
+  <link rel="stylesheet" href="../css/main.css"> <!-- Complete Layout and main styles -->
+  <link rel="stylesheet" href="../css/buttons.css"> <!-- Buttons, optional -->
+  <link rel="stylesheet" href="../css/lists.css"> <!-- Lists, optional -->
+  <link rel="stylesheet" href="../css/icons.css"> <!-- Icons, optional -->
+  <link rel="stylesheet" href="../css/notifications.css"> <!-- Notifications, optional -->
+  <link rel="stylesheet" href="../css/typography.css"> <!-- Typography -->
+  <link rel="stylesheet" href="../css/forms.css"> <!--Forms, optional THIS NEEDS TO BE REMOVED IN ORDER TO MULTISELECT TO WORK -->
+  <link rel="stylesheet" href="../css/tables.css"> <!-- Tables, optional -->
+   <!-- Charts, optional -->
+  <link rel="stylesheet" href="../css/jquery-ui-1.8.15.custom.css"> <!-- jQuery UI, optional -->
+  <link rel="stylesheet" href="../css/application_custom.css"> <!-- Application Specific -->
+  <link rel="stylesheet" href="../css/font-awesome.min.css"> <!-- font-awesome, optional -->
+
+  <!-- end CSS-->
+  <!-- Custom CSS, Javascripts and other head code-->
+    <link rel="stylesheet" href="../css/ui.multiselect.css"> <!-- Multiselect -->  <!-- Fonts -->
+  <link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+  <!-- end Fonts-->
+<style type="text/css">
+  @media print {
+    .hidden-print {
+      display: none !important;
+    }
+    a[href]:after { content: ""; }
+    #container > #main {
+		margin-left: 0px;
+	}
+  }
+
+
+</style>
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="../js/libs/modernizr-2.0.6.min.js"></script>
+
+  <!-- Top Javascripts-->
+  <style>
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+</style>
+
+</head>
+
+<body id="top">
+<div id="loading" style="text-align:center;display:none;"><img src="../img/mt_icons/30.gif"></div>
+<div id="badgetalert" style="text-align:center;display:none;">Nueva Orden Externa</div>
+  <!-- Begin of #container -->
+  <div id="container">
+  	<!-- Begin of #header -->
+    <div id="header-surround" class="hidden-print"><header id="header">
+
+    	<!-- Place your logo here -->
+		<img src="../img/mt_icons/app/medicati.png" alt="Grape" class="logo">
+
+		<!-- Divider between info-button and the toolbar-icons -->
+		<div class="divider-header divider-vertical"></div>
+
+		<!-- Info-Button -->
+		<a href="javascript:void(0);" onclick="$('#info-dialog').dialog({ modal: true });"><span class="btn-info"></span></a>
+
+			<!-- Modal Box Content -->
+			<div id="info-dialog" title="Acerca De" style="display: none;">
+				<p style="text-align: center;">MedicaTI V30.2.130</p>
+				<p style="text-align: center;">MedicaTI Ver Date 2025-07-22</p>
+				<p style="text-align: center;">MedicaTI DB V1.4.39</p>
+				<p style="text-align: center;">Fecha 2025/07/14</p>
+								<p style="text-align: center;">Versión Avanzada</p>
+										<p style="text-align: center;">Órdenes de Trabajo: 347 de 4000</p>
+															<p style="text-align: center;">Imágenes: 12 de 400</p>
+									
+                <BR>
+                                    <p style="text-align: center;"><button type="button" id="boton_dbug" value="Dbug" style="background: red; border-radius: 6px; cursor: pointer; color: white; border: green;" >DBUG</button></p>
+                
+                				<p>El equipo de ODInet le agradece su preferencia, gracias por utilizar el software MedicaTI.</p>
+				<p>Este software esta protegido por los respectivos derechos de autor.</p>
+			</div> <!--! end of #info-dialog -->
+
+
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header">
+			<!-- First entry -->
+			<li>
+				<a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Activar Navegación" style="position: absolute; padding: 8px; color: white; text-decoration: none;">
+					<i class="icon-2x icon-reorder"></i>
+				</a>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin from Toolbox -->
+		<ul class="toolbox-header" style="display: none;">
+			<!-- First entry -->
+			<li>
+				<a rel="tooltip" title="Create a User" class="toolbox-action" href="javascript:void(0);"><span class="i-24-user-business"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a User</h1>
+						</div>
+						<form id="create-user-form" class="block-content form" action="" method="post">
+							<div class="_100">
+								<p><label for="username">Username</label><input id="username" name="username" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="firstname">Firstname</label><input id="firstname" name="firstname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="_50">
+								<p class="no-top-margin"><label for="lastname">Lastname</label><input id="lastname" name="lastname" class="required" type="text" value="" /></p>
+							</div>
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create the User"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of first entry -->
+
+			<!-- Second entry -->
+			<li>
+				<a rel="tooltip" title="Write a Message" class="toolbox-action" href="javascript:void(0);"><span class="i-24-inbox-document"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Write a Message</h1>
+						</div>
+						<form id="write-message-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="recipient">Recipient</label>
+								<input type="text" name="recipient" class="required">
+							</p>
+							<p class="inline-mini-label">
+								<label for="subject">Subject</label>
+								<input type="text" name="subject">
+							</p>
+							<div class="_100">
+								<p class="no-top-margin"><label for="message">Message</label><textarea id="message" name="message" class="required" rows="5" cols="40"></textarea></p>
+							</div>
+
+							<div class="clear"></div>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset2" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Send Message"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of second entry -->
+
+			<!-- Third entry -->
+			<li>
+				<a rel="tooltip" title="Create a Folder" class="toolbox-action" href="javascript:void(0);"><span class="i-24-folder-horizontal-open"></span></a>
+				<div class="toolbox-content">
+
+					<!-- Box -->
+					<div class="block-border">
+						<div class="block-header small">
+							<h1>Create a Folder</h1>
+						</div>
+						<form id="create-folder-form" class="block-content form" action="" method="post">
+							<p class="inline-mini-label">
+								<label for="folder-name">Name</label>
+								<input type="text" name="folder-name" class="required">
+							</p>
+
+							<!-- Buttons with actionbar  -->
+							<div class="block-actions">
+								<ul class="actions-left">
+									<li><a class="close-toolbox button red" id="reset3" href="javascript:void(0);">Cancel</a></li>
+								</ul>
+								<ul class="actions-right">
+									<li><input type="submit" class="button" value="Create Folder"></li>
+								</ul>
+							</div> <!--! end of #block-actions -->
+						</form>
+					</div> <!--! end of box -->
+
+				</div>
+			</li> <!--! end of third entry -->
+		</ul>
+
+		<!-- Begin of #user-info -->
+		<div id="user-info">
+			<p>
+				<span class="messages">Hola <a href="javascript:void(0);">Usuario Administrador</a> de Matriz <span style="display: none"> ( <a href="javascript:void(0);"><img src="../img/mt_icons/app/mail.png" alt="Messages"> 3 nuevos mensajes</a> ) </span></span>
+				<span style="display: none"> <a href="javascript:void(0)" class="toolbox-action button">Ajustes</a></span> <a href="auth/logout" class="button red">Salir</a>
+			</p>
+		</div> <!--! end of #user-info -->
+
+    </header></div> <!--! end of #header -->
+
+    <div class="fix-shadow-bottom-height"></div>
+
+	<!-- Begin of Sidebar -->
+    <aside id="sidebar" class="hidden-print" style="overflow: hidden;">
+
+    	<!-- Search -->
+    	<div id="search-bar">
+			<form id="search-form" name="search-form" action="search.php" method="post">
+				<input style="display: none" type="text" id="query" name="query" value="" autocomplete="off" placeholder="Búsqueda">
+			</form>
+		</div> <!--! end of #search-bar -->
+
+		<!-- Begin of #login-details -->
+		<section id="login-details">
+    		<img class="img-left framed" src="../img/mt_icons/app/logo_mdti.png" alt="Medica TI">
+    		<h3>Usuario Registrado:</h3>
+    		<h2><a class="user-button" href="javascript:void(0);">admin&nbsp;<span class="arrow-link-down"></span></a></h2>
+    		<ul class="dropdown-username-menu">
+    			<li><a href="auth/logout">Salir</a></li>
+    		</ul>
+
+    		<div class="clearfix"></div>
+  		</section> <!--! end of #login-details -->
+      
+		<!-- Begin of Navigation -->
+		<nav id="nav">
+			<ul class="menu collapsible shadow-bottom">
+				
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/reception_desk/sofa.png">Recepción<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/insert"  >Orden de Trabajo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/work_order/listing"  >Listado de Ordenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/estimate/listing"  >Listado de Cotizaciones</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reception/cash_fund/listing"  >Salidas de Caja</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/lab/lab-16.png">Laboratorio<span class="badge red"></span></a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_order_listing"  >Ordenes de Laboratorio</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/process_areas"  >Procesos por Área</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/lab/work_sheet"  >Hojas de Trabajo</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/medical/steto-16.png">Médicos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/insert"  >Nuevo Médico</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/medical/listing"  >Listado de Médicos</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/emr/user.png">Registro de Pacientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/emr/listing"  >Listado de Pacientes</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/company/company-16.png">Empresas y Clientes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/insert"  >Nueva Empresa o Cliente</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/company/listing"  >Listado de Empresas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/suppliers/suppliers-icon-16.png">Compras a Proveedores</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/insert"  >Nuevo Proveedor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/suppliers/listing"  >Listado de Proveedores</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li class="expand">
+			   <a href="javascript:void(0);" class="current"><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/products/box-16.png">Conceptos</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/insert"  >Nuevo Concepto</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/listing"  >Listado de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/insert"  >Nuevo Insumo</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/stock/listing"  >Listado de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_list"  >Listado de Tarifarios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/price_changes"  >Cambios de Precios</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/products/barcode_groups"  >Grupos de Etiquetas</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/admin/application-task.png">Administración</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/users/admin/listing"  >Usuarios</a></li>
+
+				</ul>
+
+			</li>
+			
+			<li >
+			   <a href="javascript:void(0);" ><img src="https://app24.medicati.com/mdti/lab/sanrafael/../img/mt_icons/app/table.png">Reportes</a>
+				<ul class="sub">
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/work_orders"  >Reportes de Órdenes</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/products"  >Reportes de Conceptos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/company"  >Pacientes por Empresa</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock"  >Consumo de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/stock_levels"  >Movimientos de Insumos</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/doctors"  >Pacientes por Doctor</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/sales"  >Reportes de Ventas y Cierres</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/cash_fund_out"  >Reportes de Salidas de Caja</a></li>
+
+						<li><a href="https://app24.medicati.com/mdti/lab/sanrafael/reports/estimate"  >Reportes de Cotizaciones</a></li>
+
+				</ul>
+
+			</li>
+			
+			</ul>
+		</nav>
+		<!--! end of #nav -->		
+		      <br/>
+          	<img src="../account_data/sanrafael/system/logo_sanrafael_260x98.png">
+
+    </aside> <!--! end of #sidebar -->
+
+    <!-- Begin of #main -->
+    <div id="main" role="main">
+
+    	<!-- Begin of titlebar/breadcrumbs -->
+		<div id="title-bar" class="hidden-print">
+
+							<div class="_100" id="turn-alerts" style="margin-bottom:-5px;margin-top:10px;"></div>
+						<ul id="breadcrumbs" style="display: none">
+				<li><a href="dashboard.html" title="Home"><span id="bc-home"></span></a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li><a href="#" title="menu item">menu item</a></li>
+				<li class="no-hover">menu item</li>
+			</ul>
+		</div> 
+		<!--! end of #title-bar -->
+		
+				<div class="shadow-bottom shadow-titlebar"></div>
+
+		<!-- Begin of #main-content -->
+		<div id="main-content">
+			<div class="container_12">
+
+			<!-- Put your content here! -->
+                        <!-- General Title -->
+                        
+			<div class="grid_12">
+				<h1>Conceptos</h1>
+				<p>Administración de Conceptos</p>
+			</div>
+			
+                        <!-- Shortcuts -->
+                        
+    	<!-- Begin of Shortcuts -->
+			
+			<div class="grid_12 hidden-print">
+				<div class="block-border">
+					<div class="block-content">
+						<ul class="shortcut-list">
+							
+					<li>
+
+						<a href="products/insert">
+							 <img src="../img/mt_icons/products/products-48.png">
+							 Nuevo Concepto
+						</a>
+					</li>
+
+					<li>
+
+						<a href="products/listing">
+							 <img src="../img/mt_icons/products/products_listing-48.png">
+							 Listado de Conceptos
+						</a>
+					</li>
+
+					<li>
+
+						<a href="products/price_list">
+							 <img src="../img/mt_icons/products/price_list-48.png">
+							 Listado de Tarifarios
+						</a>
+					</li>
+
+					<li>
+
+						<a href="products/price_changes">
+							 <img src="../img/mt_icons/products/price_change-48.png">
+							 Cambios de Precios
+						</a>
+					</li>
+
+					<li>
+
+						<a href="products/barcode_groups">
+							 <img src="../img/mt_icons/products/barcode2-48.png">
+							 Grupos de Etiquetas
+						</a>
+					</li>
+
+						</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+			</div>
+			
+	<!--! end of Shortcuts -->		
+		                        <br><br>
+                        <!-- General Screen Alert Msg -->
+							<div id="alert_messages" class="grid_12">
+															</div>
+                        <!-- General Content display-->
+                        
+
+<div class="grid_9">
+	<div class="block-border">
+		<div class="block-header">
+			<h1>Grupo de Etiqueta</h1>
+		</div>
+		<div class="block-content form">
+			<div class="_100">
+				<p>
+					<label for="">Nombre:</label>
+					<span>G1</span>
+				</p>
+			</div>
+			<div class="_100">
+				<p>
+					<label for="">Descripción:</label>
+					<span>Grupo 1</span>
+				</p>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Example Block with Border -->
+<div class="grid_3">
+	<div class="block-border">
+		<div class="block-header">
+			<h1>Descripción</h1><span></span>
+		</div>
+		<div class="block-content">
+			<p>En esta pantalla se dan de alta los conceptos para la generación de órdenes o los cargos que se realizan en el sistema.</p>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="grid_12">
+	<div class="block-border">
+
+		<div class="block-header">
+			<h1>Asignación de Exámenes en Grupos de Etiquetas</h1>
+			<span></span>
+		</div>
+		<form action="https://app24.medicati.com/mdti/lab/sanrafael/products/barcode_groups_detail/5" method="post" accept-charset="utf-8" class="block-content form" id="validate-form" action="">
+			<input type="hidden" name="action" value="update" >
+			<input type="hidden" name="id_pro_barcode_labels" value="5" >
+
+			<div class="_100">
+				<h3>Exámenes del Grupo de Etiquetas</h3>
+			</div>
+
+			<div class="_100">
+				<p><hr /></p>
+			</div>
+
+			<div id="container_table" >
+				<div class="_100">
+					<p class="inline-small-label">
+						<label for="exams_selected">
+							Seleccione los Exámenes que Conforman el Grupo de Etiquetas
+						</label>
+					</p>
+
+					<input type="hidden" id="detail_type_table" name="detail_type[table]" value="1" >
+					<!-- Multi-Selector -->
+					<select id="prod_group_items" class="multiselect" multiple="multiple" name="prod_group_items[]" style="width: 90%; height: 40em;" >
+																					<option selected="selected" value="35">BIOMETRIA HEMATICA COMPLETA SER5801022</option>
+																												<option selected="selected" value="50">COOMBS DIRECTO. SER5801038</option>
+																												<option selected="selected" value="423">DIMERO D SER5804202</option>
+																												<option selected="selected" value="105">FORMULA BLANCA SER5801075</option>
+																												<option selected="selected" value="106">FORMULA ROJA SER5801076</option>
+																												<option selected="selected" value="118">GRUPO y RH SER5801101</option>
+																												<option selected="selected" value="121">HEMOGLOBINA GLICOSILADA A1c SER5801105</option>
+																												<option selected="selected" value="457">MIOGLOBINA LAB101</option>
+																												<option selected="selected" value="506">PERFIL SMAC + LIPIDOS SER5824297</option>
+																												<option selected="selected" value="507">PERFIL SMAC1</option>
+																												<option selected="selected" value="174">PLAQUETAS SER5802016</option>
+																												<option selected="selected" value="346">PRUEBAS CRUZADAS  (CETS) SER5802030</option>
+																												<option selected="selected" value="573">PRUEBAS CRUZADAS (2)</option>
+																												<option selected="selected" value="435">VSG (WESTERGREN) SER5824312</option>
+													
+																					<option value="1">ACIDO FOLICO</option>
+																												<option value="2">ACIDO URICO SER5801001</option>
+																												<option value="3">ACIDO URICO EN ORINA DE 24 HRS. SER5801002</option>
+																												<option value="4">ACIDO VALPROICO</option>
+																												<option value="5">ACIDO VANILMANDELICO ORINA 24 HS.</option>
+																												<option value="6">ACTH (HORMONA ADRENOCORTICOTROPICA)</option>
+																												<option value="7">Ac. Anti-Helicobacter pylori IgM SER5824362</option>
+																												<option value="8">ALBUMINA SERICA LAB006</option>
+																												<option value="9">ALCOHOL ETILICO SER5804009</option>
+																												<option value="13">AMILASA SER5801006</option>
+																												<option value="14">AMONIO EN SANGRE SER5804015</option>
+																												<option value="15">ANFETAMINAS EN ORINA SER5824251</option>
+																												<option value="16">ANTICOAGULANTE LUPICO SER5824479</option>
+																												<option value="17">ANTIESTREPTOLISINAS SER5801008</option>
+																												<option value="18">ANTIGENO CA-125 (OVARIO) SER5804071</option>
+																												<option value="19">ANTIGENO CA-15-3  (MAMARIO ESPECIFICO) SER5804072</option>
+																												<option value="20">ANTIGENO CA-19-9 (PANCREAS Y COLON)SER5804073</option>
+																												<option value="21">ANTIGENO CARCINOEMBRIONARIO SER5804074</option>
+																												<option value="22">ANTIGENO PROSTATICO ESPECIFICO SER5824249</option>
+																												<option value="24">ANTIGENO PROSTATICO LIBRE SER5804079</option>
+																												<option value="25">APOLIPOPROTEINAS A1 SER5824417</option>
+																												<option value="26">AZUCARES REDUCTORES SER5802032</option>
+																												<option value="28">TINCION DE BAAR (MUESTRA) SER5824232</option>
+																												<option value="29">BARBITURICOS EN ORINA SER5824254</option>
+																												<option value="30">BENZODIAZEPINA EN ORINA SER01020</option>
+																												<option value="31">BETA 2 MICROGLOBULINA EN ORINA LAB052</option>
+																												<option value="32">BETA 2 MICROGLOBULINA EN SUERO</option>
+																												<option value="34">BILIRRUBINAS SER5801021</option>
+																												<option value="40">CALCIO SER5801024</option>
+																												<option value="41">CALCIO EN ORINA DE 24 HRS SER01023</option>
+																												<option value="42">CALCIO Y CREATININA EN ORINA</option>
+																												<option value="45">CANABINOIDES EN ORINA (MARIHUANA) SER5801025</option>
+																												<option value="46">CARBAMAZEPINA SER5804082</option>
+																												<option value="47">CLORO SER5824263</option>
+																												<option value="48">COCAINA EN ORINA SER5801033</option>
+																												<option value="49">COLESTEROL  LAB076</option>
+																												<option value="51">COOMBS INDIRECTO SER5801039</option>
+																												<option value="52">COPROCULTIVO SER5804215</option>
+																												<option value="53">COPROLOGICO SER5801044</option>
+																												<option value="55">COPROPARASITOSCOPICO SERIADO 3 SER5801043</option>
+																												<option value="56">COPROPARASITOSCOPICO  (CPS 1) 56 SER5801041</option>
+																												<option value="57">CORTISOL URINARIO EN ORINA 24 HRS.</option>
+																												<option value="58">CORTISOL SERICO SER5804093</option>
+																												<option value="60">CREATIN FOSFOQUINASA  SER5801047</option>
+																												<option value="61">CREATIN FOSFOQUINASA FRACCION MB LAB078</option>
+																												<option value="62">CREATININA (CR) SER5801045</option>
+																												<option value="63">CREATININA EN ORINA 63</option>
+																												<option value="64">CREATININA ORINA 24 HRS. SER5801046</option>
+																												<option value="66">CULTIVO DE HONGOS 66 SER5801057</option>
+																												<option value="67">CULTIVO DE LIQUIDO CEFALORRAQUIDEO 67</option>
+																												<option value="68">CULTIVO DE LIQUIDO PLEURAL</option>
+																												<option value="69">CULTIVO DE LIQUIDO SINOVIAL</option>
+																												<option value="73">CULTIVO DIALISIS / LIQ. PERITONEAL</option>
+																												<option value="75">CULTIVO DE SECRECION URETRAL SER5801055</option>
+																												<option value="77">CULTIVO EXUDADO FARINGEO  SER5801054</option>
+																												<option value="79">CULTIVO PARA MYCOBACTERIUM TUBERCULOSIS</option>
+																												<option value="82">DEPURACION DE CREATININA SER5801064</option>
+																												<option value="84">DESHIDROGENASA LACTICA SER5801065</option>
+																												<option value="86">ELECTROLITOS SERICOS (3) SER5801066</option>
+																												<option value="88">ELECTROLITOS ORINA 24 hrs. SER5824487</option>
+																												<option value="89">EOSINOFILOS EN MOCO NASAL SER5802038</option>
+																												<option value="91">ESPERMATOBIOSCOPIA  (SEMINOGRAMA) SER5801067</option>
+																												<option value="93">ESPERMOCULTIVO</option>
+																												<option value="94">ESTRADIOL SERICO SER5801054</option>
+																												<option value="95">ESTRIOL SER5804104</option>
+																												<option value="97">ESTROGENOS TOTALES</option>
+																												<option value="98">EXAMEN GENERAL DE ORINA SER5801092</option>
+																												<option value="99">EXAMENES PRENUPCIALES P Persona (HIV, VDRL,GPO RH) SER5824464</option>
+																												<option value="100">FACTOR REUMATOIDE SER5801072</option>
+																												<option value="101">DIFENILHIDANTOINA SER5804098</option>
+																												<option value="102">FENOBARBITAL (ACIDO. BARBITURICO) SER5804110</option>
+																												<option value="103">FERRITINA SER5804111</option>
+																												<option value="104">FIBRINOGENO SER5801074</option>
+																												<option value="107">FOSFATASA ACIDA SER5801077</option>
+																												<option value="108">FOSFATASA ACIDA Y FRACC. PROSTATICASER5801078</option>
+																												<option value="109">FOSFATASA ALCALINA SER5801079</option>
+																												<option value="110">FOSFORO SER5801081</option>
+																												<option value="111">FOSFORO EN ORINA DE 24 hrs. SER5801080</option>
+																												<option value="113">GLUCOSA SER5801094</option>
+																												<option value="114">GLUCOSA POSTPRANDIAL SER5801098</option>
+																												<option value="117">TINCION DE GRAM</option>
+																												<option value="119">H.GONADOTROPINA CORIONICA (HOMBRES) (GSH o HGC)</option>
+																												<option value="120">HEMOCULTIVO  (CULTIVO DE SANGRE) LAB202</option>
+																												<option value="122">HIERRO SERICO SER5804122</option>
+																												<option value="124">HORMONA DE CRECIMIEMTO  SER5804123</option>
+																												<option value="127">HORMONA ESTIMULANTE DE TIROIDES (TSH NEONATAL SUERO) SER5804124</option>
+																												<option value="129">HORMONA ESTIMULANTE DE TIROIDES (TSH)</option>
+																												<option value="130">HORMONA FOLICULO ESTIMULANTE SER5804125</option>
+																												<option value="131">CUANTIFICACION B-HGC EN SUERO SER5801050</option>
+																												<option value="132">HORMONA LUTEINIZANTE (LH)</option>
+																												<option value="133">PARATHORMONA (PTH) Molécula Intacta LAB094</option>
+																												<option value="137">INMUNOGLOBULINA IGM SER5804132</option>
+																												<option value="138">INSULINA SERICA SER5804134</option>
+																												<option value="140">LIPASA SERICA SER5801108</option>
+																												<option value="141">LIPASA URINARIA</option>
+																												<option value="144">LITIO</option>
+																												<option value="145">MAGNESIO SERICO SER5801114</option>
+																												<option value="146">MAGNESIO EN ORINA DE 24 HRS. SER5801115</option>
+																												<option value="153">PERFIL CARDIACO SER5802001</option>
+																												<option value="159">PERFIL DE LIPIDOS SER5824226</option>
+																												<option value="162">PERFIL HEPATICO SER5802007</option>
+																												<option value="165">PERFIL HORMONAL MASCULINO (PHM)</option>
+																												<option value="175">PLOMO EN SANGRE</option>
+																												<option value="176">POTASIO SER5802017</option>
+																												<option value="177">POTASIO EN ORINA DE 24 HRS</option>
+																												<option value="178">PROGESTERONA SER5804177</option>
+																												<option value="179">PROLACTINA SER5804179</option>
+																												<option value="180">PROTEINA C REACTIVA (PCR) SER5824219</option>
+																												<option value="181">PROTEINA C REACTIVA DE ALTA SENSIBILIDAD SER5824381</option>
+																												<option value="182">PROTEINAS TOTALES LAB129</option>
+																												<option value="184">PRUEBA DE EMBARAZO EN ORINA (PIE) SER5802020</option>
+																												<option value="185">PRUEBA DE EMBARAZO EN SUERO (PIE) SER5802022</option>
+																												<option value="187">QUIMICA SANGUINEA  SER5802033</option>
+																												<option value="189">QUIMICA SANGUINEA 6 SER5824221</option>
+																												<option value="190">REACCIONES FEBRILES SER5802036</option>
+																												<option value="191">RECUENTO CELULAR</option>
+																												<option value="192">RETICULOCITOS (RETIS o RET) SER5802039</option>
+																												<option value="194">ROSA DE BENGALA SER5804198</option>
+																												<option value="195">ANTIGENO DE ROTAVIRUS EN  HECES LAB049</option>
+																												<option value="196">SANGRE OCULTA EN HECES SER5802042</option>
+																												<option value="197">SODIO (Na) SER5802044</option>
+																												<option value="199">SODIO EN ORINA DE 24 HRS</option>
+																												<option value="200">T3 (TRIYODOTIRONINA) LAB137</option>
+																												<option value="201">T4 LIBRE SER5824328</option>
+																												<option value="202">T4 (TIROXINA) LAB133</option>
+																												<option value="203">TESTOSTERONA</option>
+																												<option value="204">TIEMPO DE COAGULACION (TC) SER5803001</option>
+																												<option value="206">TIEMPO DE SANGRADO (TS) SER5803005</option>
+																												<option value="207">TIEMPO DE TROMBINA  SER5803007</option>
+																												<option value="208">TIEMPO PARCIAL DE TROMBOPLASTINA SER5803008</option>
+																												<option value="209">TINTA CHINA SER5824307</option>
+																												<option value="210">TRANSAMINASA GLUTAMICO OXALACETICA SER5824305</option>
+																												<option value="211">TRANSAMINASA GLUTAMICO PIRUVICA (TGP) SER5824306</option>
+																												<option value="212">TRANSFERRINA</option>
+																												<option value="213">TRIGLICERlDOS SER5803014</option>
+																												<option value="215">UREA SER5803015</option>
+																												<option value="216">UROCULTIVO  (CULTIVO DE ORINA) SER5801059</option>
+																												<option value="217">VDRL SER5803016</option>
+																												<option value="218">VELOCIDAD DE SEDIMENTACION GLOBULAR  SER5803017</option>
+																												<option value="227">Carga Viral para Hepatitis B SER5824253</option>
+																												<option value="229">GENOTIPIFICACION PARA HEPATITIS C</option>
+																												<option value="230">Carga Viral para Hepatitis C (RNA) SER5824259</option>
+																												<option value="232">WESTERN BLOT HIV </option>
+																												<option value="233">VIH por PCR</option>
+																												<option value="234">Carga viral para VIH SER5824260</option>
+																												<option value="248">Nivel sérico de Topiramato</option>
+																												<option value="249">TALIO</option>
+																												<option value="250">Mercurio</option>
+																												<option value="253">CARIOTIPO (CON FOTO)</option>
+																												<option value="255"> Ac. Anti-Helicobacter pylori IgG SER5824339</option>
+																												<option value="257">ANTICUERPOS ANTI TIROGLOBULINA SER5804187</option>
+																												<option value="258">ANTICUERPOS ANTI NUCLEARES SER5804050</option>
+																												<option value="261">ANTICUERPOS  ANTI TIROIDEOS SER5804057</option>
+																												<option value="267">Servicio a domicilio</option>
+																												<option value="269">DEHIDROEPIANDROSTERONA SER5804095</option>
+																												<option value="277">ANTICUERPOS ANTI SM</option>
+																												<option value="278">ANTICUERPOS ANTI SCL 70 (ESCLERODERMA)</option>
+																												<option value="279">ANTICUERPOS ANTI CENTROMERO</option>
+																												<option value="280">ANTICUERPOS ANTI SSA (RO) SER5804055</option>
+																												<option value="281">ANTICUERPOS ANTI SSB (LA)  SER5804056</option>
+																												<option value="283">ANTIGENO DE SUPERFICIE HEPATITIS B SER5804076</option>
+																												<option value="285">AC. ANTI HEPATITIS C  SER5824363</option>
+																												<option value="287">ANTICUERPOS ANTI -CITOPLASMA DE NEUTROFILOS ANCA C Y ANCA P</option>
+																												<option value="295">ANTICUERPOS ANTI PEROX TIROIDEA (TPO, MICROSOMAL) SER5824245</option>
+																												<option value="296">TIROGLOBULINA SER5804022</option>
+																												<option value="298">HOMOCISTEINA</option>
+																												<option value="300">CROMO EN SUERO</option>
+																												<option value="301">NÍQUEL EN SANGRE</option>
+																												<option value="303">ZINC SER5804193</option>
+																												<option value="304">TESTOSTERONA LIBRE SER5804185</option>
+																												<option value="306">CARDIOLIPINAS IgG IgM</option>
+																												<option value="309">COLINESTERASA SER5804089</option>
+																												<option value="315">DETECCION DE Neisseria gonorrhoeae en suero</option>
+																												<option value="317">INSULINA POSPANDRIAL </option>
+																												<option value="318">ELECTROFORESIS LIPOPROTEINAS SER5801093</option>
+																												<option value="320">MYCOBACTERIUM TUBERCULOSIS AC</option>
+																												<option value="325">PERFIL DE TORCH IGG SER5804162</option>
+																												<option value="328">LINFOCITOS CD4 Y CD8</option>
+																												<option value="342">GASOMETRIA ARTERIAL SER5804115</option>
+																												<option value="344">GASOMETRIA VENOSA SER5804117</option>
+																												<option value="345">PERFIL DIARREICO SER5802006</option>
+																												<option value="347">ANTICUERPOS ANTI TOXOPLASMA IGG</option>
+																												<option value="348">ANTICUERPOS ANTI TOXOPLASMA IGM SER5804060</option>
+																												<option value="349">ANTICUERPOS ANTI TOXOPLASMA IGG/IGM </option>
+																												<option value="351">ANTICUERPOS ANTI TRYPANOSOMA CRUZI IGG SER5804039</option>
+																												<option value="352">ANTICUERPOS ANTI TUBERCULOSIS IGG</option>
+																												<option value="353">ANTICUERPOS ANTI CHLAMYDIA IGG SER5824366</option>
+																												<option value="355">ACIDO 5 HIDROXI INDOLACETICO EN ORINA 24HRS</option>
+																												<option value="356">ACIDO LACTICO LAB002</option>
+																												<option value="357">ADENOSIN DEAMINASA (ADA)</option>
+																												<option value="358">ANTIGENO HELICOBACTER PYLORI (HECES) SER5824248</option>
+																												<option value="359">ANTIGENO ANTI NEUMONIA ATIPICA</option>
+																												<option value="360">ANTIGENO CAPSULARES EN SER5824325</option>
+																												<option value="361">ANTIGENO DE CHLAMYDIA EN:</option>
+																												<option value="363">ANTIGENO VIRUS DE INFLUENZA A/B SER5804196</option>
+																												<option value="364"> ANTIGENO VIRUS SINCITIAL RESPIRATORIO</option>
+																												<option value="365">ALDOLASA</option>
+																												<option value="366">ALDOSTERONA EN SANGRE SER5804011</option>
+																												<option value="367">ALFAFETOPROTEINAS SER5824250</option>
+																												<option value="368">AMILASA EN ORINA 24HRS SER5801005</option>
+																												<option value="369">ANDROSTENDIONA</option>
+																												<option value="370">ANTIGENO HLAB27 SER5804080</option>
+																												<option value="371">ANTITROMBINA III</option>
+																												<option value="372">BAAR (10) ORINA SER5824370</option>
+																												<option value="373">BAAR (5) EN MUESTRA DE:</option>
+																												<option value="374">BAAR (1) EN ORINA SER5824323</option>
+																												<option value="375">BAAR (1) EXPECTORACION</option>
+																												<option value="376">BAAR (3) EXPECTORACION SER5824320</option>
+																												<option value="377">BAAR (3) ORINA</option>
+																												<option value="378">BACILO DE HANSEN SER5801015</option>
+																												<option value="379">BICARBONATO EN ORINA</option>
+																												<option value="380">CA 21.1 (PULMON) CYFRA</option>
+																												<option value="381">CA 72.4 (ESTOMAGO) LAB046</option>
+																												<option value="382">CALCIO IONICO</option>
+																												<option value="383">CALCITONINA LAB053</option>
+																												<option value="384">CAPTACION DE HIERRO</option>
+																												<option value="385">CARIOTIPO (SIN FOTO)	SER5824390</option>
+																												<option value="386">CATECOLAMINAS EN SANGRE SER5804084</option>
+																												<option value="387">CELULAS LE</option>
+																												<option value="388">CICLOSPORINA SER5804086</option>
+																												<option value="389">CINETICA DE HIERRO II </option>
+																												<option value="391">CITOLOGIA DE LIQUIDO SER5824376</option>
+																												<option value="396">CITOQUIMICO/CITOLOGICO DE LIQUIDO SINOVIAL SER5801031</option>
+																												<option value="399">CITOQUIMICO LCR SER5801028</option>
+																												<option value="400">CITOQUIMICO LIQ. PERITONEAL (ASCITICO) SER5801027</option>
+																												<option value="401">CITOQUIMICO LIQ. PLEURAL SER5801030</option>
+																												<option value="402">CITRATOS EN ORINA DE 24 HR SER5824262</option>
+																												<option value="403">CLONAZEPAM (RIVOTRIL) SER5804087</option>
+																												<option value="404">CO2 TOTAL SER5824264</option>
+																												<option value="405">COBRE SERICO</option>
+																												<option value="406">CLORO EN ORINA 24 HRS.</option>
+																												<option value="407">COLESTEROL HDL SER5801037</option>
+																												<option value="408">COLESTEROL LDL SER5801034</option>
+																												<option value="409">COMPLEMENTO C3 SER5804091</option>
+																												<option value="410">COMPLEMENTO C4 SER5804092</option>
+																												<option value="411">COMPLEMENTO HEMOLITICO 50 SER5804090</option>
+																												<option value="412">CRIOAGLUTININAS SER5824265</option>
+																												<option value="413">CRIOGLOBULINAS SER5824266</option>
+																												<option value="416">CULTIVO BACTERIOLOGICO SER5824216</option>
+																												<option value="417">CULTIVO DE SECRECION VAGINAL SER5801056</option>
+																												<option value="418">CULTIVO DE SECRECION VULVAR SER5801060</option>
+																												<option value="419">CULTIVO MICOLOGICO SER5824267</option>
+																												<option value="420">CULTIVO MYCOPLASMA/UREPLASMA EN  </option>
+																												<option value="421">DEHIDROEPIANDROSTERONA SULFATO SER5804096</option>
+																												<option value="422">DIGOXINA SER5804099</option>
+																												<option value="425">D-XILOSA PRUEBA DE ABSORCION</option>
+																												<option value="426">ELECTROFORESIS DE HEMOGLOBINA SER5824401</option>
+																												<option value="427">ELECTROFORESIS PROTEINAS SER5804101</option>
+																												<option value="428">EOSINOFILOS EN MOCO FECAL SER5824270</option>
+																												<option value="431">LAB. FENILCICLIDINA (POLVO DE ANGEL)</option>
+																												<option value="432">FRACC. PROSTATICA SER5824274</option>
+																												<option value="433">ANTIZIKA NS1 SER5824441</option>
+																												<option value="437">FRAGILIDAD CAPILAR</option>
+																												<option value="438">VITAMINA D (25 HIDROXICOLECALCIFEROL)SER5824311</option>
+																												<option value="439">FRAGILIDAD OSMOTICA ERITROCITICA SER5824275</option>
+																												<option value="440">VITAMINA B12 LAB138</option>
+																												<option value="441">GAMMA GLUTAMIL TRANSFERASA SER5824379</option>
+																												<option value="443">GLUCOSA EN ORINA SER5801096</option>
+																												<option value="445">HORMONA ANTIDIURETICA (VASOPRESINA)</option>
+																												<option value="447">INMUNOESPECIFICIDAD DE A.N.A.</option>
+																												<option value="448">INMUNOFENOTIPO SER5824327</option>
+																												<option value="449">INMUNOGLOBULINA IgD SER5804129</option>
+																												<option value="450">LAMOTRIGINA SER5824278</option>
+																												<option value="451">LIPIDOS TOTALES</option>
+																												<option value="453">ANTICUERPOS ANTI FOSFOLIPIDOS SER5804045</option>
+																												<option value="454">PROCALCITONINA SERICA SER5824215</option>
+																												<option value="455">METANEFRINAS TOTALES ORINA</option>
+																												<option value="456">MICROALBUMINURIA SER5801116</option>
+																												<option value="458">MOCO FECAL SER5801117</option>
+																												<option value="459">MONOMEROS DE FIBRINA</option>
+																												<option value="460">MONOTEST (PAUL BUNELL) LAB102</option>
+																												<option value="462">OBSERVACION DIRECTA CON KOH SER5824237</option>
+																												<option value="463">OPIACEOS EN ORINA (MORFINA) SER5801036</option>
+																												<option value="464">OSMOLARIDAD EN ORINA 24 HRS SER5804148</option>
+																												<option value="465">OSMOLARIDAD SERICA SER5804147</option>
+																												<option value="466">OXALATOS EN ORINA DE 24 HRS</option>
+																												<option value="467">OXCARBAZEPINA</option>
+																												<option value="468">P.P.D. (5.U.T.)</option>
+																												<option value="469">PCR PARA HEPATITIS B</option>
+																												<option value="470">PCR PARA HEPATITIS C SER5824286</option>
+																												<option value="471">PCR PARA MYCOBACTERIUM TB</option>
+																												<option value="473">PEPTIDO C SER5804151</option>
+																												<option value="474">PROPEPTIDO NATRIURETICO  (BNP)</option>
+																												<option value="479">PERFIL ALERGIA ALIMENTICIA</option>
+																												<option value="485"> PERFIL DE DROGAS EN ORINA SER582419</option>
+																												<option value="487">PERFIL DE INMUNOGLOBULINAS SER5804154</option>
+																												<option value="488">PERFIL DE PROLACTINA</option>
+																												<option value="499">PERFIL OVÁRICO SER5804168</option>
+																												<option value="501">PERFIL PROTEINAS DE LA LECHE</option>
+																												<option value="503">PERFIL REUMATICO SER5802013</option>
+																												<option value="504">ANTICUERPOS ANTIDENGUE IGG/IGM SER5824357</option>
+																												<option value="505">ANTI CHIKUNGUNYA IGM SER5824335</option>
+																												<option value="511">AC ANTI RICKETTSIAS IGG/IGM</option>
+																												<option value="512">ANTICUERPO ANTI-AG </option>
+																												<option value="513">INMUNOGLOBULINA IGE SER5804130</option>
+																												<option value="514">INMUNOGLOBULINA IGA SER5804128</option>
+																												<option value="515">INMUNOGLOBULINA IGG SER5804131</option>
+																												<option value="516"> METANFETAMINAS EN ORINA SER5824424</option>
+																												<option value="518">PERFIL TIROIDEO  SER5824389</option>
+																												<option value="520">PRIMIDONA (MYSOLINE)</option>
+																												<option value="523">PROTEINA C DE LA COAGULACION SER5824388</option>
+																												<option value="525">UREA EN ORINA DE 24 HRS. SER5824235</option>
+																												<option value="526">PROTEINA A (PAPP)</option>
+																												<option value="527">PROTEINAS DE BENCE JONES SER5804180</option>
+																												<option value="528">PROTEINAS EN ORINA DE 24 HRS. SER5802028</option>
+																												<option value="531">PRUEBA DE HAM SER5824301</option>
+																												<option value="535">RENINA PLASMATICA SER5804181</option>
+																												<option value="536">RETRACCION DEL COAGULO</option>
+																												<option value="537"> SALICILATOS EN SUERO</option>
+																												<option value="538"> SIMMS - HUNNER SER5824302</option>
+																												<option value="539">SOMATOMEDINA C (IgF1)</option>
+																												<option value="541">T3 (TRIYODOTIRONINA LIBRE)</option>
+																												<option value="542">TACROLIMUS (PROGRAF) SER5824304</option>
+																												<option value="545">CURVA DE TOLERANCIA A LA GLUCOSA (2)  SER5801063</option>
+																												<option value="546"> CURVA DE TOLERANCIA A LA GLUCOSA (3) SER5824385</option>
+																												<option value="548">TROPONINA I SER5804190</option>
+																												<option value="549">AC. ANTI HEPATITIS A IgG- IgM SER5804030</option>
+																												<option value="551">QUIMICA SANGUINEA (3) SER5824223</option>
+																												<option value="552">PERFIL DE TORCH IGM SER5804161</option>
+																												<option value="554">CULTIVO DE BAAR SER5801061</option>
+																												<option value="555">TIEMPO DE PROTROMBINA CON INR  SER5824444</option>
+																												<option value="556">ANTICUERPOS ANTIDENGUE NS1 LAB200</option>
+																												<option value="557">ANTICUERPOS ANTI-LEPTOSPIRA IGG E IGM</option>
+																												<option value="559">AC. ANTI MITOCONDRIALES LAB202</option>
+																												<option value="560">AC. ANTI MUSCULO LISO SER5804049</option>
+																												<option value="561">AC. ANTI HIV 1/2 LAB032</option>
+																												<option value="562">ANTICUERPOS ANTI -VIRUS DE LA HEPATITIS DELTA </option>
+																												<option value="563">ANTICUERPOS ANTI-VIRUS DE LA HEPATITIS E (IgG e IgM) SER5824234</option>
+																												<option value="565">ANTICUERPOS Anti-Ag </option>
+																												<option value="566">ANTICUERPOS ANTI-DNA ds Doble Cadena LAB207</option>
+																												<option value="567">ANTICUERPOS ANTI-PEPTIDO CICLICO CITRULINADO</option>
+																												<option value="568">AC ANTI AG CORE HEPATITIS B IgM (HBc-M) SER57247</option>
+																												<option value="569">ACIDO URICO EN ORINA</option>
+																												<option value="570">SODIO EN ORINA</option>
+																												<option value="571">POTASIO EN ORINA SER5802019</option>
+																												<option value="572">UREA EN ORINA</option>
+																												<option value="574">TACROLIMUS</option>
+																												<option value="576">ANTICUERPOS ANTI-MEMBRANA GLOMERULAR BASAL (GBMA) SER5824448</option>
+																												<option value="577">PCR TIEMPO REAL CITOMEGALOVIRUS CUALITATIVA (SER5824451)</option>
+																												<option value="578">PCR VIRUS DE EPSEIN BARR Cualitativa</option>
+																												<option value="579">ANTICUERPOS ANTI-PARVOVIRUS B-19 (SER5824450)</option>
+																												<option value="580">PCR ADENOVIRUS (SER5824452)</option>
+																												<option value="581">ANTICUERPOS ANTI-CAPSIDE DEL VIRUS EPSTEIN BARR (VCA) IgG E IgM (SER5824453)</option>
+																												<option value="582">FROTIS DE SANGRE PERIFERICA</option>
+																												<option value="583">ANTICUERPOS ANTI-HELICOBACTER PYLORI IGA</option>
+																												<option value="586">17 CETORSTEROIDES</option>
+																												<option value="587">17 HIDROXICORTICOIDES</option>
+																												<option value="588">TAMIZ ALFA SER5824463</option>
+																												<option value="589">TAMIZ KAPPA</option>
+																												<option value="590">TAMIZ EPSILON SER5824461</option>
+																												<option value="591">TAMIZ SIGMA</option>
+																												<option value="592">TAMIZ BETA SER5824459</option>
+																												<option value="593">TAMIZ GAMMA</option>
+																												<option value="594">TAMIZ DELTA SER5824457</option>
+																												<option value="595">TAMIZ 100 +</option>
+																												<option value="596">TAMIZ PRO SER5824455</option>
+																												<option value="598">ANTIDOPING (4)</option>
+																												<option value="600">PCR TIEMPO REAL MYCOBACTERIUM TUBERCOLISIS SER5824287</option>
+																												<option value="601">ELECTROLITOS SERICOS (6) SER5824465</option>
+																												<option value="602">AC ANTI TREPONEMA P (FTAABS)</option>
+																												<option value="604">QUIMICA SANGUINEA (4)</option>
+																												<option value="605">ESTUDIO METABOLICO DE CALCULO SER584272</option>
+																												<option value="606">CISTATINA C</option>
+																												<option value="607">ANTICUERPOS ANTI CISTICERCO </option>
+																												<option value="608">QUANTIFERON TB SER5824466</option>
+																												<option value="609">ANTICUERPOS ANTI-HERPES SIMPLE I Y II IgG/IgM </option>
+																												<option value="610">NICOTINA LAB103</option>
+																												<option value="611">CRISTALOGRAFIA</option>
+																												<option value="612">ANTIGENO DE GALACTOMANANO PARA ASPERGILLUS</option>
+																												<option value="613">ELECTROFORESIS DE PROTEINAS EN ORINA DE 24 HORAS</option>
+																												<option value="614">INMUNOFIJACION DE PROTEINAS EN SUERO SER5824469</option>
+																												<option value="615">INMUNOFIJACION DE PROTEINAS EN ORINA DE 24 HORAS</option>
+																												<option value="616">IGFBP-3 LAB096</option>
+																												<option value="618">PCR PARA VIRUS DE PAPILOMA HUMANO</option>
+																												<option value="619">AC ANTI CITOMEGALOVIRUS IGG SER5824217</option>
+																												<option value="620">AC ANTI CITOMEGALOVIRUS IGM</option>
+																												<option value="621">AC ANTI EPSTEIN BARR CAPSIDE (VCA IgG)</option>
+																												<option value="622">AC ANTI EPSTEIN BARR CAPSIDE (VCA IgM)</option>
+																												<option value="623">ALFA 1 GLICOPROTEINA ACIDA SER5824475</option>
+																												<option value="624">CALPROTECTINA FECAL SER5824471</option>
+																												<option value="625">AC ANTI ENDOMISIO</option>
+																												<option value="626">AC ANTI TRANGLUTAMINASA TISULAR SER5824472</option>
+																												<option value="627">BRCA1 / BRCA2</option>
+																												<option value="629">PCR PARA ENTEROVIRUS EN LCR SER5824474</option>
+																												<option value="630">ANTICUERPOS ANTI-BETA 2 GLICOPROTEINA 1(IgG/IgM)</option>
+																												<option value="631">2-MERCAPTO ETANOL (IGG) SER5824239</option>
+																												<option value="632">AC ANTI BORRELIA BURGDORFERI</option>
+																												<option value="633">GOTA GRUESA SER5801104</option>
+																												<option value="634">17 DHP</option>
+																												<option value="635">CLOSTRIDIUM DIFFICILE</option>
+																												<option value="637">PANEL VIRAL RESPIRATORIO AMPLIADO</option>
+																												<option value="638">CITOLOGICO DE LIQUIDO PERITONEAL</option>
+																												<option value="639">ANTICUERPÓS ANTI-CHLAMIDYA IGM</option>
+																												<option value="640">PCR Chlamydia tracomatis</option>
+																												<option value="641">DETECCION CUALITATIVA DE CORONAVIRUS SARS CoV-2 (COVID-19) SER5824481</option>
+																												<option value="642">AC ANTI-TRIPANOSOMA CRUZI SER5804039</option>
+																												<option value="643">CULTIVO DE EXPECTORACION</option>
+																												<option value="644">GLUTAMATO DESHIDROGENASA EN HECES FECALES</option>
+																												<option value="645">PROTEINA EN ORINA DE 24 HRS</option>
+																												<option value="646">INTERLEUCINA 6 SER5824483</option>
+																												<option value="647">DETECCION DE ANTICUERPOS SARS-CoV-2 SER5824482</option>
+																												<option value="648">HAPTOGLOBINA</option>
+																												<option value="649">LACTATO</option>
+																												<option value="650">AMIBA EN FRESCO SER5801004</option>
+																												<option value="651">ANTIGENO PARA SARS CoV2 AGCOVID</option>
+																												<option value="652">PROTEINA S DE LA COAGULACION SER5824220</option>
+																												<option value="653">PCR  PARA INFLUENZA SER5824485</option>
+																												<option value="654">EST. LAB. PEPTIDO NATRIURETICO AURICULAR (ANP) SER8069</option>
+																												<option value="655">CULTIVO DE SECRECION BRONQUIAL</option>
+																												<option value="657">PLASMA RICO EN PLAQUETAS SER8072</option>
+																												<option value="658">PRUEBA ANTIGENO SARS CoV2 PRE INGRESO</option>
+																												<option value="659">CULTIVO BACTERIOLOGICO (VENTILADOR)</option>
+																												<option value="660">PCR ETS12</option>
+																												<option value="661">17 HIDROXIPROGESTERONA</option>
+																												<option value="663">FOSFATASA ALCALINA DE NEUTROFILOS SER5824486</option>
+																												<option value="664">HORMONA ANTI MULLERIANA SER582488</option>
+																												<option value="665">ANTICUERPOS ANTI JO 1 POLIMIOSITIS IIG SER5804047</option>
+																												<option value="666">ANTICUERPOS ANTI RNP</option>
+																												<option value="667">ANTICUERPOS ANTI CHLAMYDIA IGA SER5804040</option>
+																												<option value="668">AC ANTIHERPES </option>
+																												<option value="669">FACTOR V LAB068</option>
+																												<option value="670">ANTIGENO URINARIO PARA LEGIONELLA</option>
+																												<option value="671">RESISTENCIA A LA INSULINA SER5804217</option>
+																												<option value="672">ACIDO FOLICO INTRAERITROCITARIO</option>
+																												<option value="673">PCR PARA PARVOVIRUS SER582487</option>
+																												<option value="674">ANTICUERPOS ANTIHIGADO CITOSOL-1</option>
+																												<option value="675">ANTICUERPOS ANTI GAD SER5824393</option>
+																												<option value="676">ANTI INSULINA ICA</option>
+																												<option value="677">PRO INSULINA</option>
+																												<option value="678">PREALBUMINA</option>
+																												<option value="679">ANTICUERPOS ANTICISTICERCOS EN LCR IGG SER5804038</option>
+																												<option value="680">ASTROVIRUS</option>
+																												<option value="681">ANTICUERPOS ANTI RNA</option>
+																												<option value="682">ADENOVIRUS EN HECES</option>
+																												<option value="683">PCR PARA CLOSTRIDIUM DIFFICILE SER582489</option>
+																												<option value="684">AC ANTI GLIADINA IgA/IgG</option>
+																												<option value="685">PRUEBA INMUNOLOGICA PARA LA DETECCION DE HB EN HECES</option>
+																												<option value="686">PCR PARA TUBERCULOSIS EN LIQUIDOS</option>
+																												<option value="687">ANTICUERPOS IGG E IGM PARA ZIKA SER9104</option>
+																												<option value="688">NMP22 MARCADOR DE VEJIGA</option>
+																												<option value="689">PANEL VIRAL EN LIQUIDO CEFALORAQUIDEO</option>
+																												<option value="690">IGE ESPECIFICA PARA  VENENO DE ABEJA SER9118</option>
+																												<option value="691">DNA FETAL EN SANGRE MATERNA SER582491</option>
+																												<option value="692">CADENAS LIGERAS KAPPA Y LAMBDA</option>
+																												<option value="693">INDICE DE FILTRADO GLOMERULAR ESTIMADO (SER582494)</option>
+																												<option value="694">CULTIVO DE SECRECION PROSTATICA</option>
+																												<option value="695">CULTIVO PLEURAL</option>
+																												<option value="696">CULTIVO DE PULMON</option>
+																												<option value="697">PCR EN TIEMPO REAL PARA VIRUS BK</option>
+																												<option value="698">ANTICUERPOS ANTI E. HISTOLYTICA</option>
+																												<option value="699">HORMONA RELACIONADA A GONADOTROPINA (GnRH)</option>
+																												<option value="700">CARGA VIRAL PARA VIRUS EPSTEIN BARR</option>
+																												<option value="701">PCR PARA HERPES TIPO I Y II EN LCR</option>
+																												<option value="702">BANDAS OLIGOCLONALES EN LCR</option>
+																												<option value="703">LACTOFERRINA EN HECES</option>
+																												<option value="704">ACETAMINOFEN</option>
+																												<option value="705">ANTIGENO e DE HEPATITIS B</option>
+																												<option value="706">AC. ANTI e DE HEPATITIS B IgG</option>
+																												<option value="707">ANTICUERPOS ANTI e HEPATITIS B IgG</option>
+																												<option value="708">AC ANTI ANTIGENO CORE HEPATITIS B IgM</option>
+																												<option value="709">ANTICUERPOS MICROSOMALES (ANTI LKM-1)</option>
+																												<option value="710">SIROLIMUS (RAPAMUNE)</option>
+																												<option value="711">PROTEINA C REACTIVA CUALITATIVA</option>
+																												<option value="712">AC ANTI RECEPTOR DE ACETILCOLINA</option>
+																												<option value="713">AC DEL RECEPTOR DE LA TSH (TRAb)</option>
+																												<option value="714">AC ANTI RUBEOLA IgG</option>
+																												<option value="715">VITAMINA B6</option>
+																												<option value="716">GEN EXPER PCR PARA MYCOBACTERIA TUBERCULOSIS</option>
+																												<option value="717">CINETICA DE HIERRO BASICA</option>
+																												<option value="718">ALBUMINA EN ORINA</option>
+																												<option value="719">COBRE EN SANGRE</option>
+																												<option value="720">MERCURIO</option>
+																												<option value="721">PERFIL DE SINDROME NEOPLASICO</option>
+																												<option value="722">PCR PARA TUBERCULOSIS EN SANGRE</option>
+																												<option value="723">FACTOR VIII</option>
+																												<option value="724">FACTOR VON WILLEBRAND </option>
+																												<option value="725">AG DE INFLUENZA A/B CQSR</option>
+																												<option value="726">ANTICUERPOS Anti-NUCLEARES CON INMUNOESPECIFICIDAD</option>
+																												<option value="727">PERFIL DE INMUNOESPECIFICIDAD</option>
+																												<option value="728">ÁCIDO MICOFENÓLICO</option>
+																												<option value="729">GLOBULINA FIJADORA DE HORMONAS SEXUALES (SHBG)</option>
+																												<option value="730">FRACCION EXCRETADA DE SODIO (FENa)</option>
+																												<option value="731">BICARBONATO EN SANGRE VENOSA (HCO3-)</option>
+																												<option value="732">LEPTINA</option>
+																												<option value="733">CALPROTECTINA EN HECES 50+200</option>
+																												<option value="734">AC ANTI TRANSGLUTAMINASA IgA e IgG</option>
+																												<option value="735">SUBCLASES INMUNOGLOBULINA IGG</option>
+																												<option value="736">CATECOLAMINAS EN ORINA DE 24 HRS,</option>
+																												<option value="737">ADRENALINA EN ORINA DE 24 HRS</option>
+																												<option value="738">NORADRENALINA EN ORINA DE 24 HRS</option>
+																												<option value="739">ADRENALINA</option>
+																												<option value="740">NORADRENALINA EN SANGRE</option>
+																												<option value="741">TOXINA A, B Y GLUTAMATO DESHIDROGENASA (GDH) PARA CLOSTRIDIUM DIFFICILE</option>
+																												<option value="742">CALPROTECTINA CUANTITAVITA + LACTOFERRINA</option>
+																		</select>
+				</div><!-- ._100 -->
+			</div> <!-- #container_table -->
+
+			<div class="clear"></div>
+
+			<!-- <hr/> -->
+
+			<!-- Buttons with actionbar  -->
+			<div class="block-actions">
+				<ul class="actions-left">
+					<li><a class="button red" id="btn_cancel" href="./products/barcode_groups">Cancelar</a></li>
+				</ul>
+				<ul class="actions-right">
+					<li><input type="submit" id="btn_save" class="button" value="Guardar"></li>
+				</ul>
+			</div> <!--! end of #block-actions -->
+
+		</form>		<div class="block-footer">
+		</div>
+	</div> <!-- .block-border -->
+</div>
+
+
+                        <!-- General Bottom Screen Alert Msg -->
+                        
+                        
+
+
+
+
+			<div class="clear height-fix"></div>
+
+		</div>
+		</div> <!--! end of #main-content -->
+  </div> <!--! end of #main -->
+
+
+    <footer id="footer">
+        <div class="container_12">
+		<div class="grid_12">
+    		<div class="footer-icon align-center"><a class="top" scrollit="1" href="#top"></a></div>
+		</div>
+    </div></footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
+  <script>window.jQuery || document.write('<script src="../js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="../js/plugins.js"></script> <!-- lightweight wrapper for consolelog, optional -->
+  <script defer src="../js/mylibs/jquery-ui-1.8.15.custom.min.js"></script> <!-- jQuery UI -->
+  <script defer src="../js/mylibs/jquery.notifications.js"></script> <!-- Notifications  -->
+  <!--<script defer src="../js/mylibs/jquery.uniform.min.js"></script> Uniform (Look & Feel from forms) removed for cart-->
+  <script defer src="../js/mylibs/jquery.validate.js"></script> <!-- Validation from forms -->
+  <script defer src="../js/mylibs/jquery.tipsy.js"></script> <!-- Tooltips -->
+  <script defer src="../js/mylibs/excanvas.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.visualize.js"></script> <!-- Charts -->
+  <script defer src="../js/mylibs/jquery.slidernav.min.js"></script> <!-- Contact List -->
+  <script defer src="../js/common.js"></script> <!-- Generic functions -->
+  <script defer src="../js/script.js"></script> <!-- Generic scripts -->
+  	<script type="text/javascript" src="../js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="../js/jquery.slimscroll.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+
+  <!-- Bottom Javascripts-->
+  
+  <script type="text/javascript">
+		  $(".format_sel").change(function(e) {
+				//Hide all containers
+				$("div[id^='container_']").slideUp("slow").hide();
+				contId = $(this).attr("value");
+				console.log(contId);
+				switch(contId) {
+					case "table":
+						if($(this).is(":checked")){
+							$("#container_top").slideDown(1200);
+							$("#container_table").slideDown(1200);
+						}
+						break;
+					case "top":
+						if($(".format_sel").is(":checked")){
+							//$("#container_" + contId).slideDown(1200);
+							$("#container_top").slideDown(1200);
+						}
+						break;
+				}
+					//console.log($(this).attr("value"));
+		  });
+		  $(".add_table_row").click(function(a) {
+				a.prefentDefault();
+				//$(this).parents('tr:first').before('<tr><td>New Insert</td></tr>');
+				//$(this).parents('tr:first').before('<tr><td>New Insert</td></tr>');
+				//$('#value_spans_table tr:last').after('<tr><td>New Insert</td></tr>');
+				$('.value_spans_table').append('<tr><td>New Insert</td></tr>');
+
+				return false;
+
+
+		  });
+	 </script>
+
+
+
+	<script type="text/javascript">
+		/*
+		 * Confirmation Dialog
+		 */
+
+		$("body").delegate(".deleteClick","click",function(e) {
+		    e.preventDefault();
+		    var targetUrl = $(this).attr("href");
+
+		    $("#dialog").dialog({
+		      buttons : {
+			"Confirmar" : function() {
+
+			  $("#dialog").dialog("close");
+			  
+			$.ajax({
+			  type: 'POST',
+			  url: targetUrl,
+			  data: {  },
+			  beforeSend:function(){
+			    // this is where we activate a loading image
+			    $('#cargador').css("visibility","visible");
+			  },
+			  success:function(data){
+			    // successful request; do something with the data
+			    $('#cargador').css("visibility","hidden");
+			    
+			$.jGrowl("Registro Borrado", { theme: 'success' });
+		
+			  },
+			  error:function(){
+			    // failed request; give feedback to user
+			    
+			$.jGrowl("No se pudo Borrar el Registro", { theme: 'error' });
+		
+			  }
+			});
+
+
+
+			  //$(e.target).closest("tr").children("td").css("background-color","#C34627").delay(500).fadeOut(500);
+
+			  //console.log($(e.target).closest("tr"));
+			},
+			"Cancelar" : function() {
+			  $(this).dialog("close");
+			}
+		      }
+		    });
+
+		    $("#dialog").dialog("open");
+		});
+	</script>
+
+    
+
+  <script defer src="../js/mylibs/multiselect/jquery.localisation-min.js"></script> <!-- Generic scripts -->
+  <script defer src="../js/mylibs/multiselect/jquery.tmpl.1.1.1.js"></script> <!-- Generic scripts -->
+  <script defer src="../js/mylibs/multiselect/jquery.blockUI.js"></script> <!-- Generic scripts -->
+  <script defer src="../js/mylibs/multiselect/ui.multiselect.js"></script> <!-- Generic scripts -->
+  <script type="text/javascript" src="../js/mylibs/multiselect/page.js"></script>
+  
+
+	<script type="text/javascript">
+		$(function(){
+			// local
+			// $("#prod_group_items").multiselect();
+			// remote
+			// $("#prod_group_items").multiselect({
+			// 	remoteUrl: "products/ajx_barcode_groups_detail/1"
+			// });
+						});
+		</script>
+
+
+
+<script type="text/javascript" charset="utf-8">
+	$("#submit_btn, #btn_submit").click(function(e){
+	// $("#submit_btn, #btn_submit").closest("form").submit(function(e){
+		$("#loading").css("display","");
+		$("#loading").dialog("open");
+		e.preventDefault();
+		button = $(this);
+		button.attr("disabled", "disabled");
+		button.closest("form").submit();
+		setTimeout(function(){
+			button.removeAttr("disabled");
+			$("#loading").dialog("close");
+		},6000);
+	});
+
+	$(document).delegate(":input:not(textarea):not([type=submit])","keypress",function(e) {
+		return e.keyCode != 13;
+	});
+</script>
+
+<script type="text/javascript" charset="utf-8"> 
+    $(document).ready(function(){
+        $("#boton_dbug").click(function(){
+            $.post("reception/work_order/listing", {dbug: "True"})
+            window.location.replace("auth/login");
+	});
+	
+	$("#loading").dialog({
+		resizable: false,
+		draggable: true,
+		autoOpen: false,
+		modal: true,
+		height: 60,
+		maxWidth: 180,
+		closeOnEscape: true,
+		title: "Procesando...",
+		closeText: "hide",
+		dialogClass: "no-close"
+	  });
+
+});
+
+
+</script>
+
+  <script type="text/javascript">
+	$().ready(function() {
+		"use strict";
+
+		App.init();
+        
+		var v = $("#create-user-form").validate();
+		jQuery("#reset").click(function() { v.resetForm(); $.jGrowl("User was not created!", { theme: 'error' }); });
+
+		var v2 = $("#write-message-form").validate();
+		jQuery("#reset2").click(function() { v2.resetForm(); $.jGrowl("Message was not sent.", { theme: 'error' }); });
+
+		var v3 = $("#create-folder-form").validate();
+		jQuery("#reset3").click(function() { v3.resetForm(); $.jGrowl("Folder was not created!", { theme: 'error' }); });
+
+		var v4 = $("#create-title-form").validate();
+
+
+		$("#modal").click(function(e) {
+                  $("#"+$(e.target).attr("modal")).modal({
+                    opacity:50,
+                    overlayCss: {backgroundColor:"#666666"}
+                    });
+                });
+
+
+		/*
+		 * Charts
+		 */
+		$('#graph-data').visualize({type: 'line', height: 250}).appendTo('#tab-line').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'area', height: 250}).appendTo('#tab-area').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'pie', height: 250}).appendTo('#tab-pie').trigger('visualizeRefresh');
+		$('#graph-data').visualize({type: 'bar', height: 250}).appendTo('#tab-bar').trigger('visualizeRefresh');
+
+		/*
+		 * Tabs
+		 */
+		$("#specify-a-unique-tab-name").createTabs();
+		$("#tab-graph").createTabs();
+
+		/*
+		 * Contact List
+		 */
+		$('#slider').sliderNav();
+
+
+                //## js_docready functions
+                
+		/*
+		 * Confirmation Dialog
+		 */
+		$("#dialog").dialog({
+		  autoOpen: false,
+		  modal: true
+		});
+		
+		/*
+		 * Months added handler, it will show only if yerar is 0
+		 */
+				$("#from_year").blur(function() {
+					//console.log($(this).val().length);
+					if ($(this).val() == 0 && $(this).val().length > 0){
+					  $('#from_mo').show();
+					  //$('#from_month').focus();
+					}else{
+					  $('#from_mo').hide();
+					  $('#from_year').focus();
+					}
+				});
+				//$("#from_year").trigger("blur");
+
+				$("#to_year").blur(function() {
+					//console.log($(this).val());
+					if ($(this).val() == 0 && $(this).val().length > 0){
+					  $('#to_mo').show();
+					  $('#to_month').focus();
+					}else{
+					  $('#to_mo').hide();
+					  $('#to_month').focus();
+					}
+				});
+				//$("#to_year").trigger("blur");
+
+		$("#prod_group_items").multiselect();
+
+	});
+  </script>
+  <!-- end scripts-->
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>
